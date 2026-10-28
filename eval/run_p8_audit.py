@@ -153,16 +153,16 @@ def two_way_bootstrap(cases: list[dict], reps: int = 20000) -> dict:
 
 
 def metric_table(cases: list[dict]) -> list[str]:
-    lines = ["| Scenario | Cause positions in alert_order | Cause alerts first | Candidate count distribution |", "|---|---|---:|---|"]
+    lines = ["| Scenario | Cause positions in alert_order (cause labels) | Cases with any cause first | Candidate count distribution |", "|---|---|---:|---|"]
     for family in list(dict.fromkeys(case["scenario"] for case in cases)):
         group = [case for case in cases if case["scenario"] == family]
         positions = [rank(case["rankings"]["alert_order"], target) for case in group for target in case["truth"]]
         pos_counts = Counter(positions)
         pos_text = ", ".join(f"{position if position is not None else 'absent'}:{count}" for position, count in sorted(pos_counts.items(), key=lambda item: (item[0] is None, item[0] or 0)))
-        first = pos_counts.get(1, 0)
+        first_cases = sum(any(rank(case["rankings"]["alert_order"], target) == 1 for target in case["truth"]) for case in group)
         candidate_counts = Counter(case["candidate_count"] for case in group)
         candidate_text = ", ".join(f"{count} candidates:{n}" for count, n in sorted(candidate_counts.items()))
-        lines.append(f"| {family} | {pos_text} | {first}/{len(positions)} ({first/len(positions):.3f}) | {candidate_text} |")
+        lines.append(f"| {family} | {pos_text} | {first_cases}/{len(group)} ({first_cases/len(group):.3f}) | {candidate_text} |")
     return lines
 
 
@@ -195,6 +195,16 @@ def p6_p7_audit() -> list[str]:
                     artifact=ROOT/"runs"/"p6_holdout_equal_rrf"/case["run_id"]/"03_s03_candidates"/"output.json"
                     candidate_counts.append(len(json.loads(artifact.read_text(encoding="utf-8"))["output"]["analysis"]["candidates"]))
             out.append(f"| {family} | {block} | {positions_text} | {', '.join(sorted(set(noise)))} | {dict(Counter(dropped))} | {dict(Counter(candidate_counts))} |")
+    p6_noisy_steps=[]; p7_noisy_steps=[]
+    for case in p6:
+        if case["scenario"]=="noisy_alerts":
+            truth=json.loads((ROOT/"simulator"/"sim_truth"/"noisy_alerts"/f"seed_{case['seed']}.truth.json").read_text(encoding="utf-8"))
+            p6_noisy_steps.append(truth["alert_schedule"]["database"])
+    for case in p7:
+        if case["scenario"]=="noisy_alerts":
+            truth=json.loads((ROOT/"simulator"/"sim_truth"/"noisy_alerts"/f"seed_{case['seed']}.truth.json").read_text(encoding="utf-8"))
+            p7_noisy_steps.append(truth["alert_schedule"]["database"])
+    out += ["", f"Additional noisy-alert timing detail: database alerts arrived at steps {p6_noisy_steps} in P6 (all 3 before the step-10 fault onset), versus {sum(step < 10 for step in p7_noisy_steps)}/20 before onset in P7. P6 therefore sampled an unusually early cause-alert realization, although P7 also contains many pre-onset alerts and its ensemble still ranked the cause first in all 20 cases.", ""]
     out += ["", "### P6 per-case ranks and failures", "", "A method is a top-1 failure when the cause rank is not 1; ranks shown include all S03 methods, ensemble, and alert_order.", "", "| Family | Seed | Cause | Cause alert position | change_based | graph_rwr | trace_ochiai | temporal_lag | ensemble | alert_order |", "|---|---:|---|---:|---:|---:|---:|---:|---:|---:|"]
     for family in ("noisy_alerts", "partial_graph"):
         for case in p6:
@@ -258,7 +268,7 @@ def render(new_cases: list[dict], commit: str) -> str:
         ranks=[rank(case["rankings"][method],target) or "—" for method in ("change_based","graph_rwr","trace_ochiai","temporal_lag","ensemble","alert_order")]
         tops=[case["rankings"][method][0] if case["rankings"][method] else "—" for method in ("change_based","graph_rwr","trace_ochiai","temporal_lag")]
         lines.append("| " + " | ".join([str(case["seed"]),*[str(x) for x in ranks],", ".join(tops)]) + " |")
-    lines += ["", "Diagnosis: the true database cause is absent from the top candidate for all 20 cases (ensemble 0/20 top-1, 18/20 top-3). The per-method ranks and tops above show which methods emit it and which do not; absent methods cannot add cause rank mass. No fix is applied. Proposal: test an evidence-aware anomaly-only fusion path for candidates supported by graph/metric propagation even without changes or alerts. It could harm shared_dependency and partial_graph, where graph paths and missing edges can favor a shared-ancestry decoy; validate those families on fresh seeds before adoption.", "",
+    lines += ["", "Mechanism evidence: graph_rwr ranks database first in 19/20 cases; trace_ochiai ranks it first in 7/20 and second in 9/20. change_based ranks database in none, temporal_lag ranks it in none, and temporal_lag's top-1 is payments in 11 and inventory in 9. The ensemble's top-1 is payments in 13 and inventory in 7; database ranks third in 17 cases, fourth in two, and second in one. This is vote mass on decoys despite one strong graph signal, not a configured threshold or tie-break. No fix is applied. Proposal: test an evidence-aware anomaly-only fusion path for candidates supported by graph/metric propagation even without changes or alerts. It could harm shared_dependency and partial_graph, where graph paths and missing edges can favor a shared-ancestry decoy; validate those families on fresh seeds before adoption.", "",
               "## Part D2: late_alerting_cause misses", "", "| Seed | Cause rank ensemble | change_based | graph_rwr | trace_ochiai | temporal_lag | Ensemble top-1 | alert_order rank |", "|---:|---:|---:|---:|---:|---:|---|---:|"]
     late=[case for case in p7 if case["scenario"]=="late_alerting_cause" and not hit(case,"ensemble",1)]
     for case in late:
@@ -266,7 +276,7 @@ def render(new_cases: list[dict], commit: str) -> str:
         ranks=[rank(case["rankings"][method],target) or "—" for method in ("ensemble","change_based","graph_rwr","trace_ochiai","temporal_lag")]
         top=case["rankings"]["ensemble"][0] if case["rankings"]["ensemble"] else "—"
         lines.append("| " + " | ".join([str(case["seed"]),*[str(x) for x in ranks],top,str(rank(case["rankings"]["alert_order"],target) or "absent")]) + " |")
-    lines += ["", f"There are {len(late)} top-1 misses in P7's 20 late_alerting_cause cases (the six misses referenced in the request). No changes were applied.", ""]
+    lines += ["", f"There are {len(late)} top-1 misses in P7's 20 late_alerting_cause cases (the six misses referenced in the request). In all six, graph_rwr ranks the cause first, change_based emits no cause, and alert_order puts the cause fourth; trace/temporal rank mass favors callers, leaving the ensemble cause second or third. No changes were applied.", ""]
     return "\n".join(lines)
 
 
