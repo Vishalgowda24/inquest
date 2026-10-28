@@ -54,3 +54,27 @@ S05 is deterministic and reads only saved S00–S04 outputs plus the verified va
 On fresh seeds 72–91, top-1 accuracy was 254/280 (90.7%). Calibrated Brier was 0.0831 versus 0.0850 for both the constant and margin-only baselines, but calibrated ECE was 0.0289 versus 0.0284 for both baselines. This is mixed and small; it does not establish reliable calibration. All probabilities landed in the 0.9–1.0 bin, and the model produced no medium or low confidence cases. It marked 95/280 (33.9%) as `insufficient_evidence`; 17 cases (6.1%) were high-confidence wrong. In `silent_cause`, 9/16 high-confidence reports were wrong and mean confidence was 0.924 against 35% top-1 accuracy. `late_alerting_cause` also had one high-confidence miss. The red-herring family had no misses in this block.
 
 Withholding low and insufficient-evidence cases retained 185/280 (66.1%) at 90.8% accuracy, only 0.1 percentage point above the 90.7% unfiltered accuracy. This is not a meaningful demonstrated selective-accuracy gain. The report's confidence labels and probabilities remain synthetic-only and should not be used as operationally calibrated probabilities.
+
+
+## Known remaining failures and prototype boundaries (P11)
+
+Across all 948 benchmark evaluations (seeds 1–91) under the default V3 pipeline, several explicit limitations and failure modes remain:
+
+1. **`silent_cause` is an unresolved top-1 failure:**
+   V3 identifies the true cause top-1 in only 24 of 69 cases (34.78% accuracy, a 65.2% miss rate). When a fault occurs without emitting events, logs, or direct alert signals, metric-only lag and graph propagation struggle to separate the true cause from its downstream blast radius under score-margin fusion. While top-3 recall reaches 65/69 (94.20%), top-1 cannot be relied upon for silent failures.
+
+2. **V3 regressions on seasonality and coincident events:**
+   - **`long_seasonal`:** V3 drops from V0's 69/69 (100%) to 57/69 (82.6%) top-1 accuracy (-12 cases). Incomplete seasonal detrending creates inflated score margins in non-causal detectors, which V3's margin weighting amplifies over uniform voting.
+   - **`coincident_restart`:** V3 drops from 67/69 to 65/69 top-1 (-2 cases), occasionally prioritizing an innocent restarting service whose change signal generates an outsized margin.
+
+3. **S04 verification recall and decoy susceptibility:**
+   In P7 evaluation across 260 true causes, S04 verified only 40 causes (15.38% recall). Furthermore, S04 was repeatedly fooled by shared-ancestry decoys in `shared_dependency` and `coincident_restart` topologies. S04 check statuses (`verified`, `contested`) are marked as "experimental" in reports. Re-ranking is disabled (`verification_rerank: false`), and S04 serves strictly as an integrity gate (`vault_evidence`) and heuristic contradiction detector.
+
+4. **Numeric confidence probability is unvalidated:**
+   P10 demonstrated that parametric logistic regression failed to produce operational probabilities: all 280 test cases clustered into the `[0.9, 1.0]` reliability bin, and ECE and Brier scores showed no improvement over constant or score-margin baselines. Consequently, numeric probability is removed from default incident reports, replaced with rule-based assessment flags (`standard`, `review_recommended`, `insufficient_evidence`).
+
+5. **Simulator first-alert bias:**
+   In simulator families without deliberate alert noise or suppression, the simulator emits the true cause's alert before downstream alerts in 98.6% of cases (476/483 cases). As a result, the naive baseline `alert_order` achieves 618/948 top-1 hits overall. The ensemble's net top-1 lead (+250 cases) is entirely driven by synthetic alert-delay, alert-noise, and silent-cause families.
+
+6. **Real-world data status:**
+   Not evaluated on real incident data (`data/real/` is absent). All reported metrics, baselines, and findings derive exclusively from synthetic microservice simulation.
