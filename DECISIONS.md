@@ -210,3 +210,27 @@ This section is committed before generating or evaluating any P5 fresh-seed data
 ## P7 Part A: P6 batch provenance
 
 - The initial P6 batch artifacts were created beginning 2026-10-29 02:40:32 +05:30; the continuation batch began 02:41:16 +05:30. Both timestamps fall after evaluator commit `2e094d8c8d29a695564065cd84a13361fe37b7f7` (02:40:13) and before the first post-run documentation commit (`e5ceab5`, 02:44:21). No commit occurred between the batches. Both used config SHA-256 `269dbb3f9de3d45edb777fa5bf70c289feb1ec56f40f722a5607fc253b7c90d7`. Thus the two batches used the same evaluator/code commit and configuration.
+
+## P9 Part A: preregistered fusion variants and selection rule (2026-10-29)
+
+This section is committed by itself before any P9 variant is calculated or evaluated. The frozen configuration is the current equal-weight RRF (`rank_constant=60`), evidence abstention enabled, graph multiplier 1.0, and S04 re-ranking disabled. No S04, candidate-method, threshold, status-rule, or input-generation behavior is changed.
+
+### Variants and exact formulas
+
+- **V0 (current):** the existing evidence-filtered RRF. A candidate at 1-based rank `r` in method `m` receives `1/(60+r)` from that method; absent candidates abstain. Exact ties use the existing lexical target ordering.
+- **V1 (Borda):** on the case's union of evidence-bearing method candidates, each method with `N` unique candidates gives `N-r` points at 1-based rank `r`; absent candidates and abstaining methods give zero. Sum points across methods. Exact ties use lexical target order. `N` is the union candidate count, so this introduces no fitted parameter.
+- **V2 (min-max score-normalized sum):** for each enabled method independently, normalize the raw scores of its evidence-bearing candidates to `[0,1]` using `(score-min)/(max-min)`. If the method has one candidate or all its scores are equal, assign 1 to each returned candidate. Sum normalized contributions; absent candidates abstain. Exact ties use lexical target order.
+- **V3 (per-case margin-weighted RRF):** for each enabled method with at least two evidence-bearing candidates, calculate `margin=max(0, top1_score-top2_score)` from that method's raw scores and assign method weight `margin/sum(margins)` for that case. Apply that weight to its ordinary `1/(60+r)` RRF contributions. Methods with fewer than two evidence-bearing candidates have zero measurable margin and abstain from V3; if every active method has zero measurable margin, use equal weights across active methods. This uses only observed within-method score gaps and has no tuned multiplier or threshold. Ties use lexical target order.
+- **V4 (reference):** the evidence-filtered `graph_rwr` candidate list alone, in its existing score order; it is not a fusion.
+
+All methods are restricted to candidate evidence that passes the existing vault-evidence check, matching current fusion abstention. Evaluation success for a case means at least one true cause appears in the first `k` candidates; for concurrent cases, a separate found-both count requires both truth labels in top 3. Family-equal top-1 is the unweighted mean of each of the 14 family top-1 rates, so families count equally despite unequal historical case counts. The per-family safeguard uses top-1 cases on the 20 cases for each family.
+
+### Frozen selection rule
+
+Select the variant with the highest family-equal top-1 among V0–V4 over the registered 14 development families, only among variants whose aggregate top-3 is not below V0 and whose top-1 is no more than one case below V0 in either `red_herring_deploy` or `shared_dependency` (each has 20 seeds). Keep V0 unless an eligible variant exceeds V0 family-equal top-1 by at least 0.02. Resolve exact family-equal ties in favor of the lower-numbered variant. Apply this rule once to development outputs before confirmation data is generated or evaluated. Confirmation results cannot trigger reselection.
+
+### Confirmation protocol and constants
+
+After selection, generate seeds 52–71 for each of the 14 registered scenario families and commit exports/truth before running any ranking variant. Run only V0, the single selected variant, and the two baselines on those cases; save them under a new output root with code commit and config SHA-256. The paired confidence interval is a two-way crossed family-and-seed cluster bootstrap, 20,000 replicates, deterministic RNG seed 90909, percentile 95% interval; each replicate samples family and seed multiplicities independently and weights each paired case by their product. Do not rerun confirmation or change the selected variant afterward.
+
+Development scope is all already generated seeds 1–51 with saved usable inputs, including the previously seen seeds 7–9. Missing raw per-method stage scores may be recovered by a frozen-config S03-only rerun in a new output directory, recorded case-by-case; no candidate method or input is changed. Holdout is not treated as unseen in P9. No later P9 edit may alter a fusion formula, method weight, threshold, status rule, or config except a logged bug/spec correction.
