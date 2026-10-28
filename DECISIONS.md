@@ -289,3 +289,15 @@ This section is committed alone before fitting a confidence model or evaluating 
 - The first S05 execution stopped on `clean_bad_deploy/72` before producing an evaluation result. The pinned digest was over canonical LF JSON bytes, while Windows/Git supplied the same committed model with CRLF bytes, so the raw-byte digest differed (`179410…` expected vs `a8487c…` observed). This is a cross-platform integrity-check bug, not a model or confidence change.
 - `load_model` now normalizes CRLF to LF before hashing and parsing; content or other whitespace changes still fail the pinned digest. A CRLF regression test covers the reported failure. The frozen model, config digest, probability mapping, and thresholds are unchanged. The aborted output remains in its own failed run directory; the retry uses new directories keyed by the retry code commit and config hash.
 - The final full pytest gate found the leakage contract scanning the S05 test function name as if it were an embedded scenario label. Renamed that test to describe the coverage-gap behavior without a simulator-family identifier. No test assertions or runtime behavior changed; the full suite is rerun.
+
+
+## P11 Part B: S04 verification decision and experimental status (2026-10-29)
+
+- **Empirical performance:** In P7 variance evaluation across 260 true cause labels, S04 verified only 40/260 true causes (a recall rate of 15.38%). S04 was also fooled by shared-ancestry decoys, where upstream or shared dependencies produced correlated metric deviations that masqueraded as causal paths.
+- **Architectural role:** S04 serves two distinct functions: (1) an evidence vault integrity gate (`vault_evidence`), ensuring no unverified or corrupted evidence enters reasoning, and (2) heuristic contradiction checks (`dependency_path`, `temporal_consistency`, `recovery_check`, `alternative_check`) that identify timing or topological mismatches.
+- **Decision:**
+  - Default configuration retains `vault_evidence: true` as the mandatory evidence integrity gate.
+  - Verification check methods remain active to surface contradiction flags and timeline findings for the runner-up and headline candidates.
+  - Re-ranking remains disabled (`verification_rerank: false`). S04 is strictly an annotation and integrity layer, not an arbiter of candidate rank.
+  - In user-facing incident reports, `verified` and `contested` statuses are explicitly marked as "experimental" (`verified (experimental)`, `contested (experimental)`) to reflect low recall and prevent false confidence.
+  - No check logic, thresholds, or status rules were altered.
