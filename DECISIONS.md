@@ -283,3 +283,8 @@ This section is committed alone before fitting a confidence model or evaluating 
 
 - Fitted the preregistered logistic models from the 388 existing development case artifacts with seeds 1–51 only: 363 top-1 hits, training base rate 0.935567. L-BFGS-B converged in 10 iterations under the frozen settings. No seed 52–71 data were used.
 - Versioned model: `inquest/models/confidence_logistic_v1.json`; SHA-256 `179410b35f45c93f741d6805314aa948d6e1a1df4c53cee1f92665341670090f`. `config.yaml` pins this path and digest and enables only the new S05 report stage; the V3 fusion default and S03/S04 settings are unchanged. The model, hash, and config are committed before any seed-72-through-91 input is created or evaluated.
+
+### P10 hash-verification bug fix (2026-10-29; before evaluation retry)
+
+- The first S05 execution stopped on `clean_bad_deploy/72` before producing an evaluation result. The pinned digest was over canonical LF JSON bytes, while Windows/Git supplied the same committed model with CRLF bytes, so the raw-byte digest differed (`179410…` expected vs `a8487c…` observed). This is a cross-platform integrity-check bug, not a model or confidence change.
+- `load_model` now normalizes CRLF to LF before hashing and parsing; content or other whitespace changes still fail the pinned digest. A CRLF regression test covers the reported failure. The frozen model, config digest, probability mapping, and thresholds are unchanged. The aborted output remains in its own failed run directory; the retry uses new directories keyed by the retry code commit and config hash.

@@ -111,3 +111,12 @@ def test_s05_confidence_model_hash_mismatch_fails_loudly(tmp_path):
     ctx,_,_=_fixture(tmp_path,bad_hash=True)
     with pytest.raises(ValueError,match="SHA-256 mismatch"):
         ReportStage().run(ctx,StageInput(stage="s05_report",payload={}))
+
+
+def test_confidence_model_hash_is_stable_across_windows_line_endings(tmp_path):
+    model_path=tmp_path/"confidence-crlf.json"
+    expected=_model(model_path)
+    model_path.write_bytes(model_path.read_bytes().replace(b"\n",b"\r\n"))
+    from inquest.stages.s05_report.confidence import load_model
+    _,actual=load_model(model_path,expected)
+    assert actual==expected

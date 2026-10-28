@@ -62,10 +62,14 @@ def extract_features(s03: dict[str, Any], s04: dict[str, Any], s02: dict[str, An
 
 def load_model(path: Path, expected_sha256: str) -> tuple[dict[str, Any], str]:
     data = path.read_bytes()
-    digest = hashlib.sha256(data).hexdigest()
+    # Git may check out the JSON with CRLF on Windows although the committed
+    # canonical JSON hash was computed over LF. Normalize only line endings;
+    # whitespace/content changes still fail the pinned integrity check.
+    canonical_data = data.replace(b"\r\n", b"\n")
+    digest = hashlib.sha256(canonical_data).hexdigest()
     if not expected_sha256 or digest != expected_sha256:
         raise ValueError(f"Confidence model SHA-256 mismatch: expected {expected_sha256 or '<unset>'}, found {digest}")
-    model = json.loads(data.decode("utf-8"))
+    model = json.loads(canonical_data.decode("utf-8"))
     if model.get("version") != "confidence_logistic_v1" or tuple(model.get("feature_names", ())) != FEATURE_NAMES:
         raise ValueError("Confidence model version or feature order does not match this S05 implementation")
     if len(model.get("coefficients", [])) != len(FEATURE_NAMES) or len(model.get("mean", [])) != len(FEATURE_NAMES) or len(model.get("scale", [])) != len(FEATURE_NAMES):

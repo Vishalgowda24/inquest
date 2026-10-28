@@ -200,7 +200,7 @@ def main()->None:
     model_path=config.confidence_model_path if config.confidence_model_path.is_absolute() else ROOT/config.confidence_model_path
     model=json.loads(model_path.read_text(encoding="utf-8"))
     commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
-    fresh_root=ROOT/"runs"/f"p10_fresh_v3_{config_hash[:8]}"; secondary_root=ROOT/"runs"/f"p10_secondary_v3_{config_hash[:8]}"
+    fresh_root=ROOT/"runs"/f"p10_fresh_v3_{commit[:8]}_{config_hash[:8]}"; secondary_root=ROOT/"runs"/f"p10_secondary_v3_{commit[:8]}_{config_hash[:8]}"
     for root in (fresh_root,secondary_root):
         if root.exists(): raise FileExistsError(f"refusing to overwrite P10 evaluation root {root}")
         root.mkdir(parents=True)
