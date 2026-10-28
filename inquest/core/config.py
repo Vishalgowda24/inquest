@@ -26,6 +26,7 @@ class InquestConfig(BaseModel):
     verification_rerank: bool = False
     fusion_abstention: bool = True
     fusion_variant: Literal["v0", "v1", "v2", "v3", "v4"] = "v0"
+    unvalidated_calibrated_confidence: bool = False
     confidence_model_path: Path = Path("inquest/models/confidence_logistic_v1.json")
     confidence_model_sha256: str = ""
 

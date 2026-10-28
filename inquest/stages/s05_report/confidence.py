@@ -102,3 +102,18 @@ def confidence_level(probability: float, *, telemetry_gap: bool, methods_with_ca
     if probability >= LEVEL_CUTOFFS["medium"]:
         return "medium"
     return "low"
+
+
+def rule_confidence_level(
+    *,
+    telemetry_gap: bool,
+    methods_with_candidates: int,
+    methods_disagree: bool,
+    s04_status: str | None,
+) -> str:
+    """Compute rule-based assessment level: insufficient_evidence, review_recommended, standard."""
+    if telemetry_gap or methods_with_candidates < 2:
+        return "insufficient_evidence"
+    if methods_disagree or s04_status in ("contested", "unsupported"):
+        return "review_recommended"
+    return "standard"

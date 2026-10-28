@@ -10,9 +10,9 @@ from inquest.contracts import (ConfidenceEstimate, EvidenceTimelineItem, Inciden
 from inquest.core.artifacts import read_json, write_json, write_text
 from inquest.core.context import RunContext
 from inquest.core.vault import read_vault_ids
-from .confidence import confidence_level, extract_features, load_model, predict_probability
+from .confidence import confidence_level, extract_features, load_model, predict_probability, rule_confidence_level
 
-FOOTER = "Confidence is calibrated on synthetic scenarios only."
+FOOTER = "Evidence is from synthetic scenarios only."
 STAGE_ORDER = {"s00_ingest": 0, "s01_vault": 1, "s02_signals": 2, "s03_candidates": 3, "s04_verify": 4}
 
 
@@ -106,13 +106,19 @@ def render_markdown(report: IncidentReport) -> str:
         "## Headline", ""]
     head = report.headline
     target = head.target or "no candidate available"
-    lines.append(f"Most likely consistent with {head.target_type} {target}; confidence {head.confidence.level} ({head.confidence.probability:.3f})." + cite(head.evidence_ids))
+    if head.confidence.unvalidated_calibrated_probability is not None:
+        lines.append(f"Most likely consistent with {head.target_type} {target}; confidence {head.confidence.level} (unvalidated probability: {head.confidence.unvalidated_calibrated_probability:.3f})." + cite(head.evidence_ids))
+    else:
+        lines.append(f"Most likely consistent with {head.target_type} {target}; confidence {head.confidence.level}." + cite(head.evidence_ids))
     lines.append(head.reason + cite(head.evidence_ids))
     lines += ["", "## Ranked candidates", ""]
     if report.top_candidates:
         for candidate in report.top_candidates:
             method_scores = ", ".join(f"{name}={score:.6f}" for name, score in sorted(candidate.per_method_scores.items())) or "none"
-            lines.append(f"{candidate.rank}. {candidate.target} — ensemble={candidate.ensemble_score:.6f}; methods={method_scores}; disagreement={candidate.disagreement:.3f}; S04={candidate.s04_status or 'unavailable'}." + cite(candidate.evidence_ids))
+            s04_disp = candidate.s04_status or "unavailable"
+            if candidate.s04_status in ("verified", "contested"):
+                s04_disp = f"{candidate.s04_status} (experimental)"
+            lines.append(f"{candidate.rank}. {candidate.target} — ensemble={candidate.ensemble_score:.6f}; methods={method_scores}; disagreement={candidate.disagreement:.3f}; S04={s04_disp}." + cite(candidate.evidence_ids))
     else:
         lines.append("No S03 candidate was available." + cite(head.evidence_ids))
     lines += ["", "## Evidence timeline", ""]
@@ -132,7 +138,10 @@ def render_markdown(report: IncidentReport) -> str:
     lines.extend("- " + statement.text + cite(statement.evidence_ids) for statement in report.unknowns)
     lines += ["", "## Suggested next checks", ""]
     lines.extend("- " + statement.text + cite(statement.evidence_ids) for statement in report.suggested_next_checks)
-    lines += ["", report.footer.text + cite(report.footer.evidence_ids), f"Confidence model SHA-256: {report.confidence_model_sha256}." + cite(report.footer.evidence_ids), ""]
+    lines += ["", report.footer.text + cite(report.footer.evidence_ids)]
+    if report.confidence_model_sha256:
+        lines.append(f"Confidence model SHA-256 (unvalidated): {report.confidence_model_sha256}." + cite(report.footer.evidence_ids))
+    lines.append("")
     return "\n".join(lines)
 
 
@@ -148,20 +157,41 @@ class ReportStage:
         analysis4 = s04.get("analysis", {})
         analysis2 = s02.get("analysis", {})
         features, detail = extract_features(analysis3, analysis4, analysis2, vault_ids)
-        model_path = ctx.config.confidence_model_path
-        if not model_path.is_absolute():
-            model_path = Path(__file__).resolve().parents[3] / model_path
-        model, model_hash = load_model(model_path, ctx.config.confidence_model_sha256)
-        probability = predict_probability(model, features)
-        level = confidence_level(probability, telemetry_gap=detail["telemetry_gap"], methods_with_candidates=detail["methods_with_candidates"])
+        methods_disagree = bool(detail["disagreement"] > 0.0 or detail["first_place_method_count"] < detail["methods_with_candidates"])
+        level = rule_confidence_level(
+            telemetry_gap=detail["telemetry_gap"],
+            methods_with_candidates=detail["methods_with_candidates"],
+            methods_disagree=methods_disagree,
+            s04_status=detail["s04_status"],
+        )
+        unval_prob = None
+        model_hash = None
+        if ctx.config.unvalidated_calibrated_confidence:
+            model_path = ctx.config.confidence_model_path
+            if not model_path.is_absolute():
+                model_path = Path(__file__).resolve().parents[3] / model_path
+            model, model_hash = load_model(model_path, ctx.config.confidence_model_sha256)
+            unval_prob = predict_probability(model, features)
+
         candidates = list(analysis3.get("candidates", []))
         top = candidates[0] if candidates else None
         fallback = _evidence_or_fallback(list(top.get("evidence_ids", [])) if top else [], [], vault_ids)
-        confidence = ConfidenceEstimate(level=level, probability=probability, margin=detail["margin"],
-            first_place_method_count=detail["first_place_method_count"], disagreement=detail["disagreement"],
-            s04_status=detail["s04_status"], telemetry_gap=detail["telemetry_gap"], model_sha256=model_hash)
+        confidence = ConfidenceEstimate(
+            level=level,
+            telemetry_gap=detail["telemetry_gap"],
+            methods_disagree=methods_disagree,
+            s04_status=detail["s04_status"],
+            first_place_method_count=detail["first_place_method_count"],
+            disagreement=detail["disagreement"],
+            margin=detail["margin"],
+            unvalidated_calibrated_probability=unval_prob,
+            model_sha256=model_hash,
+        )
         target = detail["target"]
-        reason = f"Ranked first by {detail['first_place_method_count']} available methods; S04 status is {detail['s04_status'] or 'unavailable'}."
+        s04_disp = detail["s04_status"] or "unavailable"
+        if detail["s04_status"] in ("verified", "contested"):
+            s04_disp = f"{detail['s04_status']} (experimental)"
+        reason = f"Ranked first by {detail['first_place_method_count']} available methods; S04 status is {s04_disp}."
         headline = IncidentHeadline(target=target, target_type=(top.get("target_type", "service") if top else "none"), confidence=confidence,
             reason=reason, evidence_ids=fallback)
         status_by_target = {item.get("target"): item.get("status") for item in analysis4.get("decisions", [])}

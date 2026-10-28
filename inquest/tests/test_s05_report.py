@@ -26,7 +26,7 @@ def _model(path:Path, intercept:float=2.0)->str:
     return hashlib.sha256(data).hexdigest()
 
 
-def _fixture(tmp_path:Path, *, gap:bool=False, disabled:bool=False, bad_hash:bool=False):
+def _fixture(tmp_path:Path, *, gap:bool=False, disabled:bool=False, bad_hash:bool=False, enable_calibrated:bool=False):
     run_id="s05-test"
     run_dir=tmp_path/run_id
     run_dir.mkdir(parents=True)
@@ -59,7 +59,7 @@ def _fixture(tmp_path:Path, *, gap:bool=False, disabled:bool=False, bad_hash:boo
         write_json(run_dir/f"00_{stage}"/"output.json",{"output":data})
     model_path=tmp_path/"confidence.json"
     digest=_model(model_path)
-    config=load_config(Path("config.yaml")).model_copy(update={"confidence_model_path":model_path,"confidence_model_sha256":"0"*64 if bad_hash else digest})
+    config=load_config(Path("config.yaml")).model_copy(update={"confidence_model_path":model_path,"confidence_model_sha256":"0"*64 if bad_hash else digest,"unvalidated_calibrated_confidence":enable_calibrated or bad_hash})
     ctx=RunContext(run_id=run_id,scenario_id="scn_000000000001",runs_dir=tmp_path,clock=datetime(2025,1,1,tzinfo=timezone.utc),config=config)
     return ctx,run_dir,ids
 
@@ -85,7 +85,7 @@ def test_s05_report_citations_determinism_and_wording(tmp_path):
     assert all("[evidence_ids:" in line for line in lines)
     assert not re.search(r"caused by|proves|root cause is",report_md.decode(),flags=re.IGNORECASE)
     assert "Most likely consistent with" in report_md.decode()
-    assert "Confidence is calibrated on synthetic scenarios only." in report_md.decode()
+    assert "Evidence is from synthetic scenarios only." in report_md.decode()
 
 
 def test_s05_coverage_gap_forces_insufficient_evidence_and_unknown(tmp_path):
@@ -120,3 +120,24 @@ def test_confidence_model_hash_is_stable_across_windows_line_endings(tmp_path):
     from inquest.stages.s05_report.confidence import load_model
     _,actual=load_model(model_path,expected)
     assert actual==expected
+
+
+def test_s05_default_report_has_no_numeric_probability(tmp_path):
+    ctx,run_dir,_ = _fixture(tmp_path, enable_calibrated=False)
+    ReportStage().run(ctx, StageInput(stage="s05_report", payload={}))
+    report_json = json.loads((run_dir / "05_s05_report" / "report.json").read_text(encoding="utf-8"))
+    report_md = (run_dir / "05_s05_report" / "report.md").read_text(encoding="utf-8")
+    conf = report_json["headline"]["confidence"]
+    assert conf["unvalidated_calibrated_probability"] is None
+    assert "probability" not in conf
+    assert re.search(r"\bprobability\b", report_md.split("## Ranked candidates")[0]) is None
+
+
+def test_s05_calibrated_flag_enables_unvalidated_probability(tmp_path):
+    ctx,run_dir,_ = _fixture(tmp_path, enable_calibrated=True)
+    ReportStage().run(ctx, StageInput(stage="s05_report", payload={}))
+    report_json = json.loads((run_dir / "05_s05_report" / "report.json").read_text(encoding="utf-8"))
+    report_md = (run_dir / "05_s05_report" / "report.md").read_text(encoding="utf-8")
+    conf = report_json["headline"]["confidence"]
+    assert conf["unvalidated_calibrated_probability"] is not None
+    assert "unvalidated probability" in report_md

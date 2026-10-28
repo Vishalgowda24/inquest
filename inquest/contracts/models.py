@@ -198,14 +198,15 @@ class VerificationAnalysis(BaseModel):
 
 class ConfidenceEstimate(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
-    level: Literal["high", "medium", "low", "insufficient_evidence"]
-    probability: float = Field(ge=0, le=1)
-    margin: float
+    level: Literal["standard", "review_recommended", "insufficient_evidence"]
+    telemetry_gap: bool
+    methods_disagree: bool
+    s04_status: Literal["verified", "contested", "insufficient_evidence", "unsupported"] | None
     first_place_method_count: int = Field(ge=0)
     disagreement: float = Field(ge=0, le=1)
-    s04_status: Literal["verified", "contested", "insufficient_evidence", "unsupported"] | None
-    telemetry_gap: bool
-    model_sha256: str = Field(pattern=r"^[a-f0-9]{64}$")
+    margin: float
+    unvalidated_calibrated_probability: float | None = None
+    model_sha256: str | None = None
 
 
 class ReportStatement(BaseModel):
@@ -264,7 +265,7 @@ class IncidentReport(ContractModel):
     unknowns: list[ReportStatement]
     suggested_next_checks: list[ReportStatement]
     seasonal_normalization: Literal["on", "off_or_partial"]
-    confidence_model_sha256: str = Field(pattern=r"^[a-f0-9]{64}$")
+    confidence_model_sha256: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
     footer: ReportStatement
 
 
