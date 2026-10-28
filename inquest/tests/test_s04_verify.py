@@ -59,7 +59,7 @@ def test_reversed_dependency_direction_and_negative_case():
     assert reverse_negative.verdict=="contradicts"
 
 
-def test_shared_ancestry_path_is_not_sufficient_support_and_partial_graph_is_inconclusive():
+def test_shared_ancestry_path_is_not_sufficient_support_for_incomplete_topology():
     database=_candidate("database",0.9,[]); payments=_candidate("payments",0.8,[])
     vault={"e1":{"payload":{"caller":"payments","callee":"database"}},"e2":{"payload":{"caller":"inventory","callee":"database"}}}
     context={"onsets":[{"service":"payments"}],"dependency_graph_complete":True}
