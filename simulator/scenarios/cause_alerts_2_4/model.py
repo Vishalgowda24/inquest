@@ -1,0 +1,34 @@
+"""Database cause alerts after one to three unrelated service alerts."""
+from __future__ import annotations
+
+import random
+
+from simulator.contracts import LogEvent
+from simulator.scenarios.clean_bad_deploy.model import SERVICES, _timestamp
+from simulator.scenarios.factory import ScenarioSpec, generate as build
+
+SPEC = ScenarioSpec(
+    key="cause_alerts_2_4", fault_service="database", fault_start=10,
+    fault_intensity=1.4, fault_threshold=42,
+    description="A database fault propagates, while the database alert is delayed behind healthy-service alerts.",
+)
+
+
+def generate(seed: int):
+    data = build(SPEC, seed)
+    rng = random.Random(seed ^ 0xA11CE)
+    cause_position = 2 + ((seed - 32) % 3)
+    other_services = [service for service in SERVICES if service != "database"]
+    rng.shuffle(other_services)
+    order = other_services[:cause_position - 1] + ["database"] + other_services[cause_position - 1:]
+    schedule = {service: 10 + index for index, service in enumerate(order)}
+    alerts = tuple(LogEvent(
+        id=f"alert-{seed}-{index}", timestamp=_timestamp(schedule[service]), service=service,
+        level="WARN", message="synthetic threshold alert routed",
+        attributes={"alert_emission": True}, timestamp_uncertainty_ms=0,
+    ) for index, service in enumerate(order, start=1))
+    logs = tuple(sorted((*data.logs, *alerts), key=lambda item: (item.timestamp, item.id)))
+    truth = {**data.truth, "alert_schedule": schedule, "cause_alert_position": cause_position,
+             "spurious_alert_services": other_services}
+    manifest = data.manifest.model_copy(update={"record_counts": {**data.manifest.record_counts, "logs": len(logs)}})
+    return data.__class__(manifest, data.metrics, data.spans, logs, data.events, data.dependencies, truth)

@@ -12,6 +12,8 @@ from simulator.scenarios.concurrent_causes import generate as concurrent_causes
 from simulator.scenarios.noisy_alerts import generate as noisy_alerts
 from simulator.scenarios.partial_graph import generate as partial_graph
 from simulator.scenarios.red_herring_hard import generate as red_herring_hard
+from simulator.scenarios.cause_alerts_2_4 import generate as cause_alerts_2_4
+from simulator.scenarios.unordered_plausible_alerts import generate as unordered_plausible_alerts
 
 SCENARIO_GENERATORS = {
     "clean_bad_deploy": clean_bad_deploy,
@@ -26,5 +28,7 @@ SCENARIO_GENERATORS = {
     "noisy_alerts": noisy_alerts,
     "partial_graph": partial_graph,
     "red_herring_hard": red_herring_hard,
+    "cause_alerts_2_4": cause_alerts_2_4,
+    "unordered_plausible_alerts": unordered_plausible_alerts,
 }
 DEFAULT_EVAL_SCENARIOS = tuple(SCENARIO_GENERATORS)
