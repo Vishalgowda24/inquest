@@ -11,6 +11,7 @@ stages:
   s02_signals: true
   s03_candidates: true
   s04_verify: true
+  s05_report: true
   candidates: false
   reasoning: false
   next_test: false
@@ -32,3 +33,5 @@ verification_methods:
 verification_rerank: false
 fusion_abstention: true
 fusion_variant: v3
+confidence_model_path: inquest/models/confidence_logistic_v1.json
+confidence_model_sha256: 179410b35f45c93f741d6805314aa948d6e1a1df4c53cee1f92665341670090f
