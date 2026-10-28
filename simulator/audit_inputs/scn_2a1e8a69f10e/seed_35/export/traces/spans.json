@@ -1,0 +1,4802 @@
+[
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 60.0268,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-0-0-checkout",
+    "start_time": "2025-01-15T12:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-0-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 34.478,
+    "operation": "call",
+    "parent_span_id": "span-35-0-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-0-0-checkout-payments",
+    "start_time": "2025-01-15T11:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-0-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 25.9329,
+    "operation": "call",
+    "parent_span_id": "span-35-0-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-0-0-checkout-payments-database",
+    "start_time": "2025-01-15T11:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-0-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 34.7238,
+    "operation": "call",
+    "parent_span_id": "span-35-0-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-0-0-checkout-inventory",
+    "start_time": "2025-01-15T12:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-0-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 25.9329,
+    "operation": "call",
+    "parent_span_id": "span-35-0-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-0-0-checkout-inventory-database",
+    "start_time": "2025-01-15T11:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-0-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 60.0268,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-0-1-checkout",
+    "start_time": "2025-01-15T12:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-0-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 34.478,
+    "operation": "call",
+    "parent_span_id": "span-35-0-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-0-1-checkout-payments",
+    "start_time": "2025-01-15T11:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-0-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 25.9329,
+    "operation": "call",
+    "parent_span_id": "span-35-0-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-0-1-checkout-payments-database",
+    "start_time": "2025-01-15T11:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-0-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 34.7238,
+    "operation": "call",
+    "parent_span_id": "span-35-0-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-0-1-checkout-inventory",
+    "start_time": "2025-01-15T12:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-0-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 25.9329,
+    "operation": "call",
+    "parent_span_id": "span-35-0-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-0-1-checkout-inventory-database",
+    "start_time": "2025-01-15T11:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-0-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 60.0268,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-0-2-checkout",
+    "start_time": "2025-01-15T12:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-0-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 34.478,
+    "operation": "call",
+    "parent_span_id": "span-35-0-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-0-2-checkout-payments",
+    "start_time": "2025-01-15T11:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-0-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 25.9329,
+    "operation": "call",
+    "parent_span_id": "span-35-0-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-0-2-checkout-payments-database",
+    "start_time": "2025-01-15T11:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-0-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 34.7238,
+    "operation": "call",
+    "parent_span_id": "span-35-0-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-0-2-checkout-inventory",
+    "start_time": "2025-01-15T12:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-0-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 0,
+      "synthetic": true
+    },
+    "duration_ms": 25.9329,
+    "operation": "call",
+    "parent_span_id": "span-35-0-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-0-2-checkout-inventory-database",
+    "start_time": "2025-01-15T11:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-0-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 57.309,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-1-0-checkout",
+    "start_time": "2025-01-15T13:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-1-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 32.674,
+    "operation": "call",
+    "parent_span_id": "span-35-1-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-1-0-checkout-payments",
+    "start_time": "2025-01-15T12:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-1-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 27.595,
+    "operation": "call",
+    "parent_span_id": "span-35-1-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-1-0-checkout-payments-database",
+    "start_time": "2025-01-15T12:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-1-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 32.9874,
+    "operation": "call",
+    "parent_span_id": "span-35-1-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-1-0-checkout-inventory",
+    "start_time": "2025-01-15T13:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-1-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 27.595,
+    "operation": "call",
+    "parent_span_id": "span-35-1-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-1-0-checkout-inventory-database",
+    "start_time": "2025-01-15T12:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-1-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 57.309,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-1-1-checkout",
+    "start_time": "2025-01-15T13:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-1-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 32.674,
+    "operation": "call",
+    "parent_span_id": "span-35-1-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-1-1-checkout-payments",
+    "start_time": "2025-01-15T12:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-1-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 27.595,
+    "operation": "call",
+    "parent_span_id": "span-35-1-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-1-1-checkout-payments-database",
+    "start_time": "2025-01-15T12:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-1-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 32.9874,
+    "operation": "call",
+    "parent_span_id": "span-35-1-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-1-1-checkout-inventory",
+    "start_time": "2025-01-15T13:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-1-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 27.595,
+    "operation": "call",
+    "parent_span_id": "span-35-1-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-1-1-checkout-inventory-database",
+    "start_time": "2025-01-15T12:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-1-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 57.309,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-1-2-checkout",
+    "start_time": "2025-01-15T13:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-1-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 32.674,
+    "operation": "call",
+    "parent_span_id": "span-35-1-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-1-2-checkout-payments",
+    "start_time": "2025-01-15T12:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-1-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 27.595,
+    "operation": "call",
+    "parent_span_id": "span-35-1-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-1-2-checkout-payments-database",
+    "start_time": "2025-01-15T12:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-1-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 32.9874,
+    "operation": "call",
+    "parent_span_id": "span-35-1-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-1-2-checkout-inventory",
+    "start_time": "2025-01-15T13:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-1-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 1,
+      "synthetic": true
+    },
+    "duration_ms": 27.595,
+    "operation": "call",
+    "parent_span_id": "span-35-1-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-1-2-checkout-inventory-database",
+    "start_time": "2025-01-15T12:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-1-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 58.3327,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-2-0-checkout",
+    "start_time": "2025-01-15T14:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-2-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 34.8497,
+    "operation": "call",
+    "parent_span_id": "span-35-2-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-2-0-checkout-payments",
+    "start_time": "2025-01-15T13:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-2-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 27.6151,
+    "operation": "call",
+    "parent_span_id": "span-35-2-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-2-0-checkout-payments-database",
+    "start_time": "2025-01-15T13:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-2-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 36.0814,
+    "operation": "call",
+    "parent_span_id": "span-35-2-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-2-0-checkout-inventory",
+    "start_time": "2025-01-15T14:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-2-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 27.6151,
+    "operation": "call",
+    "parent_span_id": "span-35-2-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-2-0-checkout-inventory-database",
+    "start_time": "2025-01-15T13:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-2-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 58.3327,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-2-1-checkout",
+    "start_time": "2025-01-15T14:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-2-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 34.8497,
+    "operation": "call",
+    "parent_span_id": "span-35-2-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-2-1-checkout-payments",
+    "start_time": "2025-01-15T13:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-2-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 27.6151,
+    "operation": "call",
+    "parent_span_id": "span-35-2-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-2-1-checkout-payments-database",
+    "start_time": "2025-01-15T13:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-2-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 36.0814,
+    "operation": "call",
+    "parent_span_id": "span-35-2-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-2-1-checkout-inventory",
+    "start_time": "2025-01-15T14:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-2-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 27.6151,
+    "operation": "call",
+    "parent_span_id": "span-35-2-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-2-1-checkout-inventory-database",
+    "start_time": "2025-01-15T13:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-2-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 58.3327,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-2-2-checkout",
+    "start_time": "2025-01-15T14:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-2-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 34.8497,
+    "operation": "call",
+    "parent_span_id": "span-35-2-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-2-2-checkout-payments",
+    "start_time": "2025-01-15T13:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-2-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 27.6151,
+    "operation": "call",
+    "parent_span_id": "span-35-2-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-2-2-checkout-payments-database",
+    "start_time": "2025-01-15T13:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-2-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 36.0814,
+    "operation": "call",
+    "parent_span_id": "span-35-2-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-2-2-checkout-inventory",
+    "start_time": "2025-01-15T14:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-2-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 2,
+      "synthetic": true
+    },
+    "duration_ms": 27.6151,
+    "operation": "call",
+    "parent_span_id": "span-35-2-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-2-2-checkout-inventory-database",
+    "start_time": "2025-01-15T13:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-2-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 60.7304,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-3-0-checkout",
+    "start_time": "2025-01-15T15:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-3-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 35.6001,
+    "operation": "call",
+    "parent_span_id": "span-35-3-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-3-0-checkout-payments",
+    "start_time": "2025-01-15T14:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-3-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 24.8524,
+    "operation": "call",
+    "parent_span_id": "span-35-3-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-3-0-checkout-payments-database",
+    "start_time": "2025-01-15T14:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-3-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 34.2069,
+    "operation": "call",
+    "parent_span_id": "span-35-3-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-3-0-checkout-inventory",
+    "start_time": "2025-01-15T15:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-3-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 24.8524,
+    "operation": "call",
+    "parent_span_id": "span-35-3-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-3-0-checkout-inventory-database",
+    "start_time": "2025-01-15T14:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-3-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 60.7304,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-3-1-checkout",
+    "start_time": "2025-01-15T15:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-3-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 35.6001,
+    "operation": "call",
+    "parent_span_id": "span-35-3-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-3-1-checkout-payments",
+    "start_time": "2025-01-15T14:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-3-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 24.8524,
+    "operation": "call",
+    "parent_span_id": "span-35-3-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-3-1-checkout-payments-database",
+    "start_time": "2025-01-15T14:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-3-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 34.2069,
+    "operation": "call",
+    "parent_span_id": "span-35-3-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-3-1-checkout-inventory",
+    "start_time": "2025-01-15T15:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-3-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 24.8524,
+    "operation": "call",
+    "parent_span_id": "span-35-3-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-3-1-checkout-inventory-database",
+    "start_time": "2025-01-15T14:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-3-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 60.7304,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-3-2-checkout",
+    "start_time": "2025-01-15T15:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-3-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 35.6001,
+    "operation": "call",
+    "parent_span_id": "span-35-3-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-3-2-checkout-payments",
+    "start_time": "2025-01-15T14:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-3-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 24.8524,
+    "operation": "call",
+    "parent_span_id": "span-35-3-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-3-2-checkout-payments-database",
+    "start_time": "2025-01-15T14:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-3-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 34.2069,
+    "operation": "call",
+    "parent_span_id": "span-35-3-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-3-2-checkout-inventory",
+    "start_time": "2025-01-15T15:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-3-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 3,
+      "synthetic": true
+    },
+    "duration_ms": 24.8524,
+    "operation": "call",
+    "parent_span_id": "span-35-3-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-3-2-checkout-inventory-database",
+    "start_time": "2025-01-15T14:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-3-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 58.6463,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-4-0-checkout",
+    "start_time": "2025-01-15T16:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-4-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 34.7221,
+    "operation": "call",
+    "parent_span_id": "span-35-4-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-4-0-checkout-payments",
+    "start_time": "2025-01-15T15:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-4-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 27.8353,
+    "operation": "call",
+    "parent_span_id": "span-35-4-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-4-0-checkout-payments-database",
+    "start_time": "2025-01-15T15:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-4-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 32.7909,
+    "operation": "call",
+    "parent_span_id": "span-35-4-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-4-0-checkout-inventory",
+    "start_time": "2025-01-15T16:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-4-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 27.8353,
+    "operation": "call",
+    "parent_span_id": "span-35-4-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-4-0-checkout-inventory-database",
+    "start_time": "2025-01-15T15:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-4-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 58.6463,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-4-1-checkout",
+    "start_time": "2025-01-15T16:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-4-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 34.7221,
+    "operation": "call",
+    "parent_span_id": "span-35-4-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-4-1-checkout-payments",
+    "start_time": "2025-01-15T15:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-4-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 27.8353,
+    "operation": "call",
+    "parent_span_id": "span-35-4-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-4-1-checkout-payments-database",
+    "start_time": "2025-01-15T15:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-4-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 32.7909,
+    "operation": "call",
+    "parent_span_id": "span-35-4-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-4-1-checkout-inventory",
+    "start_time": "2025-01-15T16:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-4-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 27.8353,
+    "operation": "call",
+    "parent_span_id": "span-35-4-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-4-1-checkout-inventory-database",
+    "start_time": "2025-01-15T15:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-4-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 58.6463,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-4-2-checkout",
+    "start_time": "2025-01-15T16:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-4-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 34.7221,
+    "operation": "call",
+    "parent_span_id": "span-35-4-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-4-2-checkout-payments",
+    "start_time": "2025-01-15T15:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-4-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 27.8353,
+    "operation": "call",
+    "parent_span_id": "span-35-4-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-4-2-checkout-payments-database",
+    "start_time": "2025-01-15T15:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-4-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 32.7909,
+    "operation": "call",
+    "parent_span_id": "span-35-4-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-4-2-checkout-inventory",
+    "start_time": "2025-01-15T16:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-4-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 4,
+      "synthetic": true
+    },
+    "duration_ms": 27.8353,
+    "operation": "call",
+    "parent_span_id": "span-35-4-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-4-2-checkout-inventory-database",
+    "start_time": "2025-01-15T15:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-4-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 58.4583,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-5-0-checkout",
+    "start_time": "2025-01-15T17:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-5-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 35.6999,
+    "operation": "call",
+    "parent_span_id": "span-35-5-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-5-0-checkout-payments",
+    "start_time": "2025-01-15T16:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-5-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 26.8789,
+    "operation": "call",
+    "parent_span_id": "span-35-5-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-5-0-checkout-payments-database",
+    "start_time": "2025-01-15T16:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-5-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 33.119,
+    "operation": "call",
+    "parent_span_id": "span-35-5-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-5-0-checkout-inventory",
+    "start_time": "2025-01-15T17:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-5-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 26.8789,
+    "operation": "call",
+    "parent_span_id": "span-35-5-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-5-0-checkout-inventory-database",
+    "start_time": "2025-01-15T16:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-5-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 58.4583,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-5-1-checkout",
+    "start_time": "2025-01-15T17:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-5-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 35.6999,
+    "operation": "call",
+    "parent_span_id": "span-35-5-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-5-1-checkout-payments",
+    "start_time": "2025-01-15T16:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-5-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 26.8789,
+    "operation": "call",
+    "parent_span_id": "span-35-5-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-5-1-checkout-payments-database",
+    "start_time": "2025-01-15T16:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-5-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 33.119,
+    "operation": "call",
+    "parent_span_id": "span-35-5-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-5-1-checkout-inventory",
+    "start_time": "2025-01-15T17:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-5-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 26.8789,
+    "operation": "call",
+    "parent_span_id": "span-35-5-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-5-1-checkout-inventory-database",
+    "start_time": "2025-01-15T16:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-5-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 58.4583,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-5-2-checkout",
+    "start_time": "2025-01-15T17:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-5-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 35.6999,
+    "operation": "call",
+    "parent_span_id": "span-35-5-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-5-2-checkout-payments",
+    "start_time": "2025-01-15T16:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-5-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 26.8789,
+    "operation": "call",
+    "parent_span_id": "span-35-5-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-5-2-checkout-payments-database",
+    "start_time": "2025-01-15T16:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-5-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 33.119,
+    "operation": "call",
+    "parent_span_id": "span-35-5-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-5-2-checkout-inventory",
+    "start_time": "2025-01-15T17:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-5-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 5,
+      "synthetic": true
+    },
+    "duration_ms": 26.8789,
+    "operation": "call",
+    "parent_span_id": "span-35-5-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-5-2-checkout-inventory-database",
+    "start_time": "2025-01-15T16:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-5-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 60.3064,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-6-0-checkout",
+    "start_time": "2025-01-15T18:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-6-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 36.1178,
+    "operation": "call",
+    "parent_span_id": "span-35-6-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-6-0-checkout-payments",
+    "start_time": "2025-01-15T17:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-6-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 27.6399,
+    "operation": "call",
+    "parent_span_id": "span-35-6-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-6-0-checkout-payments-database",
+    "start_time": "2025-01-15T17:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-6-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 32.827,
+    "operation": "call",
+    "parent_span_id": "span-35-6-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-6-0-checkout-inventory",
+    "start_time": "2025-01-15T18:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-6-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 27.6399,
+    "operation": "call",
+    "parent_span_id": "span-35-6-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-6-0-checkout-inventory-database",
+    "start_time": "2025-01-15T17:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-6-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 60.3064,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-6-1-checkout",
+    "start_time": "2025-01-15T18:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-6-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 36.1178,
+    "operation": "call",
+    "parent_span_id": "span-35-6-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-6-1-checkout-payments",
+    "start_time": "2025-01-15T17:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-6-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 27.6399,
+    "operation": "call",
+    "parent_span_id": "span-35-6-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-6-1-checkout-payments-database",
+    "start_time": "2025-01-15T17:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-6-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 32.827,
+    "operation": "call",
+    "parent_span_id": "span-35-6-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-6-1-checkout-inventory",
+    "start_time": "2025-01-15T18:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-6-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 27.6399,
+    "operation": "call",
+    "parent_span_id": "span-35-6-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-6-1-checkout-inventory-database",
+    "start_time": "2025-01-15T17:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-6-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 60.3064,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-6-2-checkout",
+    "start_time": "2025-01-15T18:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-6-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 36.1178,
+    "operation": "call",
+    "parent_span_id": "span-35-6-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-6-2-checkout-payments",
+    "start_time": "2025-01-15T17:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-6-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 27.6399,
+    "operation": "call",
+    "parent_span_id": "span-35-6-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-6-2-checkout-payments-database",
+    "start_time": "2025-01-15T17:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-6-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 32.827,
+    "operation": "call",
+    "parent_span_id": "span-35-6-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-6-2-checkout-inventory",
+    "start_time": "2025-01-15T18:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-6-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 6,
+      "synthetic": true
+    },
+    "duration_ms": 27.6399,
+    "operation": "call",
+    "parent_span_id": "span-35-6-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-6-2-checkout-inventory-database",
+    "start_time": "2025-01-15T17:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-6-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 59.525,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-7-0-checkout",
+    "start_time": "2025-01-15T19:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-7-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 36.3794,
+    "operation": "call",
+    "parent_span_id": "span-35-7-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-7-0-checkout-payments",
+    "start_time": "2025-01-15T18:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-7-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 26.4749,
+    "operation": "call",
+    "parent_span_id": "span-35-7-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-7-0-checkout-payments-database",
+    "start_time": "2025-01-15T18:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-7-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 33.0117,
+    "operation": "call",
+    "parent_span_id": "span-35-7-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-7-0-checkout-inventory",
+    "start_time": "2025-01-15T19:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-7-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 26.4749,
+    "operation": "call",
+    "parent_span_id": "span-35-7-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-7-0-checkout-inventory-database",
+    "start_time": "2025-01-15T18:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-7-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 59.525,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-7-1-checkout",
+    "start_time": "2025-01-15T19:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-7-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 36.3794,
+    "operation": "call",
+    "parent_span_id": "span-35-7-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-7-1-checkout-payments",
+    "start_time": "2025-01-15T18:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-7-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 26.4749,
+    "operation": "call",
+    "parent_span_id": "span-35-7-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-7-1-checkout-payments-database",
+    "start_time": "2025-01-15T18:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-7-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 33.0117,
+    "operation": "call",
+    "parent_span_id": "span-35-7-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-7-1-checkout-inventory",
+    "start_time": "2025-01-15T19:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-7-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 26.4749,
+    "operation": "call",
+    "parent_span_id": "span-35-7-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-7-1-checkout-inventory-database",
+    "start_time": "2025-01-15T18:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-7-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 59.525,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-7-2-checkout",
+    "start_time": "2025-01-15T19:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-7-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 36.3794,
+    "operation": "call",
+    "parent_span_id": "span-35-7-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-7-2-checkout-payments",
+    "start_time": "2025-01-15T18:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-7-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 26.4749,
+    "operation": "call",
+    "parent_span_id": "span-35-7-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-7-2-checkout-payments-database",
+    "start_time": "2025-01-15T18:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-7-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 33.0117,
+    "operation": "call",
+    "parent_span_id": "span-35-7-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-7-2-checkout-inventory",
+    "start_time": "2025-01-15T19:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-7-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 7,
+      "synthetic": true
+    },
+    "duration_ms": 26.4749,
+    "operation": "call",
+    "parent_span_id": "span-35-7-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-7-2-checkout-inventory-database",
+    "start_time": "2025-01-15T18:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-7-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 56.9981,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-8-0-checkout",
+    "start_time": "2025-01-15T20:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-8-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 35.1037,
+    "operation": "call",
+    "parent_span_id": "span-35-8-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-8-0-checkout-payments",
+    "start_time": "2025-01-15T19:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-8-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 26.4306,
+    "operation": "call",
+    "parent_span_id": "span-35-8-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-8-0-checkout-payments-database",
+    "start_time": "2025-01-15T19:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-8-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 32.5376,
+    "operation": "call",
+    "parent_span_id": "span-35-8-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-8-0-checkout-inventory",
+    "start_time": "2025-01-15T20:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-8-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 26.4306,
+    "operation": "call",
+    "parent_span_id": "span-35-8-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-8-0-checkout-inventory-database",
+    "start_time": "2025-01-15T19:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-8-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 56.9981,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-8-1-checkout",
+    "start_time": "2025-01-15T20:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-8-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 35.1037,
+    "operation": "call",
+    "parent_span_id": "span-35-8-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-8-1-checkout-payments",
+    "start_time": "2025-01-15T19:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-8-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 26.4306,
+    "operation": "call",
+    "parent_span_id": "span-35-8-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-8-1-checkout-payments-database",
+    "start_time": "2025-01-15T19:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-8-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 32.5376,
+    "operation": "call",
+    "parent_span_id": "span-35-8-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-8-1-checkout-inventory",
+    "start_time": "2025-01-15T20:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-8-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 26.4306,
+    "operation": "call",
+    "parent_span_id": "span-35-8-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-8-1-checkout-inventory-database",
+    "start_time": "2025-01-15T19:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-8-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 56.9981,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-8-2-checkout",
+    "start_time": "2025-01-15T20:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-8-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 35.1037,
+    "operation": "call",
+    "parent_span_id": "span-35-8-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-8-2-checkout-payments",
+    "start_time": "2025-01-15T19:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-8-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 26.4306,
+    "operation": "call",
+    "parent_span_id": "span-35-8-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-8-2-checkout-payments-database",
+    "start_time": "2025-01-15T19:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-8-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 32.5376,
+    "operation": "call",
+    "parent_span_id": "span-35-8-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-8-2-checkout-inventory",
+    "start_time": "2025-01-15T20:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-8-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 8,
+      "synthetic": true
+    },
+    "duration_ms": 26.4306,
+    "operation": "call",
+    "parent_span_id": "span-35-8-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-8-2-checkout-inventory-database",
+    "start_time": "2025-01-15T19:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-8-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 57.7004,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-9-0-checkout",
+    "start_time": "2025-01-15T21:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-9-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 33.2838,
+    "operation": "call",
+    "parent_span_id": "span-35-9-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-9-0-checkout-payments",
+    "start_time": "2025-01-15T20:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-9-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 25.8319,
+    "operation": "call",
+    "parent_span_id": "span-35-9-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-9-0-checkout-payments-database",
+    "start_time": "2025-01-15T20:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-9-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 32.1485,
+    "operation": "call",
+    "parent_span_id": "span-35-9-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-9-0-checkout-inventory",
+    "start_time": "2025-01-15T21:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-9-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 25.8319,
+    "operation": "call",
+    "parent_span_id": "span-35-9-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-9-0-checkout-inventory-database",
+    "start_time": "2025-01-15T20:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-9-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 57.7004,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-9-1-checkout",
+    "start_time": "2025-01-15T21:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-9-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 33.2838,
+    "operation": "call",
+    "parent_span_id": "span-35-9-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-9-1-checkout-payments",
+    "start_time": "2025-01-15T20:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-9-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 25.8319,
+    "operation": "call",
+    "parent_span_id": "span-35-9-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-9-1-checkout-payments-database",
+    "start_time": "2025-01-15T20:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-9-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 32.1485,
+    "operation": "call",
+    "parent_span_id": "span-35-9-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-9-1-checkout-inventory",
+    "start_time": "2025-01-15T21:00:01.200000Z",
+    "status": "ERROR",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-9-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 25.8319,
+    "operation": "call",
+    "parent_span_id": "span-35-9-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-9-1-checkout-inventory-database",
+    "start_time": "2025-01-15T20:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-9-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 57.7004,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-9-2-checkout",
+    "start_time": "2025-01-15T21:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-9-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 33.2838,
+    "operation": "call",
+    "parent_span_id": "span-35-9-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-9-2-checkout-payments",
+    "start_time": "2025-01-15T20:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-9-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 25.8319,
+    "operation": "call",
+    "parent_span_id": "span-35-9-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-9-2-checkout-payments-database",
+    "start_time": "2025-01-15T20:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-9-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 32.1485,
+    "operation": "call",
+    "parent_span_id": "span-35-9-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-9-2-checkout-inventory",
+    "start_time": "2025-01-15T21:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-9-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 9,
+      "synthetic": true
+    },
+    "duration_ms": 25.8319,
+    "operation": "call",
+    "parent_span_id": "span-35-9-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-9-2-checkout-inventory-database",
+    "start_time": "2025-01-15T20:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-9-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 55.9866,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-10-0-checkout",
+    "start_time": "2025-01-15T22:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-10-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 32.8861,
+    "operation": "call",
+    "parent_span_id": "span-35-10-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-10-0-checkout-payments",
+    "start_time": "2025-01-15T21:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-10-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 66.8104,
+    "operation": "call",
+    "parent_span_id": "span-35-10-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-10-0-checkout-payments-database",
+    "start_time": "2025-01-15T21:59:58.500000Z",
+    "status": "ERROR",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-10-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 32.0534,
+    "operation": "call",
+    "parent_span_id": "span-35-10-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-10-0-checkout-inventory",
+    "start_time": "2025-01-15T22:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-10-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 66.8104,
+    "operation": "call",
+    "parent_span_id": "span-35-10-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-10-0-checkout-inventory-database",
+    "start_time": "2025-01-15T21:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-10-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 55.9866,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-10-1-checkout",
+    "start_time": "2025-01-15T22:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-10-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 32.8861,
+    "operation": "call",
+    "parent_span_id": "span-35-10-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-10-1-checkout-payments",
+    "start_time": "2025-01-15T21:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-10-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 66.8104,
+    "operation": "call",
+    "parent_span_id": "span-35-10-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-10-1-checkout-payments-database",
+    "start_time": "2025-01-15T21:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-10-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 32.0534,
+    "operation": "call",
+    "parent_span_id": "span-35-10-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-10-1-checkout-inventory",
+    "start_time": "2025-01-15T22:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-10-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 66.8104,
+    "operation": "call",
+    "parent_span_id": "span-35-10-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-10-1-checkout-inventory-database",
+    "start_time": "2025-01-15T21:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-10-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 55.9866,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-10-2-checkout",
+    "start_time": "2025-01-15T22:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-10-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 32.8861,
+    "operation": "call",
+    "parent_span_id": "span-35-10-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-10-2-checkout-payments",
+    "start_time": "2025-01-15T21:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-10-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 66.8104,
+    "operation": "call",
+    "parent_span_id": "span-35-10-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-10-2-checkout-payments-database",
+    "start_time": "2025-01-15T21:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-10-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 32.0534,
+    "operation": "call",
+    "parent_span_id": "span-35-10-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-10-2-checkout-inventory",
+    "start_time": "2025-01-15T22:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-10-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 10,
+      "synthetic": true
+    },
+    "duration_ms": 66.8104,
+    "operation": "call",
+    "parent_span_id": "span-35-10-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-10-2-checkout-inventory-database",
+    "start_time": "2025-01-15T21:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-10-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 55.9232,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-11-0-checkout",
+    "start_time": "2025-01-15T23:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-11-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 56.2746,
+    "operation": "call",
+    "parent_span_id": "span-35-11-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-11-0-checkout-payments",
+    "start_time": "2025-01-15T22:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-11-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 61.7615,
+    "operation": "call",
+    "parent_span_id": "span-35-11-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-11-0-checkout-payments-database",
+    "start_time": "2025-01-15T22:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-11-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 54.3791,
+    "operation": "call",
+    "parent_span_id": "span-35-11-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-11-0-checkout-inventory",
+    "start_time": "2025-01-15T23:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-11-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 61.7615,
+    "operation": "call",
+    "parent_span_id": "span-35-11-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-11-0-checkout-inventory-database",
+    "start_time": "2025-01-15T22:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-11-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 55.9232,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-11-1-checkout",
+    "start_time": "2025-01-15T23:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-11-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 56.2746,
+    "operation": "call",
+    "parent_span_id": "span-35-11-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-11-1-checkout-payments",
+    "start_time": "2025-01-15T22:59:59.550000Z",
+    "status": "ERROR",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-11-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 61.7615,
+    "operation": "call",
+    "parent_span_id": "span-35-11-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-11-1-checkout-payments-database",
+    "start_time": "2025-01-15T22:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-11-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 54.3791,
+    "operation": "call",
+    "parent_span_id": "span-35-11-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-11-1-checkout-inventory",
+    "start_time": "2025-01-15T23:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-11-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 61.7615,
+    "operation": "call",
+    "parent_span_id": "span-35-11-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-11-1-checkout-inventory-database",
+    "start_time": "2025-01-15T22:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-11-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 55.9232,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-11-2-checkout",
+    "start_time": "2025-01-15T23:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-11-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 56.2746,
+    "operation": "call",
+    "parent_span_id": "span-35-11-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-11-2-checkout-payments",
+    "start_time": "2025-01-15T22:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-11-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 61.7615,
+    "operation": "call",
+    "parent_span_id": "span-35-11-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-11-2-checkout-payments-database",
+    "start_time": "2025-01-15T22:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-11-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 54.3791,
+    "operation": "call",
+    "parent_span_id": "span-35-11-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-11-2-checkout-inventory",
+    "start_time": "2025-01-15T23:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-11-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 11,
+      "synthetic": true
+    },
+    "duration_ms": 61.7615,
+    "operation": "call",
+    "parent_span_id": "span-35-11-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-11-2-checkout-inventory-database",
+    "start_time": "2025-01-15T22:59:58.500000Z",
+    "status": "ERROR",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-11-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 80.0013,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-12-0-checkout",
+    "start_time": "2025-01-16T00:00:00.800000Z",
+    "status": "ERROR",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-12-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 53.8456,
+    "operation": "call",
+    "parent_span_id": "span-35-12-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-12-0-checkout-payments",
+    "start_time": "2025-01-15T23:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-12-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 53.5571,
+    "operation": "call",
+    "parent_span_id": "span-35-12-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-12-0-checkout-payments-database",
+    "start_time": "2025-01-15T23:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-12-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 52.0168,
+    "operation": "call",
+    "parent_span_id": "span-35-12-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-12-0-checkout-inventory",
+    "start_time": "2025-01-16T00:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-12-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 53.5571,
+    "operation": "call",
+    "parent_span_id": "span-35-12-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-12-0-checkout-inventory-database",
+    "start_time": "2025-01-15T23:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-12-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 80.0013,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-12-1-checkout",
+    "start_time": "2025-01-16T00:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-12-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 53.8456,
+    "operation": "call",
+    "parent_span_id": "span-35-12-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-12-1-checkout-payments",
+    "start_time": "2025-01-15T23:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-12-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 53.5571,
+    "operation": "call",
+    "parent_span_id": "span-35-12-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-12-1-checkout-payments-database",
+    "start_time": "2025-01-15T23:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-12-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 52.0168,
+    "operation": "call",
+    "parent_span_id": "span-35-12-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-12-1-checkout-inventory",
+    "start_time": "2025-01-16T00:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-12-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 53.5571,
+    "operation": "call",
+    "parent_span_id": "span-35-12-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-12-1-checkout-inventory-database",
+    "start_time": "2025-01-15T23:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-12-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 80.0013,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-12-2-checkout",
+    "start_time": "2025-01-16T00:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-12-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 53.8456,
+    "operation": "call",
+    "parent_span_id": "span-35-12-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-12-2-checkout-payments",
+    "start_time": "2025-01-15T23:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-12-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 53.5571,
+    "operation": "call",
+    "parent_span_id": "span-35-12-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-12-2-checkout-payments-database",
+    "start_time": "2025-01-15T23:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-12-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 52.0168,
+    "operation": "call",
+    "parent_span_id": "span-35-12-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-12-2-checkout-inventory",
+    "start_time": "2025-01-16T00:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-12-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 12,
+      "synthetic": true
+    },
+    "duration_ms": 53.5571,
+    "operation": "call",
+    "parent_span_id": "span-35-12-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-12-2-checkout-inventory-database",
+    "start_time": "2025-01-15T23:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-12-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 78.6677,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-13-0-checkout",
+    "start_time": "2025-01-16T01:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-13-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 50.5002,
+    "operation": "call",
+    "parent_span_id": "span-35-13-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-13-0-checkout-payments",
+    "start_time": "2025-01-16T00:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-13-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 49.0604,
+    "operation": "call",
+    "parent_span_id": "span-35-13-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-13-0-checkout-payments-database",
+    "start_time": "2025-01-16T00:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-13-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 50.116,
+    "operation": "call",
+    "parent_span_id": "span-35-13-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-13-0-checkout-inventory",
+    "start_time": "2025-01-16T01:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-13-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 49.0604,
+    "operation": "call",
+    "parent_span_id": "span-35-13-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-13-0-checkout-inventory-database",
+    "start_time": "2025-01-16T00:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-13-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 78.6677,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-13-1-checkout",
+    "start_time": "2025-01-16T01:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-13-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 50.5002,
+    "operation": "call",
+    "parent_span_id": "span-35-13-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-13-1-checkout-payments",
+    "start_time": "2025-01-16T00:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-13-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 49.0604,
+    "operation": "call",
+    "parent_span_id": "span-35-13-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-13-1-checkout-payments-database",
+    "start_time": "2025-01-16T00:59:58.500000Z",
+    "status": "ERROR",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-13-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 50.116,
+    "operation": "call",
+    "parent_span_id": "span-35-13-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-13-1-checkout-inventory",
+    "start_time": "2025-01-16T01:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-13-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 49.0604,
+    "operation": "call",
+    "parent_span_id": "span-35-13-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-13-1-checkout-inventory-database",
+    "start_time": "2025-01-16T00:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-13-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 78.6677,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-13-2-checkout",
+    "start_time": "2025-01-16T01:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-13-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 50.5002,
+    "operation": "call",
+    "parent_span_id": "span-35-13-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-13-2-checkout-payments",
+    "start_time": "2025-01-16T00:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-13-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 49.0604,
+    "operation": "call",
+    "parent_span_id": "span-35-13-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-13-2-checkout-payments-database",
+    "start_time": "2025-01-16T00:59:58.500000Z",
+    "status": "ERROR",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-13-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 50.116,
+    "operation": "call",
+    "parent_span_id": "span-35-13-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-13-2-checkout-inventory",
+    "start_time": "2025-01-16T01:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-13-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 13,
+      "synthetic": true
+    },
+    "duration_ms": 49.0604,
+    "operation": "call",
+    "parent_span_id": "span-35-13-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-13-2-checkout-inventory-database",
+    "start_time": "2025-01-16T00:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-13-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 76.9475,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-14-0-checkout",
+    "start_time": "2025-01-16T02:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-14-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 48.1878,
+    "operation": "call",
+    "parent_span_id": "span-35-14-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-14-0-checkout-payments",
+    "start_time": "2025-01-16T01:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-14-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 43.2203,
+    "operation": "call",
+    "parent_span_id": "span-35-14-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-14-0-checkout-payments-database",
+    "start_time": "2025-01-16T01:59:58.500000Z",
+    "status": "ERROR",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-14-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 44.9071,
+    "operation": "call",
+    "parent_span_id": "span-35-14-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-14-0-checkout-inventory",
+    "start_time": "2025-01-16T02:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-14-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 43.2203,
+    "operation": "call",
+    "parent_span_id": "span-35-14-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-14-0-checkout-inventory-database",
+    "start_time": "2025-01-16T01:59:58.500000Z",
+    "status": "ERROR",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-14-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 76.9475,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-14-1-checkout",
+    "start_time": "2025-01-16T02:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-14-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 48.1878,
+    "operation": "call",
+    "parent_span_id": "span-35-14-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-14-1-checkout-payments",
+    "start_time": "2025-01-16T01:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-14-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 43.2203,
+    "operation": "call",
+    "parent_span_id": "span-35-14-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-14-1-checkout-payments-database",
+    "start_time": "2025-01-16T01:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-14-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 44.9071,
+    "operation": "call",
+    "parent_span_id": "span-35-14-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-14-1-checkout-inventory",
+    "start_time": "2025-01-16T02:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-14-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 43.2203,
+    "operation": "call",
+    "parent_span_id": "span-35-14-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-14-1-checkout-inventory-database",
+    "start_time": "2025-01-16T01:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-14-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 76.9475,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-14-2-checkout",
+    "start_time": "2025-01-16T02:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-14-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 48.1878,
+    "operation": "call",
+    "parent_span_id": "span-35-14-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-14-2-checkout-payments",
+    "start_time": "2025-01-16T01:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-14-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 43.2203,
+    "operation": "call",
+    "parent_span_id": "span-35-14-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-14-2-checkout-payments-database",
+    "start_time": "2025-01-16T01:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-14-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 44.9071,
+    "operation": "call",
+    "parent_span_id": "span-35-14-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-14-2-checkout-inventory",
+    "start_time": "2025-01-16T02:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-14-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 14,
+      "synthetic": true
+    },
+    "duration_ms": 43.2203,
+    "operation": "call",
+    "parent_span_id": "span-35-14-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-14-2-checkout-inventory-database",
+    "start_time": "2025-01-16T01:59:58.500000Z",
+    "status": "ERROR",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-14-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 72.285,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-15-0-checkout",
+    "start_time": "2025-01-16T03:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-15-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 44.0129,
+    "operation": "call",
+    "parent_span_id": "span-35-15-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-15-0-checkout-payments",
+    "start_time": "2025-01-16T02:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-15-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 38.0053,
+    "operation": "call",
+    "parent_span_id": "span-35-15-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-15-0-checkout-payments-database",
+    "start_time": "2025-01-16T02:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-15-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 42.7091,
+    "operation": "call",
+    "parent_span_id": "span-35-15-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-15-0-checkout-inventory",
+    "start_time": "2025-01-16T03:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-15-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 38.0053,
+    "operation": "call",
+    "parent_span_id": "span-35-15-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-15-0-checkout-inventory-database",
+    "start_time": "2025-01-16T02:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-15-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 72.285,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-15-1-checkout",
+    "start_time": "2025-01-16T03:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-15-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 44.0129,
+    "operation": "call",
+    "parent_span_id": "span-35-15-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-15-1-checkout-payments",
+    "start_time": "2025-01-16T02:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-15-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 38.0053,
+    "operation": "call",
+    "parent_span_id": "span-35-15-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-15-1-checkout-payments-database",
+    "start_time": "2025-01-16T02:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-15-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 42.7091,
+    "operation": "call",
+    "parent_span_id": "span-35-15-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-15-1-checkout-inventory",
+    "start_time": "2025-01-16T03:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-15-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 38.0053,
+    "operation": "call",
+    "parent_span_id": "span-35-15-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-15-1-checkout-inventory-database",
+    "start_time": "2025-01-16T02:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-15-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 72.285,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-15-2-checkout",
+    "start_time": "2025-01-16T03:00:00.800000Z",
+    "status": "ERROR",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-15-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 44.0129,
+    "operation": "call",
+    "parent_span_id": "span-35-15-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-15-2-checkout-payments",
+    "start_time": "2025-01-16T02:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-15-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 38.0053,
+    "operation": "call",
+    "parent_span_id": "span-35-15-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-15-2-checkout-payments-database",
+    "start_time": "2025-01-16T02:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-15-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 42.7091,
+    "operation": "call",
+    "parent_span_id": "span-35-15-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-15-2-checkout-inventory",
+    "start_time": "2025-01-16T03:00:01.200000Z",
+    "status": "ERROR",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-15-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 15,
+      "synthetic": true
+    },
+    "duration_ms": 38.0053,
+    "operation": "call",
+    "parent_span_id": "span-35-15-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-15-2-checkout-inventory-database",
+    "start_time": "2025-01-16T02:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-15-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 66.8348,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-16-0-checkout",
+    "start_time": "2025-01-16T04:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-16-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 40.2255,
+    "operation": "call",
+    "parent_span_id": "span-35-16-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-16-0-checkout-payments",
+    "start_time": "2025-01-16T03:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-16-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 37.1904,
+    "operation": "call",
+    "parent_span_id": "span-35-16-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-16-0-checkout-payments-database",
+    "start_time": "2025-01-16T03:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-16-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 38.4182,
+    "operation": "call",
+    "parent_span_id": "span-35-16-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-16-0-checkout-inventory",
+    "start_time": "2025-01-16T04:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-16-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 37.1904,
+    "operation": "call",
+    "parent_span_id": "span-35-16-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-16-0-checkout-inventory-database",
+    "start_time": "2025-01-16T03:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-16-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 66.8348,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-16-1-checkout",
+    "start_time": "2025-01-16T04:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-16-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 40.2255,
+    "operation": "call",
+    "parent_span_id": "span-35-16-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-16-1-checkout-payments",
+    "start_time": "2025-01-16T03:59:59.550000Z",
+    "status": "ERROR",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-16-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 37.1904,
+    "operation": "call",
+    "parent_span_id": "span-35-16-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-16-1-checkout-payments-database",
+    "start_time": "2025-01-16T03:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-16-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 38.4182,
+    "operation": "call",
+    "parent_span_id": "span-35-16-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-16-1-checkout-inventory",
+    "start_time": "2025-01-16T04:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-16-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 37.1904,
+    "operation": "call",
+    "parent_span_id": "span-35-16-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-16-1-checkout-inventory-database",
+    "start_time": "2025-01-16T03:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-16-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 66.8348,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-16-2-checkout",
+    "start_time": "2025-01-16T04:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-16-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 40.2255,
+    "operation": "call",
+    "parent_span_id": "span-35-16-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-16-2-checkout-payments",
+    "start_time": "2025-01-16T03:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-16-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 37.1904,
+    "operation": "call",
+    "parent_span_id": "span-35-16-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-16-2-checkout-payments-database",
+    "start_time": "2025-01-16T03:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-16-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 38.4182,
+    "operation": "call",
+    "parent_span_id": "span-35-16-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-16-2-checkout-inventory",
+    "start_time": "2025-01-16T04:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-16-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 16,
+      "synthetic": true
+    },
+    "duration_ms": 37.1904,
+    "operation": "call",
+    "parent_span_id": "span-35-16-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-16-2-checkout-inventory-database",
+    "start_time": "2025-01-16T03:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-16-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 62.8283,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-17-0-checkout",
+    "start_time": "2025-01-16T05:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-17-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 40.8074,
+    "operation": "call",
+    "parent_span_id": "span-35-17-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-17-0-checkout-payments",
+    "start_time": "2025-01-16T04:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-17-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 31.9897,
+    "operation": "call",
+    "parent_span_id": "span-35-17-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-17-0-checkout-payments-database",
+    "start_time": "2025-01-16T04:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-17-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 39.356,
+    "operation": "call",
+    "parent_span_id": "span-35-17-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-17-0-checkout-inventory",
+    "start_time": "2025-01-16T05:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-17-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 31.9897,
+    "operation": "call",
+    "parent_span_id": "span-35-17-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-17-0-checkout-inventory-database",
+    "start_time": "2025-01-16T04:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-17-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 62.8283,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-17-1-checkout",
+    "start_time": "2025-01-16T05:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-17-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 40.8074,
+    "operation": "call",
+    "parent_span_id": "span-35-17-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-17-1-checkout-payments",
+    "start_time": "2025-01-16T04:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-17-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 31.9897,
+    "operation": "call",
+    "parent_span_id": "span-35-17-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-17-1-checkout-payments-database",
+    "start_time": "2025-01-16T04:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-17-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 39.356,
+    "operation": "call",
+    "parent_span_id": "span-35-17-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-17-1-checkout-inventory",
+    "start_time": "2025-01-16T05:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-17-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 31.9897,
+    "operation": "call",
+    "parent_span_id": "span-35-17-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-17-1-checkout-inventory-database",
+    "start_time": "2025-01-16T04:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-17-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 62.8283,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-17-2-checkout",
+    "start_time": "2025-01-16T05:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-17-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 40.8074,
+    "operation": "call",
+    "parent_span_id": "span-35-17-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-17-2-checkout-payments",
+    "start_time": "2025-01-16T04:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-17-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 31.9897,
+    "operation": "call",
+    "parent_span_id": "span-35-17-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-17-2-checkout-payments-database",
+    "start_time": "2025-01-16T04:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-17-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 39.356,
+    "operation": "call",
+    "parent_span_id": "span-35-17-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-17-2-checkout-inventory",
+    "start_time": "2025-01-16T05:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-17-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 17,
+      "synthetic": true
+    },
+    "duration_ms": 31.9897,
+    "operation": "call",
+    "parent_span_id": "span-35-17-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-17-2-checkout-inventory-database",
+    "start_time": "2025-01-16T04:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-17-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 65.3182,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-18-0-checkout",
+    "start_time": "2025-01-16T06:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-18-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 37.1547,
+    "operation": "call",
+    "parent_span_id": "span-35-18-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-18-0-checkout-payments",
+    "start_time": "2025-01-16T05:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-18-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 32.5939,
+    "operation": "call",
+    "parent_span_id": "span-35-18-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-18-0-checkout-payments-database",
+    "start_time": "2025-01-16T05:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-18-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 35.6201,
+    "operation": "call",
+    "parent_span_id": "span-35-18-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-18-0-checkout-inventory",
+    "start_time": "2025-01-16T06:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-18-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 32.5939,
+    "operation": "call",
+    "parent_span_id": "span-35-18-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-18-0-checkout-inventory-database",
+    "start_time": "2025-01-16T05:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-18-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 65.3182,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-18-1-checkout",
+    "start_time": "2025-01-16T06:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-18-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 37.1547,
+    "operation": "call",
+    "parent_span_id": "span-35-18-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-18-1-checkout-payments",
+    "start_time": "2025-01-16T05:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-18-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 32.5939,
+    "operation": "call",
+    "parent_span_id": "span-35-18-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-18-1-checkout-payments-database",
+    "start_time": "2025-01-16T05:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-18-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 35.6201,
+    "operation": "call",
+    "parent_span_id": "span-35-18-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-18-1-checkout-inventory",
+    "start_time": "2025-01-16T06:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-18-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 32.5939,
+    "operation": "call",
+    "parent_span_id": "span-35-18-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-18-1-checkout-inventory-database",
+    "start_time": "2025-01-16T05:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-18-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 65.3182,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-18-2-checkout",
+    "start_time": "2025-01-16T06:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-18-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 37.1547,
+    "operation": "call",
+    "parent_span_id": "span-35-18-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-18-2-checkout-payments",
+    "start_time": "2025-01-16T05:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-18-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 32.5939,
+    "operation": "call",
+    "parent_span_id": "span-35-18-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-18-2-checkout-payments-database",
+    "start_time": "2025-01-16T05:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-18-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 35.6201,
+    "operation": "call",
+    "parent_span_id": "span-35-18-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-18-2-checkout-inventory",
+    "start_time": "2025-01-16T06:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-18-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 18,
+      "synthetic": true
+    },
+    "duration_ms": 32.5939,
+    "operation": "call",
+    "parent_span_id": "span-35-18-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-18-2-checkout-inventory-database",
+    "start_time": "2025-01-16T05:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-18-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 59.0033,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-19-0-checkout",
+    "start_time": "2025-01-16T07:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-19-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 37.8896,
+    "operation": "call",
+    "parent_span_id": "span-35-19-0-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-19-0-checkout-payments",
+    "start_time": "2025-01-16T06:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-19-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 31.7959,
+    "operation": "call",
+    "parent_span_id": "span-35-19-0-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-19-0-checkout-payments-database",
+    "start_time": "2025-01-16T06:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-19-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 38.192,
+    "operation": "call",
+    "parent_span_id": "span-35-19-0-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-19-0-checkout-inventory",
+    "start_time": "2025-01-16T07:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-19-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 31.7959,
+    "operation": "call",
+    "parent_span_id": "span-35-19-0-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-19-0-checkout-inventory-database",
+    "start_time": "2025-01-16T06:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-19-0"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 59.0033,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-19-1-checkout",
+    "start_time": "2025-01-16T07:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-19-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 37.8896,
+    "operation": "call",
+    "parent_span_id": "span-35-19-1-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-19-1-checkout-payments",
+    "start_time": "2025-01-16T06:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-19-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 31.7959,
+    "operation": "call",
+    "parent_span_id": "span-35-19-1-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-19-1-checkout-payments-database",
+    "start_time": "2025-01-16T06:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-19-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 38.192,
+    "operation": "call",
+    "parent_span_id": "span-35-19-1-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-19-1-checkout-inventory",
+    "start_time": "2025-01-16T07:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-19-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 31.7959,
+    "operation": "call",
+    "parent_span_id": "span-35-19-1-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-19-1-checkout-inventory-database",
+    "start_time": "2025-01-16T06:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-19-1"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 59.0033,
+    "operation": "request",
+    "parent_span_id": null,
+    "schema_version": "1.0",
+    "service": "checkout",
+    "span_id": "span-35-19-2-checkout",
+    "start_time": "2025-01-16T07:00:00.800000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 800,
+    "trace_id": "trace-35-19-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 37.8896,
+    "operation": "call",
+    "parent_span_id": "span-35-19-2-checkout",
+    "schema_version": "1.0",
+    "service": "payments",
+    "span_id": "span-35-19-2-checkout-payments",
+    "start_time": "2025-01-16T06:59:59.550000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 450,
+    "trace_id": "trace-35-19-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 31.7959,
+    "operation": "call",
+    "parent_span_id": "span-35-19-2-checkout-payments",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-19-2-checkout-payments-database",
+    "start_time": "2025-01-16T06:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-19-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 38.192,
+    "operation": "call",
+    "parent_span_id": "span-35-19-2-checkout",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "span_id": "span-35-19-2-checkout-inventory",
+    "start_time": "2025-01-16T07:00:01.200000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1200,
+    "trace_id": "trace-35-19-2"
+  },
+  {
+    "attributes": {
+      "scenario_step": 19,
+      "synthetic": true
+    },
+    "duration_ms": 31.7959,
+    "operation": "call",
+    "parent_span_id": "span-35-19-2-checkout-inventory",
+    "schema_version": "1.0",
+    "service": "database",
+    "span_id": "span-35-19-2-checkout-inventory-database",
+    "start_time": "2025-01-16T06:59:58.500000Z",
+    "status": "OK",
+    "timestamp_uncertainty_ms": 1500,
+    "trace_id": "trace-35-19-2"
+  }
+]

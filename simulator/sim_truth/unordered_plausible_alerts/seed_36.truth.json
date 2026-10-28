@@ -1,0 +1,37 @@
+{
+  "alert_order_independent_of_causality": true,
+  "alert_schedule": {
+    "checkout": 13,
+    "database": 10,
+    "inventory": 11,
+    "payments": 12
+  },
+  "cause_alert_position": 1,
+  "changes": [],
+  "description": "All services emit plausible threshold alerts with report delays independent of causal propagation.",
+  "injected_fault": {
+    "end_step": null,
+    "intensity": 1.4,
+    "service": "database",
+    "start_step": 10,
+    "threshold": 42
+  },
+  "observability": {
+    "fault_metric_visibility_delay_steps": 0,
+    "fault_metrics_suppressed_after_start": false
+  },
+  "omitted_dependency_edges": [],
+  "scenario_id": "scn_fdeca0e9ff60",
+  "scenario_name": "unordered_plausible_alerts",
+  "seed": 36,
+  "spurious_alert_services": [
+    "inventory",
+    "payments",
+    "checkout"
+  ],
+  "telemetry_omissions": {
+    "metric_services_absent": [],
+    "metric_windows": {},
+    "traces_missing_for": []
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "alert_schedule": {
+    "checkout": 13,
+    "database": 12,
+    "inventory": 10,
+    "payments": 11
+  },
+  "cause_alert_position": 3,
+  "changes": [],
+  "description": "A database fault propagates, while the database alert is delayed behind healthy-service alerts.",
+  "injected_fault": {
+    "end_step": null,
+    "intensity": 1.4,
+    "service": "database",
+    "start_step": 10,
+    "threshold": 42
+  },
+  "observability": {
+    "fault_metric_visibility_delay_steps": 0,
+    "fault_metrics_suppressed_after_start": false
+  },
+  "omitted_dependency_edges": [],
+  "scenario_id": "scn_1008b8e1c172",
+  "scenario_name": "cause_alerts_2_4",
+  "seed": 33,
+  "spurious_alert_services": [
+    "inventory",
+    "payments",
+    "checkout"
+  ],
+  "telemetry_omissions": {
+    "metric_services_absent": [],
+    "metric_windows": {},
+    "traces_missing_for": []
+  }
+}
