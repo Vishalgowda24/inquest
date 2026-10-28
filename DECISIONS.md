@@ -227,7 +227,7 @@ All methods are restricted to candidate evidence that passes the existing vault-
 
 ### Frozen selection rule
 
-Select the variant with the highest family-equal top-1 among V0–V4 over the registered 14 development families, only among variants whose aggregate top-3 is not below V0 and whose top-1 is no more than one case below V0 in either `red_herring_deploy` or `shared_dependency` (each has 20 seeds). Keep V0 unless an eligible variant exceeds V0 family-equal top-1 by at least 0.02. Resolve exact family-equal ties in favor of the lower-numbered variant. Apply this rule once to development outputs before confirmation data is generated or evaluated. Confirmation results cannot trigger reselection.
+Select the variant with the highest family-equal top-1 among V0–V4 over the registered 14 development families, only among variants whose aggregate top-3 is not below V0 and whose top-1 is no more than one case below V0 in either `red_herring_deploy` or `shared_dependency` on the prespecified P7 20-seed block (seeds 10–29). Keep V0 unless an eligible variant exceeds V0 family-equal top-1 by at least 0.02. Resolve exact family-equal ties in favor of the lower-numbered variant. Apply this rule once to development outputs before confirmation data is generated or evaluated. Confirmation results cannot trigger reselection.
 
 ### Confirmation protocol and constants
 
