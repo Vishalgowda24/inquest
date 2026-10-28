@@ -1,0 +1,35 @@
+{
+  "alert_schedule": {
+    "checkout": 15,
+    "database": 8,
+    "inventory": 12,
+    "payments": 15
+  },
+  "changes": [],
+  "description": "A real database fault is obscured by randomly ordered alerts and healthy-service false alerts.",
+  "injected_fault": {
+    "end_step": null,
+    "intensity": 1.4,
+    "service": "database",
+    "start_step": 10,
+    "threshold": 42
+  },
+  "observability": {
+    "fault_metric_visibility_delay_steps": 0,
+    "fault_metrics_suppressed_after_start": false
+  },
+  "omitted_dependency_edges": [],
+  "scenario_id": "scn_7f6b5f316cee",
+  "scenario_name": "noisy_alerts",
+  "seed": 20,
+  "spurious_alert_services": [
+    "checkout",
+    "payments",
+    "inventory"
+  ],
+  "telemetry_omissions": {
+    "metric_services_absent": [],
+    "metric_windows": {},
+    "traces_missing_for": []
+  }
+}

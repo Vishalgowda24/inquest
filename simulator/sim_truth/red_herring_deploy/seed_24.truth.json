@@ -1,0 +1,37 @@
+{
+  "changes": [
+    {
+      "change_id": "payments-timeout-3",
+      "kind": "configuration_change",
+      "service": "payments",
+      "step": 7
+    },
+    {
+      "change_id": "inventory-release-9",
+      "kind": "deployment",
+      "service": "inventory",
+      "step": 8
+    }
+  ],
+  "description": "An unrelated inventory deployment precedes a payments configuration fault.",
+  "injected_fault": {
+    "end_step": null,
+    "intensity": 1.4,
+    "service": "payments",
+    "start_step": 9,
+    "threshold": 22
+  },
+  "observability": {
+    "fault_metric_visibility_delay_steps": 0,
+    "fault_metrics_suppressed_after_start": false
+  },
+  "omitted_dependency_edges": [],
+  "scenario_id": "scn_ce58346f646c",
+  "scenario_name": "red_herring_deploy",
+  "seed": 24,
+  "telemetry_omissions": {
+    "metric_services_absent": [],
+    "metric_windows": {},
+    "traces_missing_for": []
+  }
+}
