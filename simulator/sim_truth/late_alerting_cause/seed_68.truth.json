@@ -1,0 +1,24 @@
+{
+  "changes": [],
+  "description": "Database saturation propagates immediately, but the database metric alert is delayed by five windows.",
+  "injected_fault": {
+    "end_step": null,
+    "intensity": 1.35,
+    "service": "database",
+    "start_step": 10,
+    "threshold": 42.0
+  },
+  "observability": {
+    "fault_metric_visibility_delay_steps": 5,
+    "fault_metrics_suppressed_after_start": false
+  },
+  "omitted_dependency_edges": [],
+  "scenario_id": "scn_57ce185ee257",
+  "scenario_name": "late_alerting_cause",
+  "seed": 68,
+  "telemetry_omissions": {
+    "metric_services_absent": [],
+    "metric_windows": {},
+    "traces_missing_for": []
+  }
+}

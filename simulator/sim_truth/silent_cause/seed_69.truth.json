@@ -1,0 +1,26 @@
+{
+  "changes": [],
+  "description": "Database saturation propagates through callers while the database metric stream is silent.",
+  "injected_fault": {
+    "end_step": null,
+    "intensity": 1.35,
+    "service": "database",
+    "start_step": 10,
+    "threshold": 42.0
+  },
+  "observability": {
+    "fault_metric_visibility_delay_steps": 0,
+    "fault_metrics_suppressed_after_start": false
+  },
+  "omitted_dependency_edges": [],
+  "scenario_id": "scn_ff1b3e381250",
+  "scenario_name": "silent_cause",
+  "seed": 69,
+  "telemetry_omissions": {
+    "metric_services_absent": [
+      "database"
+    ],
+    "metric_windows": {},
+    "traces_missing_for": []
+  }
+}

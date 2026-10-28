@@ -1,0 +1,32 @@
+{
+  "dependency_graph_complete": true,
+  "files": [
+    "metrics/metrics.json",
+    "traces/spans.json",
+    "logs/events.jsonl",
+    "events.json",
+    "dependency_graph.json"
+  ],
+  "record_counts": {
+    "dependencies": 4,
+    "events": 0,
+    "logs": 27,
+    "metrics": 385,
+    "spans": 300
+  },
+  "scenario_id": "scn_ac05884c4156",
+  "schema_version": "1.0",
+  "seed": 69,
+  "services": [
+    "checkout",
+    "payments",
+    "inventory",
+    "database"
+  ],
+  "source": "synthetic",
+  "synthetic": true,
+  "time_range": {
+    "end": "2025-01-16T07:00:00Z",
+    "start": "2025-01-15T12:00:00Z"
+  }
+}
