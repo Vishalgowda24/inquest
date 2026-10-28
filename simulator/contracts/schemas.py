@@ -95,3 +95,4 @@ class ScenarioManifest(ExportModel):
     services: list[str] = Field(min_length=1)
     record_counts: dict[str, int]
     files: list[str]
+    dependency_graph_complete: bool = True

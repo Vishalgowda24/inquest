@@ -20,6 +20,7 @@ class ScenarioSpec:
     fault_end: int | None = None
     fault_intensity: float = 1.35
     fault_threshold: float = 42.0
+    additional_faults: tuple[tuple[str, int, int | None, float, float], ...] = ()
     fault_metric_visibility_delay: int = 0
     hide_fault_metrics: bool = False
     suppress_metric_services: frozenset[str] = frozenset()
@@ -46,7 +47,7 @@ def generate(spec: ScenarioSpec, seed: int) -> Dataset:
         seed, rng, spec.fault_intensity, steps=spec.steps, scenario_id=scenario_id,
         fault_service=spec.fault_service, fault_start=spec.fault_start,
         fault_end=spec.fault_end, fault_threshold=spec.fault_threshold,
-        missing_windows=spec.missing_windows,
+        missing_windows=spec.missing_windows, additional_faults=spec.additional_faults,
     )
     if spec.fault_metric_visibility_delay or spec.hide_fault_metrics:
         # The system state still propagates through the call graph. This
@@ -55,7 +56,7 @@ def generate(spec: ScenarioSpec, seed: int) -> Dataset:
             seed, random.Random(seed), 0.0, steps=spec.steps, scenario_id=scenario_id,
             fault_service=spec.fault_service, fault_start=spec.fault_start,
             fault_end=spec.fault_end, fault_threshold=spec.fault_threshold,
-            missing_windows=spec.missing_windows,
+            missing_windows=spec.missing_windows, additional_faults=spec.additional_faults,
         )
         baseline_by_id = {point.id: point.value for point in baseline_metrics}
         visible_from = spec.steps if spec.hide_fault_metrics else spec.fault_start + spec.fault_metric_visibility_delay
@@ -76,23 +77,27 @@ def generate(spec: ScenarioSpec, seed: int) -> Dataset:
         )
         for index, (kind, service, step, change_id) in enumerate(spec.changes, start=1)
     ]
-    dependencies = [DependencyEdge(id=f"dependency-{caller}-{callee}", caller=caller, callee=callee) for caller, callee in (("checkout", "payments"), ("checkout", "inventory"), ("payments", "database"), ("inventory", "database"))]
+    dependency_pairs = (("checkout", "payments"), ("checkout", "inventory"), ("payments", "database"), ("inventory", "database"))
+    if spec.key == "partial_graph":
+        dependency_pairs = tuple(edge for edge in dependency_pairs if edge != ("payments", "database"))
+    dependencies = [DependencyEdge(id=f"dependency-{caller}-{callee}", caller=caller, callee=callee) for caller, callee in dependency_pairs]
     files = ["metrics/metrics.json", "traces/spans.json", "logs/events.jsonl", "events.json", "dependency_graph.json"]
     manifest = ScenarioManifest(
         scenario_id=scenario_id, seed=seed,
         time_range=TimeRange(start=START, end=_timestamp(spec.steps - 1)),
         services=list(SERVICES),
         record_counts={"metrics": len(metrics), "spans": len(spans), "logs": len(logs), "events": len(events), "dependencies": len(dependencies)},
-        files=files,
+        files=files, dependency_graph_complete=spec.key != "partial_graph",
     )
     truth = {
         "scenario_name": spec.key,
         "scenario_id": scenario_id,
         "seed": seed,
         "description": spec.description,
-        "injected_fault": {"service": spec.fault_service, "start_step": spec.fault_start, "end_step": spec.fault_end, "intensity": spec.fault_intensity, "threshold": spec.fault_threshold},
+        "injected_fault": ({"service": spec.fault_service, "start_step": spec.fault_start, "end_step": spec.fault_end, "intensity": spec.fault_intensity, "threshold": spec.fault_threshold} if not spec.additional_faults else [{"service": spec.fault_service, "start_step": spec.fault_start, "end_step": spec.fault_end, "intensity": spec.fault_intensity, "threshold": spec.fault_threshold}, *[{"service": s, "start_step": start, "end_step": end, "intensity": intensity, "threshold": threshold} for s,start,end,intensity,threshold in spec.additional_faults]]),
         "observability": {"fault_metric_visibility_delay_steps": spec.fault_metric_visibility_delay, "fault_metrics_suppressed_after_start": spec.hide_fault_metrics},
         "changes": [{"kind": kind, "service": service, "step": step, "change_id": change_id} for kind, service, step, change_id in spec.changes],
         "telemetry_omissions": {"metric_windows": {service: sorted(windows) for service, windows in spec.missing_windows.items()}, "metric_services_absent": sorted(spec.suppress_metric_services), "traces_missing_for": sorted(spec.no_trace_services)},
+        "omitted_dependency_edges": ["payments->database"] if spec.key == "partial_graph" else [],
     }
     return Dataset(manifest, tuple(metrics), tuple(spans), tuple(logs), tuple(events), tuple(dependencies), truth)

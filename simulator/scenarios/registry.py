@@ -8,6 +8,10 @@ from simulator.scenarios.missing_telemetry import generate as missing_telemetry
 from simulator.scenarios.long_seasonal import generate as long_seasonal
 from simulator.scenarios.late_alerting_cause import generate as late_alerting_cause
 from simulator.scenarios.silent_cause import generate as silent_cause
+from simulator.scenarios.concurrent_causes import generate as concurrent_causes
+from simulator.scenarios.noisy_alerts import generate as noisy_alerts
+from simulator.scenarios.partial_graph import generate as partial_graph
+from simulator.scenarios.red_herring_hard import generate as red_herring_hard
 
 SCENARIO_GENERATORS = {
     "clean_bad_deploy": clean_bad_deploy,
@@ -18,5 +22,9 @@ SCENARIO_GENERATORS = {
     "long_seasonal": long_seasonal,
     "late_alerting_cause": late_alerting_cause,
     "silent_cause": silent_cause,
+    "concurrent_causes": concurrent_causes,
+    "noisy_alerts": noisy_alerts,
+    "partial_graph": partial_graph,
+    "red_herring_hard": red_herring_hard,
 }
 DEFAULT_EVAL_SCENARIOS = tuple(SCENARIO_GENERATORS)

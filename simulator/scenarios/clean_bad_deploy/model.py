@@ -48,7 +48,7 @@ def _stable_id(kind: str, seed: int, *parts: object) -> str:
     return f"{kind}-{seed}-" + "-".join(str(part) for part in parts)
 
 
-def _service_states(minute: int, rng: random.Random, fault_intensity: float, history: list[dict[str, ServiceState]], *, fault_service: str = "database", fault_start: int = 10, fault_end: int | None = None, fault_threshold: float = 42.0) -> dict[str, ServiceState]:
+def _service_states(minute: int, rng: random.Random, fault_intensity: float, history: list[dict[str, ServiceState]], *, fault_service: str = "database", fault_start: int = 10, fault_end: int | None = None, fault_threshold: float = 42.0, additional_faults: tuple[tuple[str, int, int | None, float, float], ...] = ()) -> dict[str, ServiceState]:
     phase = 2.0 * 3.141592653589793 * minute / 24.0
     traffic = 0.82 + 0.18 * (0.5 + 0.5 * math.sin(phase))
     load = {"checkout": 38 * traffic, "payments": 31 * traffic, "inventory": 18 * traffic, "database": 74 * traffic}
@@ -58,6 +58,10 @@ def _service_states(minute: int, rng: random.Random, fault_intensity: float, his
         own_sat = max(0.0, rate - (66 if service == "database" else 90))
         fault_active = service == fault_service and minute >= fault_start and (fault_end is None or minute < fault_end)
         fault_sat = max(0.0, rate - fault_threshold) * (fault_intensity if fault_active else 0.0)
+        for extra_service, extra_start, extra_end, extra_intensity, extra_threshold in additional_faults:
+            active = service == extra_service and minute >= extra_start and (extra_end is None or minute < extra_end)
+            if active:
+                fault_sat += max(0.0, rate - extra_threshold) * extra_intensity
         dep_states = [history[minute - 1][name] if minute > 0 else downstream[name] for caller, name in DEPENDENCIES if caller == service]
         latency = 18 + rate * (0.16 if service == "database" else 0.07) + own_sat * 1.8 + fault_sat * 3.2
         latency += sum(dep.latency_ms * 0.55 for dep in dep_states) + rng.uniform(-1.8, 1.8)
@@ -85,13 +89,13 @@ def _dependency_order() -> list[str]:
     return ordered
 
 
-def _make_metrics(seed: int, rng: random.Random, fault_intensity: float, *, steps: int = 20, scenario_id: str | None = None, fault_service: str = "database", fault_start: int = 10, fault_end: int | None = None, fault_threshold: float = 42.0, missing_windows: dict[str, set[int]] | None = None) -> tuple[list[MetricPoint], list[dict[str, ServiceState]]]:
+def _make_metrics(seed: int, rng: random.Random, fault_intensity: float, *, steps: int = 20, scenario_id: str | None = None, fault_service: str = "database", fault_start: int = 10, fault_end: int | None = None, fault_threshold: float = 42.0, missing_windows: dict[str, set[int]] | None = None, additional_faults: tuple[tuple[str, int, int | None, float, float], ...] = ()) -> tuple[list[MetricPoint], list[dict[str, ServiceState]]]:
     metrics: list[MetricPoint] = []
     all_states: list[dict[str, ServiceState]] = []
     scenario_id = scenario_id or _scenario_id(seed)
     missing_windows = missing_windows or {}
     for minute in range(steps):
-        states = _service_states(minute, rng, fault_intensity, all_states, fault_service=fault_service, fault_start=fault_start, fault_end=fault_end, fault_threshold=fault_threshold)
+        states = _service_states(minute, rng, fault_intensity, all_states, fault_service=fault_service, fault_start=fault_start, fault_end=fault_end, fault_threshold=fault_threshold, additional_faults=additional_faults)
         all_states.append(states)
         for service in SERVICES:
             state = states[service]
