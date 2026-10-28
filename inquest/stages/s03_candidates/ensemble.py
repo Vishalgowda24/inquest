@@ -2,12 +2,16 @@
 
 from __future__ import annotations
 
-from collections import Counter, defaultdict
+from collections import Counter
 
 from inquest.contracts import Candidate, CandidateMethodResult
 
 
-def rank_aggregate(results: list[CandidateMethodResult], *, rank_constant: int = 60, abstain_without_evidence: bool = True) -> tuple[list[Candidate], float, dict[str, dict[str, str]]]:
+def rank_aggregate(
+    results: list[CandidateMethodResult], *, rank_constant: int = 60,
+    abstain_without_evidence: bool = True,
+    method_weights: dict[str, float] | None = None,
+) -> tuple[list[Candidate], float, dict[str, dict[str, str]]]:
     universe = {((item.service or item.target) if item.target_type == "change" else item.target) for result in results for item in result.candidates}
     abstentions: dict[str, dict[str, str]] = {target: {} for target in sorted(universe)}
     active = [item for item in results if item.status != "DISABLED"]
@@ -33,7 +37,8 @@ def rank_aggregate(results: list[CandidateMethodResult], *, rank_constant: int =
         for rank, item in enumerate(ranked, start=1):
             target = canonical(item)
             entry = fused.setdefault(target, {"rrf": 0.0, "scores": {}, "evidence": set(), "methods": set()})
-            entry["rrf"] += 1.0 / (rank_constant + rank)
+            weight = (method_weights or {}).get(method_result.method, 1.0)
+            entry["rrf"] += weight / (rank_constant + rank)
             entry["scores"][method_result.method] = item.score
             entry["evidence"].update(item.evidence_ids)
             entry["methods"].add(method_result.method)
@@ -47,7 +52,7 @@ def rank_aggregate(results: list[CandidateMethodResult], *, rank_constant: int =
         output.append(Candidate(
             id=f"ensemble:{target}", target=target, target_type="service", service=target,
             method="ensemble", score=entry["rrf"],
-            rationale=f"Reciprocal-rank fusion; ranked by {', '.join(methods)}",
+            rationale=f"Weighted reciprocal-rank fusion; ranked by {', '.join(methods)}",
             evidence_ids=sorted(entry["evidence"]), method_scores=entry["scores"],
         ))
     if not abstain_without_evidence:

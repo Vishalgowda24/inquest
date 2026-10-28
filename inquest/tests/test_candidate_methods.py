@@ -59,3 +59,17 @@ def test_fusion_ablation_without_abstention_preserves_legacy_ranks():
     fused, _, abstentions = rank_aggregate(results, abstain_without_evidence=False)
     assert [item.target for item in fused] == ["payments"]
     assert abstentions == {}
+
+
+def test_fusion_applies_frozen_graph_rwr_weight_without_changing_raw_scores():
+    def c(target, method, score):
+        return Candidate(id=f"{method}:{target}",target=target,target_type="service",service=target,method=method,score=score,rationale="test",evidence_ids=[f"ev-{method}-{target}"])
+    results=[
+        CandidateMethodResult(method="graph_rwr",status="OK",candidates=[c("database","graph_rwr",0.9)]),
+        CandidateMethodResult(method="trace_ochiai",status="OK",candidates=[c("inventory","trace_ochiai",0.9),c("database","trace_ochiai",0.8)]),
+        CandidateMethodResult(method="temporal_lag",status="OK",candidates=[c("inventory","temporal_lag",0.9),c("payments","temporal_lag",0.8)]),
+    ]
+    fused,_,_=rank_aggregate(results,method_weights={"graph_rwr":2.0})
+    assert [item.target for item in fused][:2]==["database","inventory"]
+    db=next(item for item in fused if item.target=="database")
+    assert db.method_scores=={"graph_rwr":0.9,"trace_ochiai":0.8}

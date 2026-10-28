@@ -34,14 +34,14 @@ def test_pipeline_emits_status_preserves_s03_and_tests_vault_provenance(tmp_path
     assert data["reranking_enabled"] is True
     assert [x["candidate_id"] for x in data["original_order"]]==["candidate:checkout","candidate:database"]
     assert [x["candidate_id"] for x in data["reranked_order"]]==["candidate:database","candidate:checkout"]
-    assert [x["status"] for x in data["original_order"]]==["unsupported","verified"]
+    assert [x["status"] for x in data["original_order"]]==["unsupported","contested"]
     for decision in data["original_order"]:
         source=next(x for x in analysis.candidates if x.id==decision["candidate_id"])
         assert decision["s03_rank"] in (1,2)
         assert decision["s03_score"]==source.score
         assert decision["method_scores"]==source.method_scores
         assert decision["s03_disagreement"]==analysis.disagreement
-    assert data["original_order"][1]["status"]=="verified"
+    assert data["original_order"][1]["status"]=="contested"
     ids={x.id for x in ev}
     assert all(set(f["evidence_ids"])<=ids for fs in data["per_method"].values() for f in fs)
     assert all(set(d["evidence_ids"])<=ids for d in data["decisions"])
@@ -50,7 +50,7 @@ def test_pipeline_emits_status_preserves_s03_and_tests_vault_provenance(tmp_path
 def test_reversed_dependency_direction_and_negative_case():
     cause=_candidate("database",0.9,[]); unrelated=_candidate("checkout",0.8,[])
     vault={"edge-1":{"payload":{"caller":"payments","callee":"database"}}}
-    context={"onsets":[{"service":"payments"}],"coverage_gaps":[]}
+    context={"onsets":[{"service":"database","metric":"latency","onset_time":"2025-01-01T00:00:00+00:00"},{"service":"payments","metric":"latency","onset_time":"2025-01-01T00:00:00+00:00"}],"coverage_gaps":[]}
     method=DependencyPathMethod()
     findings=method.run([cause,unrelated],context,vault)
     assert findings[0].verdict=="supports" and findings[0].evidence_ids==["edge-1"]
@@ -128,11 +128,40 @@ def test_recovery_check_detects_three_post_restart_windows():
 def test_alternative_check_identifies_common_dependency_explaining_more_symptoms():
     candidates=[_candidate("database",0.9,[]),_candidate("payments",0.7,[])]
     vault={"e1":{"payload":{"caller":"payments","callee":"database"}},"e2":{"payload":{"caller":"inventory","callee":"database"}}}
-    context={"onsets":[{"service":"payments"},{"service":"inventory"}],"coverage_gaps":[]}
+    context={"onsets":[{"service":"database","metric":"latency","onset_time":"2025-01-01T00:00:00+00:00"},{"service":"payments","metric":"latency","onset_time":"2025-01-01T01:00:00+00:00"},{"service":"inventory","metric":"latency","onset_time":"2025-01-01T02:00:00+00:00"}],"coverage_gaps":[]}
     results=AlternativeCheckMethod().run(candidates,context,vault)
     assert results[0].verdict=="supports"
     assert results[1].verdict=="contradicts"
     assert set(results[0].evidence_ids)=={"e1","e2"}
+
+
+def test_graph_candidate_is_contradicted_when_its_onset_follows_symptoms():
+    database=_candidate("database",0.9,[]); payments=_candidate("payments",0.8,[])
+    t0=datetime(2025,1,1,tzinfo=timezone.utc)
+    context={"onsets":[
+        {"service":"database","metric":"latency","onset_time":(t0+timedelta(hours=2)).isoformat(),"timestamp_uncertainty_ms":0},
+        {"service":"payments","metric":"latency","onset_time":(t0+timedelta(hours=1)).isoformat(),"timestamp_uncertainty_ms":0},
+        {"service":"inventory","metric":"latency","onset_time":(t0+timedelta(hours=1,minutes=30)).isoformat(),"timestamp_uncertainty_ms":0}],
+        "coverage_gaps":[],"dependency_graph_complete":True,
+        "metrics":[{"id":"metric-db","service":"database","metric":"latency","timestamp":(t0+timedelta(hours=2)).isoformat()},
+                   {"id":"metric-payments","service":"payments","metric":"latency","timestamp":(t0+timedelta(hours=1)).isoformat()}]}
+    vault={"edge-payments-db":{"payload":{"caller":"payments","callee":"database"}},
+           "edge-inventory-db":{"payload":{"caller":"inventory","callee":"database"}},
+           "metric-db":{},"metric-payments":{}}
+    dep=DependencyPathMethod().run([database,payments],context,vault)[0]
+    alt=AlternativeCheckMethod().run([database,payments],context,vault)[0]
+    assert dep.verdict=="contradicts" and "metric-payments" in dep.evidence_ids
+    assert alt.verdict=="contradicts" and "metric-payments" in alt.evidence_ids
+
+
+def test_temporal_priority_checks_stay_inconclusive_without_candidate_onset():
+    database=_candidate("database",0.9,[])
+    context={"onsets":[{"service":"payments","metric":"latency","onset_time":"2025-01-01T00:00:00+00:00"}],"coverage_gaps":[],"dependency_graph_complete":True}
+    vault={"edge":{"payload":{"caller":"payments","callee":"database"}}}
+    dep=DependencyPathMethod().run([database],context,vault)[0]
+    alt=AlternativeCheckMethod().run([database],context,vault)[0]
+    assert dep.verdict=="inconclusive"
+    assert alt.verdict=="inconclusive"
 
 
 def test_s04_method_modules_do_not_import_each_other():
