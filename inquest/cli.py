@@ -10,7 +10,7 @@ from pathlib import Path
 
 import typer
 
-from inquest.contracts import CanonicalBundle, Report, StageStatus
+from inquest.contracts import CanonicalBundle, IncidentReport, Report, StageStatus
 from inquest.core.artifacts import read_json
 from inquest.core.builtins import default_registry
 from inquest.core.config import InquestConfig, load_config
@@ -133,7 +133,7 @@ def ingest(folder: Path = typer.Argument(...), config: Path = typer.Option(Path(
     """Ingest evidence, append the vault, and compute robust signal onsets."""
     settings = load_config(config)
     bundle = _load_bundle(folder, settings)
-    names = ["s00_ingest", "s01_vault", "s02_signals", "s03_candidates", "s04_verify"]
+    names = ["s00_ingest", "s01_vault", "s02_signals", "s03_candidates", "s04_verify", "s05_report"]
     run_id = _run_id(bundle.manifest.scenario_id, bundle.manifest.seed, names)
     report = StageRunner(default_registry(settings)).run(_context(settings, bundle.manifest.scenario_id, run_id), names, {"folder": str(folder)})
     ingest_result = next((item for item in report.stages if item.stage == "s00_ingest"), None)
@@ -192,6 +192,16 @@ def explain(run: str = typer.Option(..., "--run"), config: Path = typer.Option(P
             if result.traceback:
                 typer.echo(result.traceback)
     typer.echo(report.summary)
+
+
+@app.command("report")
+def report_command(run: str = typer.Argument(...), config: Path = typer.Option(Path("config.yaml"), "--config")) -> None:
+    """Print the deterministic S05 incident report saved for a run."""
+    settings=load_config(config)
+    report_dir=settings.runs_dir/run/"05_s05_report"
+    structured=IncidentReport.model_validate(read_json(report_dir/"report.json"))
+    _ = structured
+    typer.echo((report_dir/"report.md").read_text(encoding="utf-8"),nl=False)
 
 
 def main() -> None:

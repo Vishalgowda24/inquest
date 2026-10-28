@@ -8,6 +8,7 @@ from inquest.stages.s01_vault.stage import VaultStage
 from inquest.stages.s02_signals.stage import SignalsStage
 from inquest.stages.s03_candidates.stage import CandidateStage
 from inquest.stages.s04_verify.stage import VerifyStage
+from inquest.stages.s05_report.stage import ReportStage
 from inquest.stages.smoke import SmokeStage
 from .registry import StageRegistry
 
@@ -21,4 +22,5 @@ def default_registry(config: InquestConfig | None = None) -> StageRegistry:
     registry.register(SignalsStage())
     registry.register(CandidateStage())
     registry.register(VerifyStage())
+    registry.register(ReportStage())
     return registry

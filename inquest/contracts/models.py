@@ -196,6 +196,78 @@ class VerificationAnalysis(BaseModel):
     reranking_enabled: bool = False
 
 
+class ConfidenceEstimate(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    level: Literal["high", "medium", "low", "insufficient_evidence"]
+    probability: float = Field(ge=0, le=1)
+    margin: float
+    first_place_method_count: int = Field(ge=0)
+    disagreement: float = Field(ge=0, le=1)
+    s04_status: Literal["verified", "contested", "insufficient_evidence", "unsupported"] | None
+    telemetry_gap: bool
+    model_sha256: str = Field(pattern=r"^[a-f0-9]{64}$")
+
+
+class ReportStatement(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    text: str = Field(min_length=1)
+    evidence_ids: list[str] = Field(min_length=1)
+
+
+class IncidentHeadline(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    target: str | None
+    target_type: Literal["service", "change", "none"]
+    confidence: ConfidenceEstimate
+    reason: str = Field(min_length=1)
+    evidence_ids: list[str] = Field(min_length=1)
+
+
+class IncidentCandidate(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    rank: int = Field(ge=1, le=3)
+    target: str
+    target_type: Literal["service", "change"]
+    ensemble_score: float
+    per_method_scores: dict[str, float]
+    disagreement: float = Field(ge=0, le=1)
+    s04_status: Literal["verified", "contested", "insufficient_evidence", "unsupported"] | None
+    evidence_ids: list[str] = Field(min_length=1)
+
+
+class EvidenceTimelineItem(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    timestamp: datetime | None
+    kind: str
+    service: str | None
+    summary: str
+    evidence_ids: list[str] = Field(min_length=1)
+
+
+class RunnerUpFinding(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    method: str
+    verdict: Literal["supports", "contradicts", "inconclusive"]
+    effect_size: float = Field(ge=0, le=1)
+    rationale: str
+    evidence_ids: list[str] = Field(min_length=1)
+
+
+class IncidentReport(ContractModel):
+    scenario_id: str = Field(pattern=r"^scn_[a-f0-9]{12}$")
+    source: Literal["synthetic", "otel", "real"]
+    synthetic: bool
+    headline: IncidentHeadline
+    top_candidates: list[IncidentCandidate] = Field(max_length=3)
+    evidence_timeline: list[EvidenceTimelineItem]
+    runner_up_findings: list[RunnerUpFinding]
+    unknowns: list[ReportStatement]
+    suggested_next_checks: list[ReportStatement]
+    seasonal_normalization: Literal["on", "off_or_partial"]
+    confidence_model_sha256: str = Field(pattern=r"^[a-f0-9]{64}$")
+    footer: ReportStatement
+
+
 class Hypothesis(ContractModel):
     id: str
     description: str
