@@ -18,7 +18,7 @@ from inquest.core.errors import ConfigurationError, InquestError
 from inquest.core.context import RunContext
 from inquest.core.vault import verify_chain
 from inquest.core.runner import StageRunner, make_context
-from inquest.stages.s00_ingest.adapters import default_adapter_registry
+from inquest.stages.s00_ingest.adapters import default_adapter_registry, RealIncidentAdapter
 from inquest.stages.s03_candidates.methods.registry import default_method_registry
 from inquest.stages.s04_verify.methods.registry import default_method_registry as default_verification_registry
 from inquest.core.artifacts import write_json, write_text
@@ -145,6 +145,43 @@ def ingest(folder: Path = typer.Argument(...), config: Path = typer.Option(Path(
         write_text(settings.runs_dir / run_id / "quarantine" / "rejected.jsonl", lines)
     write_json(settings.runs_dir / run_id / "ingest_report.json", {"run_id": run_id, "scenario_id": report.scenario_id, "source": report.source, "synthetic": report.synthetic, **diagnostics, "failed_stages": report.failed_stages, "degraded_stages": report.degraded_stages})
     typer.echo(f"Inquest report | source={report.source} | scenario_id={report.scenario_id} | run_id={run_id}")
+    typer.echo(json.dumps(_ingest_summary(report), sort_keys=True))
+    if report.failed_stages:
+        raise typer.Exit(code=1)
+
+
+@app.command("ingest-real")
+def ingest_real(directory: Path = typer.Argument(..., help="Path to real incident directory"), config: Path = typer.Option(Path("config.yaml"), "--config")) -> None:
+    """Validate, ingest, and run S00–S05 on a real incident directory."""
+    settings = load_config(config)
+    adapter = RealIncidentAdapter()
+    try:
+        adapter.validate(directory)
+        bundle = adapter.load(directory)
+    except InquestError as exc:
+        typer.echo(f"Real data validation error: {exc}", err=True)
+        raise typer.Exit(code=2) from exc
+    except Exception as exc:
+        typer.echo(f"Real data ingest error: {exc}", err=True)
+        raise typer.Exit(code=2) from exc
+
+    names = ["s00_ingest", "s01_vault", "s02_signals", "s03_candidates", "s04_verify", "s05_report"]
+    run_id = "real_" + bundle.manifest.scenario_id[4:] + "_" + hashlib.sha256(str(directory.resolve()).encode()).hexdigest()[:8]
+    context = _context(settings, bundle.manifest.scenario_id, run_id)
+    report = StageRunner(default_registry(settings)).run(context, names, {"folder": str(directory)})
+
+    ingest_result = next((item for item in report.stages if item.stage == "s00_ingest"), None)
+    details = ingest_result.output if ingest_result else {}
+    diagnostics = {key: details.get(key) for key in ("accepted_counts", "rejected_counts", "warnings", "adapter")}
+    quarantined = details.get("quarantined", [])
+    if isinstance(quarantined, list) and quarantined:
+        lines = "".join(json.dumps(item, sort_keys=True, separators=(",", ":")) + "\n" for item in quarantined)
+        write_text(settings.runs_dir / run_id / "quarantine" / "rejected.jsonl", lines)
+    write_json(settings.runs_dir / run_id / "ingest_report.json", {
+        "run_id": run_id, "scenario_id": report.scenario_id, "source": "real", "synthetic": False,
+        **diagnostics, "failed_stages": report.failed_stages, "degraded_stages": report.degraded_stages
+    })
+    typer.echo(f"Inquest real incident report | source=real | scenario_id={report.scenario_id} | run_id={run_id}")
     typer.echo(json.dumps(_ingest_summary(report), sort_keys=True))
     if report.failed_stages:
         raise typer.Exit(code=1)

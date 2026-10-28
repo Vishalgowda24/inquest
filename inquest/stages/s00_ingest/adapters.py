@@ -252,10 +252,418 @@ class CsvGenericAdapter(IngestAdapter):
         return ScenarioManifest(scenario_id=f"scn_{content_hash}", seed=0, source="real", synthetic=False, time_range={"start": min(timestamps), "end": max(timestamps)}, services=sorted({item.service for item in records}), record_counts={"metrics": len(records)}, files=[path.name], source_metadata={"adapter": self.name})
 
 
+
+
+def _parse_real_timestamp(value: str) -> datetime:
+    text_val = str(value).strip().replace("Z", "+00:00")
+    dt = datetime.fromisoformat(text_val)
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt
+
+
+class RealIncidentAdapter(IngestAdapter):
+    name = "real_incident"
+
+    def detect(self, path: Path) -> bool:
+        if not path.is_dir():
+            return False
+        if (path / "manifest.json").is_file():
+            return False
+        has_metrics = (path / "metrics.json").exists() or (path / "metrics.csv").exists() or (path / "metrics").is_dir()
+        has_graph = (path / "dependency_graph.json").exists() or (path / "dependencies.json").exists() or (path / "topology.json").exists()
+        return has_metrics and has_graph
+
+    def validate(self, path: Path) -> None:
+        if not path.is_dir():
+            raise IngestError(f"Incident path {path} is not an accessible directory", input_path=str(path))
+
+        # 1. Metrics check
+        metric_file = None
+        if (path / "metrics.json").is_file():
+            metric_file = path / "metrics.json"
+        elif (path / "metrics.csv").is_file():
+            metric_file = path / "metrics.csv"
+        elif (path / "metrics").is_dir():
+            m_items = [p for p in (path / "metrics").iterdir() if p.suffix.lower() in (".json", ".csv")]
+            if not m_items:
+                raise IngestError(f"Metrics directory {path / 'metrics'} contains no .json or .csv files", input_path=str(path))
+        else:
+            raise IngestError(f"Missing required metrics data in {path}: expected metrics.json, metrics.csv, or a populated metrics/ directory", input_path=str(path))
+
+        # 2. Events check
+        if (path / "events.json").is_file():
+            pass
+        elif (path / "events.csv").is_file():
+            pass
+        elif (path / "events").is_dir():
+            e_items = [p for p in (path / "events").iterdir() if p.suffix.lower() in (".json", ".csv")]
+            if not e_items:
+                raise IngestError(f"Events directory {path / 'events'} contains no .json or .csv files", input_path=str(path))
+        else:
+            raise IngestError(f"Missing required events data in {path}: expected events.json, events.csv, or events/ directory", input_path=str(path))
+
+        # 3. Alerts check
+        if (path / "alerts.json").is_file():
+            pass
+        elif (path / "alerts.csv").is_file():
+            pass
+        elif (path / "alerts").is_dir():
+            a_items = [p for p in (path / "alerts").iterdir() if p.suffix.lower() in (".json", ".csv")]
+            if not a_items:
+                raise IngestError(f"Alerts directory {path / 'alerts'} contains no .json or .csv files", input_path=str(path))
+        else:
+            raise IngestError(f"Missing required alerts data in {path}: expected alerts.json, alerts.csv, or alerts/ directory", input_path=str(path))
+
+        # 4. Dependency graph check
+        graph_file = next((path / name for name in ("dependency_graph.json", "dependencies.json", "topology.json") if (path / name).is_file()), None)
+        if not graph_file:
+            raise IngestError(f"Missing required dependency graph in {path}: expected dependency_graph.json or topology.json", input_path=str(path))
+
+        # Validate graph content
+        try:
+            raw_graph = json.loads(graph_file.read_text(encoding="utf-8"))
+        except Exception as exc:
+            raise IngestError(f"Malformed JSON in dependency graph {graph_file}: {exc}", input_path=str(graph_file)) from exc
+        edges = raw_graph.get("edges", raw_graph) if isinstance(raw_graph, dict) else raw_graph
+        if not isinstance(edges, list) or not edges:
+            raise IngestError(f"Dependency graph {graph_file} must contain a non-empty list of edge objects", input_path=str(graph_file))
+        for idx, edge in enumerate(edges, start=1):
+            if not isinstance(edge, dict) or not edge.get("caller") or not edge.get("callee"):
+                raise IngestError(f"Malformed dependency edge #{idx} in {graph_file}: required keys 'caller' and 'callee'", input_path=str(graph_file))
+
+        # Validate metric file content if single file
+        if metric_file and metric_file.suffix.lower() == ".json":
+            try:
+                raw_m = json.loads(metric_file.read_text(encoding="utf-8"))
+                if not isinstance(raw_m, list):
+                    raise IngestError(f"Malformed metrics JSON in {metric_file}: root must be a list of records", input_path=str(metric_file))
+                for idx, item in enumerate(raw_m, start=1):
+                    if not isinstance(item, dict):
+                        raise IngestError(f"Metric record #{idx} in {metric_file} is not an object", input_path=str(metric_file))
+                    for req in ("timestamp", "service", "metric", "value", "unit"):
+                        if req not in item:
+                            raise IngestError(f"Metric record #{idx} in {metric_file} missing required key '{req}'", input_path=str(metric_file))
+                    try:
+                        float(item["value"])
+                    except (ValueError, TypeError):
+                        raise IngestError(f"Metric record #{idx} in {metric_file} has non-numeric value: {item['value']}", input_path=str(metric_file))
+                    try:
+                        _parse_real_timestamp(str(item["timestamp"]))
+                    except Exception as exc:
+                        raise IngestError(f"Metric record #{idx} in {metric_file} has unparseable timestamp: {exc}", input_path=str(metric_file))
+            except json.JSONDecodeError as exc:
+                raise IngestError(f"Malformed JSON in metrics file {metric_file}: {exc}", input_path=str(metric_file)) from exc
+
+    def load(self, path: Path) -> CanonicalBundle:
+        self.validate(path)
+
+        accepted_counts = {"metrics": 0, "logs": 0, "changes": 0, "dependencies": 0, "spans": 0}
+        rejected_counts = {"metrics": 0, "logs": 0, "changes": 0, "dependencies": 0, "spans": 0}
+        quarantined: list[QuarantinedRecord] = []
+        input_files: list[str] = []
+        warnings: list[str] = []
+
+        all_timestamps: list[datetime] = []
+        services: set[str] = set()
+
+        # Load metrics
+        metrics: list[MetricPoint] = []
+        metric_paths: list[Path] = []
+        if (path / "metrics.json").is_file():
+            metric_paths.append(path / "metrics.json")
+        elif (path / "metrics.csv").is_file():
+            metric_paths.append(path / "metrics.csv")
+        elif (path / "metrics").is_dir():
+            metric_paths.extend(sorted(p for p in (path / "metrics").iterdir() if p.suffix.lower() in (".json", ".csv")))
+
+        for mp in metric_paths:
+            input_files.append(str(mp.relative_to(path)))
+            if mp.suffix.lower() == ".json":
+                items = json.loads(mp.read_text(encoding="utf-8"))
+                for idx, raw in enumerate(items, start=1):
+                    try:
+                        ts = _parse_real_timestamp(raw["timestamp"])
+                        all_timestamps.append(ts)
+                        svc = str(raw["service"])
+                        services.add(svc)
+                        pid = str(raw.get("id") or f"metric-{svc}-{raw['metric']}-{len(metrics)}")
+                        pt = MetricPoint(
+                            id=pid,
+                            timestamp=ts,
+                            service=svc,
+                            metric=str(raw["metric"]),
+                            value=float(raw["value"]),
+                            unit=str(raw["unit"]),
+                            dimensions=dict(raw.get("dimensions", {})),
+                            timestamp_uncertainty_ms=int(raw.get("timestamp_uncertainty_ms", 0)),
+                            source=mp.name,
+                        )
+                        metrics.append(pt)
+                        accepted_counts["metrics"] += 1
+                    except Exception as exc:
+                        rejected_counts["metrics"] += 1
+                        quarantined.append(QuarantinedRecord(file_path=str(mp), record_index=idx, error=str(exc), raw_record=raw if isinstance(raw, dict) else {"raw": raw}))
+            elif mp.suffix.lower() == ".csv":
+                with mp.open("r", encoding="utf-8", newline="") as cf:
+                    reader = csv.DictReader(cf)
+                    for idx, raw in enumerate(reader, start=1):
+                        try:
+                            ts = _parse_real_timestamp(raw["timestamp"])
+                            all_timestamps.append(ts)
+                            svc = str(raw["service"])
+                            services.add(svc)
+                            pid = str(raw.get("id") or f"metric-{svc}-{raw['metric']}-{len(metrics)}")
+                            pt = MetricPoint(
+                                id=pid,
+                                timestamp=ts,
+                                service=svc,
+                                metric=str(raw["metric"]),
+                                value=float(raw["value"]),
+                                unit=str(raw["unit"]),
+                                dimensions={},
+                                timestamp_uncertainty_ms=0,
+                                source=mp.name,
+                            )
+                            metrics.append(pt)
+                            accepted_counts["metrics"] += 1
+                        except Exception as exc:
+                            rejected_counts["metrics"] += 1
+                            quarantined.append(QuarantinedRecord(file_path=str(mp), record_index=idx, error=str(exc), raw_record=raw))
+
+        # Load events
+        changes: list[ChangeEvent] = []
+        event_paths: list[Path] = []
+        if (path / "events.json").is_file():
+            event_paths.append(path / "events.json")
+        elif (path / "events.csv").is_file():
+            event_paths.append(path / "events.csv")
+        elif (path / "events").is_dir():
+            event_paths.extend(sorted(p for p in (path / "events").iterdir() if p.suffix.lower() in (".json", ".csv")))
+
+        for ep in event_paths:
+            input_files.append(str(ep.relative_to(path)))
+            if ep.suffix.lower() == ".json":
+                items = json.loads(ep.read_text(encoding="utf-8"))
+                for idx, raw in enumerate(items, start=1):
+                    try:
+                        ts = _parse_real_timestamp(raw["timestamp"])
+                        all_timestamps.append(ts)
+                        svc = str(raw["service"])
+                        services.add(svc)
+                        cid = str(raw.get("id") or f"change-{svc}-{len(changes)}")
+                        change = ChangeEvent(
+                            id=cid,
+                            timestamp=ts,
+                            service=svc,
+                            kind=str(raw["kind"]),
+                            change_id=raw.get("change_id"),
+                            description=raw.get("description"),
+                            timestamp_uncertainty_ms=int(raw.get("timestamp_uncertainty_ms", 0)),
+                            source=ep.name,
+                        )
+                        changes.append(change)
+                        accepted_counts["changes"] += 1
+                    except Exception as exc:
+                        rejected_counts["changes"] += 1
+                        quarantined.append(QuarantinedRecord(file_path=str(ep), record_index=idx, error=str(exc), raw_record=raw if isinstance(raw, dict) else {"raw": raw}))
+            elif ep.suffix.lower() == ".csv":
+                with ep.open("r", encoding="utf-8", newline="") as cf:
+                    reader = csv.DictReader(cf)
+                    for idx, raw in enumerate(reader, start=1):
+                        try:
+                            ts = _parse_real_timestamp(raw["timestamp"])
+                            all_timestamps.append(ts)
+                            svc = str(raw["service"])
+                            services.add(svc)
+                            cid = str(raw.get("id") or f"change-{svc}-{len(changes)}")
+                            change = ChangeEvent(
+                                id=cid,
+                                timestamp=ts,
+                                service=svc,
+                                kind=str(raw["kind"]),
+                                change_id=raw.get("change_id"),
+                                description=raw.get("description"),
+                                timestamp_uncertainty_ms=0,
+                                source=ep.name,
+                            )
+                            changes.append(change)
+                            accepted_counts["changes"] += 1
+                        except Exception as exc:
+                            rejected_counts["changes"] += 1
+                            quarantined.append(QuarantinedRecord(file_path=str(ep), record_index=idx, error=str(exc), raw_record=raw))
+
+        # Load alerts
+        logs: list[LogEvent] = []
+        alert_paths: list[Path] = []
+        if (path / "alerts.json").is_file():
+            alert_paths.append(path / "alerts.json")
+        elif (path / "alerts.csv").is_file():
+            alert_paths.append(path / "alerts.csv")
+        elif (path / "alerts").is_dir():
+            alert_paths.extend(sorted(p for p in (path / "alerts").iterdir() if p.suffix.lower() in (".json", ".csv")))
+
+        for ap in alert_paths:
+            input_files.append(str(ap.relative_to(path)))
+            if ap.suffix.lower() == ".json":
+                items = json.loads(ap.read_text(encoding="utf-8"))
+                for idx, raw in enumerate(items, start=1):
+                    try:
+                        ts = _parse_real_timestamp(raw["timestamp"])
+                        all_timestamps.append(ts)
+                        svc = str(raw["service"])
+                        services.add(svc)
+                        lid = str(raw.get("id") or f"alert-{svc}-{len(logs)}")
+                        attrs = dict(raw.get("attributes", {}))
+                        attrs["alert_emission"] = True
+                        if raw.get("message"):
+                            attrs["message"] = str(raw["message"])
+                        log = LogEvent(
+                            id=lid,
+                            timestamp=ts,
+                            service=svc,
+                            level=str(raw.get("level", "WARN")),
+                            message=str(raw.get("message") or "Alert fired"),
+                            attributes=attrs,
+                            timestamp_uncertainty_ms=int(raw.get("timestamp_uncertainty_ms", 0)),
+                            source=ap.name,
+                        )
+                        logs.append(log)
+                        accepted_counts["logs"] += 1
+                    except Exception as exc:
+                        rejected_counts["logs"] += 1
+                        quarantined.append(QuarantinedRecord(file_path=str(ap), record_index=idx, error=str(exc), raw_record=raw if isinstance(raw, dict) else {"raw": raw}))
+            elif ap.suffix.lower() == ".csv":
+                with ap.open("r", encoding="utf-8", newline="") as cf:
+                    reader = csv.DictReader(cf)
+                    for idx, raw in enumerate(reader, start=1):
+                        try:
+                            ts = _parse_real_timestamp(raw["timestamp"])
+                            all_timestamps.append(ts)
+                            svc = str(raw["service"])
+                            services.add(svc)
+                            lid = str(raw.get("id") or f"alert-{svc}-{len(logs)}")
+                            attrs = {"alert_emission": True}
+                            if raw.get("message"):
+                                attrs["message"] = str(raw["message"])
+                            log = LogEvent(
+                                id=lid,
+                                timestamp=ts,
+                                service=svc,
+                                level=str(raw.get("level", "WARN")),
+                                message=str(raw.get("message") or "Alert fired"),
+                                attributes=attrs,
+                                timestamp_uncertainty_ms=0,
+                                source=ap.name,
+                            )
+                            logs.append(log)
+                            accepted_counts["logs"] += 1
+                        except Exception as exc:
+                            rejected_counts["logs"] += 1
+                            quarantined.append(QuarantinedRecord(file_path=str(ap), record_index=idx, error=str(exc), raw_record=raw))
+
+        # Load dependency graph
+        dependencies: list[DependencyEdge] = []
+        graph_file = next(path / name for name in ("dependency_graph.json", "dependencies.json", "topology.json") if (path / name).is_file())
+        input_files.append(str(graph_file.relative_to(path)))
+        raw_graph = json.loads(graph_file.read_text(encoding="utf-8"))
+        edges = raw_graph.get("edges", raw_graph) if isinstance(raw_graph, dict) else raw_graph
+        for idx, edge in enumerate(edges, start=1):
+            caller = str(edge["caller"])
+            callee = str(edge["callee"])
+            services.add(caller)
+            services.add(callee)
+            eid = str(edge.get("id") or f"edge-{caller}-{callee}")
+            dependencies.append(DependencyEdge(id=eid, caller=caller, callee=callee, source=graph_file.name))
+            accepted_counts["dependencies"] += 1
+
+        # Optional traces
+        spans: list[Span] = []
+        trace_paths: list[Path] = []
+        if (path / "traces.json").is_file():
+            trace_paths.append(path / "traces.json")
+        elif (path / "spans.json").is_file():
+            trace_paths.append(path / "spans.json")
+        elif (path / "traces").is_dir():
+            trace_paths.extend(sorted(p for p in (path / "traces").iterdir() if p.suffix.lower() == ".json"))
+
+        for tp in trace_paths:
+            input_files.append(str(tp.relative_to(path)))
+            raw_spans = json.loads(tp.read_text(encoding="utf-8"))
+            for idx, raw in enumerate(raw_spans, start=1):
+                try:
+                    s_ts = _parse_real_timestamp(raw["start_time"])
+                    e_ts = _parse_real_timestamp(raw["end_time"])
+                    all_timestamps.extend([s_ts, e_ts])
+                    svc = str(raw["service"])
+                    services.add(svc)
+                    span = Span(
+                        trace_id=str(raw["trace_id"]),
+                        span_id=str(raw["span_id"]),
+                        service=svc,
+                        name=str(raw.get("name", "span")),
+                        start_time=s_ts,
+                        end_time=e_ts,
+                        parent_id=raw.get("parent_id"),
+                        error=bool(raw.get("error", False)),
+                        attributes=dict(raw.get("attributes", {})),
+                        timestamp_uncertainty_ms=int(raw.get("timestamp_uncertainty_ms", 0)),
+                        source=tp.name,
+                    )
+                    spans.append(span)
+                    accepted_counts["spans"] += 1
+                except Exception as exc:
+                    rejected_counts["spans"] += 1
+                    quarantined.append(QuarantinedRecord(file_path=str(tp), record_index=idx, error=str(exc), raw_record=raw if isinstance(raw, dict) else {"raw": raw}))
+
+        min_time = min(all_timestamps) if all_timestamps else datetime.now(timezone.utc)
+        max_time = max(all_timestamps) if all_timestamps else min_time
+        time_range = {"start": min_time, "end": max_time}
+
+        content_seed = f"{path.name}|{len(metrics)}|{len(changes)}|{len(logs)}|{len(dependencies)}"
+        content_hash = hashlib.sha256(content_seed.encode("utf-8")).hexdigest()[:12]
+        manifest = ScenarioManifest(
+            scenario_id=f"scn_{content_hash}",
+            seed=0,
+            source="real",
+            synthetic=False,
+            time_range=time_range,
+            services=sorted(services),
+            record_counts={
+                "metrics": len(metrics),
+                "spans": len(spans),
+                "logs": len(logs),
+                "changes": len(changes),
+                "dependencies": len(dependencies),
+            },
+            files=input_files,
+            source_metadata={"adapter": self.name, "directory": str(path.resolve())},
+        )
+
+        diagnostics = IngestDiagnostics(
+            accepted_counts=accepted_counts,
+            rejected_counts=rejected_counts,
+            warnings=warnings,
+            quarantined=quarantined,
+            input_files=input_files,
+        )
+
+        return CanonicalBundle(
+            manifest=manifest,
+            metrics=metrics,
+            spans=spans,
+            logs=logs,
+            changes=changes,
+            dependencies=dependencies,
+            diagnostics=diagnostics,
+        )
+
+
 def default_adapter_registry(mapping_path: Path) -> AdapterRegistry:
     registry = AdapterRegistry()
     registry.register(CanonicalJsonAdapter())
     registry.register(CsvGenericAdapter(mapping_path))
+    registry.register(RealIncidentAdapter())
     return registry
 
 
