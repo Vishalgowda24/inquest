@@ -28,7 +28,10 @@ def git_head() -> str:
 def candidate_targets(items) -> list[str]:
     result=[]
     for item in items:
-        target=(item.service or item.target) if item.target_type == "change" else item.target
+        if isinstance(item,dict):
+            target=(item.get("service") or item.get("target")) if item.get("target_type") == "change" else item.get("target")
+        else:
+            target=(item.service or item.target) if item.target_type == "change" else item.target
         if target not in result: result.append(target)
     return result
 
