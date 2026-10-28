@@ -206,3 +206,7 @@ This section is committed before generating or evaluating any P5 fresh-seed data
 
 - No method, weight, threshold, or status rule changed after the P6 freeze. The holdout report and `docs/LIMITATIONS.md` correct the cause-label arithmetic above: 36 cases with three two-cause concurrent cases yield **39 cause labels** (36 + 3), not 38 (36 + 2). The same arithmetic correction applies to the P5 fresh block. Historical `2/38` verified recall should be read as 2/39; the verified numerator is unchanged. This is a documentation/counting correction, not a pipeline fix or tuning.
 - The first holdout process reached the shell's 30-second limit after 18 completed cases. Those cases were reconstructed from their saved stage artifacts, and only the 18 not-yet-run cases were processed; no case was run twice. The final report has all 36 cases. This operational continuation did not alter the frozen evaluator or configuration.
+
+## P7 Part A: P6 batch provenance
+
+- The initial P6 batch artifacts were created beginning 2026-10-29 02:40:32 +05:30; the continuation batch began 02:41:16 +05:30. Both timestamps fall after evaluator commit `2e094d8c8d29a695564065cd84a13361fe37b7f7` (02:40:13) and before the first post-run documentation commit (`e5ceab5`, 02:44:21). No commit occurred between the batches. Both used config SHA-256 `269dbb3f9de3d45edb777fa5bf70c289feb1ec56f40f722a5607fc253b7c90d7`. Thus the two batches used the same evaluator/code commit and configuration.
