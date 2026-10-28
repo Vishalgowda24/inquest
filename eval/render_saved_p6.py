@@ -14,5 +14,12 @@ spec.loader.exec_module(module)
 cases = json.loads(module.RESULTS.read_text(encoding="utf-8"))
 if len(cases) != 36:
     raise SystemExit(f"expected 36 saved holdout cases; found {len(cases)}")
-module.REPORT.write_text(module.render(cases), encoding="utf-8")
+text = module.render(cases)
+lines = text.splitlines()
+header = next(i for i, line in enumerate(lines) if line.startswith("| Scenario | Seed | True cause(s) |"))
+lines[header] = lines[header][:-2] + " | All S04 candidate statuses |"
+for i, case in enumerate(cases, start=header + 2):
+    candidate_statuses = ", ".join(f"{target}:{status}" for target, status in sorted(case["statuses"].items())) or "none"
+    lines[i] = lines[i][:-2] + f" | {candidate_statuses} |"
+module.REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
 print(f"Rendered {module.REPORT}")
