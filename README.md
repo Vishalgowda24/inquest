@@ -33,12 +33,15 @@ python -m inquest.cli doctor
 python -m inquest.cli validate simulator/exports/<scn_id>/seed_1/export
 python -m inquest.cli ingest simulator/exports/<scn_id>/seed_1/export
 python -m inquest.cli explain --run <run_id>
+python -m inquest.cli report <run_id>
 python -m inquest.cli rerun --run <run_id> --stage s03_candidates
 python eval/run_p2.py
 python -m pytest --basetemp work/pytest-run-temp
 ```
 
 `validate` is a dry run and writes no run or vault files. `ingest` accepts a simulator canonical JSON export or a mapped CSV file/folder and runs S00–S03. CSV column names are declared in `config/csv_mapping.yaml`. Per-stage artifacts and the final report are saved under `runs/<run_id>/`; malformed rows are saved in `quarantine/rejected.jsonl` with file and record indexes. Candidate methods are independently toggleable in `config.yaml` under `candidate_methods`.
+
+S05's deterministic report is enabled by default and consumes only saved S00–S04 artifacts. After a pipeline run, print the Markdown report with `python -m inquest.cli report <run_id>`; `report.json` and `report.md` are also saved under that run's `05_s05_report/` directory. The confidence model is pinned by SHA-256 in `config.yaml`; changing or corrupting the file fails loudly. The model is fitted on synthetic development cases, so its probabilities are not calibrated for operational incidents.
 
 ## Architecture and data boundary
 
@@ -55,6 +58,14 @@ Rebuild all P9 result tables in one command from the committed per-case outputs 
 ```powershell
 .\.venv\Scripts\python.exe eval\reproduce_p9_tables.py
 ```
+
+P10's saved confidence evaluation is rendered without rerunning stages by:
+
+```powershell
+.\.venv\Scripts\python.exe eval\render_p10_saved_results.py
+```
+
+The command creates a new timestamped output under `eval/rendered_p10/` without overwriting prior renderings. The committed full report is `eval/p10_evaluation_results_final.md`; each S05 run directory records its code commit and config hash. Example reports are under `docs/examples/`.
 
 Historical P0–P8 tables remain under `eval/`; the P9 command does not rerun those phases. Reserved scenarios under `simulator/scenarios/holdout/` are not registered or evaluated.
 

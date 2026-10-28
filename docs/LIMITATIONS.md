@@ -46,3 +46,11 @@ The advantage of rank fusion depends on scenario mix. In P7, equal-weight RRF's 
 `silent_cause` remains a weakness: V3 found the cause top-1 in 11/29 development cases and 6/20 confirmation cases, so it still missed most confirmation cases. V0 found it top-1 in 1/20 confirmation cases. The P7 S04 true-cause `verified` count was only 40/260; treat `verified` as a low-recall annotation, not as a reliable positive confirmation.
 
 The simulator's alert process favors early cause alerts in several families. In P6 noisy-alert seeds the true-cause alert preceded fault onset in 3/3 cases; in P7 it did so in 12/20. `alert_order` is consequently a strong baseline in many families, while it fails by design on silent and late causes. These timing assumptions are simulator properties and may not reflect operational alert routing or delivery.
+
+## P10 S05 confidence report
+
+S05 is deterministic and reads only saved S00–S04 outputs plus the verified vault. Its logistic confidence model was fitted on synthetic seeds 1–51 and was evaluated once on fresh seeds 72–91 (280 cases); seeds 52–71 (280 cases) are a secondary check. Holdout seeds 7–9 were not rerun. The complete per-family and per-confidence-level tables are in `eval/p10_evaluation_results_final.md`.
+
+On fresh seeds 72–91, top-1 accuracy was 254/280 (90.7%). Calibrated Brier was 0.0831 versus 0.0850 for both the constant and margin-only baselines, but calibrated ECE was 0.0289 versus 0.0284 for both baselines. This is mixed and small; it does not establish reliable calibration. All probabilities landed in the 0.9–1.0 bin, and the model produced no medium or low confidence cases. It marked 95/280 (33.9%) as `insufficient_evidence`; 17 cases (6.1%) were high-confidence wrong. In `silent_cause`, 9/16 high-confidence reports were wrong and mean confidence was 0.924 against 35% top-1 accuracy. `late_alerting_cause` also had one high-confidence miss. The red-herring family had no misses in this block.
+
+Withholding low and insufficient-evidence cases retained 185/280 (66.1%) at 90.8% accuracy, only 0.1 percentage point above the 90.7% unfiltered accuracy. This is not a meaningful demonstrated selective-accuracy gain. The report's confidence labels and probabilities remain synthetic-only and should not be used as operationally calibrated probabilities.

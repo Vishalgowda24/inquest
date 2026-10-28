@@ -88,7 +88,7 @@ def test_s05_report_citations_determinism_and_wording(tmp_path):
     assert "Confidence is calibrated on synthetic scenarios only." in report_md.decode()
 
 
-def test_s05_missing_telemetry_forces_insufficient_evidence_and_unknown(tmp_path):
+def test_s05_coverage_gap_forces_insufficient_evidence_and_unknown(tmp_path):
     ctx,run_dir,_=_fixture(tmp_path,gap=True)
     result=ReportStage().run(ctx,StageInput(stage="s05_report",payload={}))
     report=json.loads((run_dir/"05_s05_report"/"report.json").read_text())
