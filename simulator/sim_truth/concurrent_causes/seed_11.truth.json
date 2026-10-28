@@ -1,0 +1,46 @@
+{
+  "changes": [
+    {
+      "change_id": "payments-timeout-concurrent",
+      "kind": "configuration_change",
+      "service": "payments",
+      "step": 7
+    },
+    {
+      "change_id": "inventory-capacity-concurrent",
+      "kind": "configuration_change",
+      "service": "inventory",
+      "step": 9
+    }
+  ],
+  "description": "Two independent overlapping service-local faults affect payments and inventory.",
+  "injected_fault": [
+    {
+      "end_step": null,
+      "intensity": 1.5,
+      "service": "payments",
+      "start_step": 8,
+      "threshold": 22
+    },
+    {
+      "end_step": null,
+      "intensity": 1.45,
+      "service": "inventory",
+      "start_step": 10,
+      "threshold": 16
+    }
+  ],
+  "observability": {
+    "fault_metric_visibility_delay_steps": 0,
+    "fault_metrics_suppressed_after_start": false
+  },
+  "omitted_dependency_edges": [],
+  "scenario_id": "scn_6eda31528928",
+  "scenario_name": "concurrent_causes",
+  "seed": 11,
+  "telemetry_omissions": {
+    "metric_services_absent": [],
+    "metric_windows": {},
+    "traces_missing_for": []
+  }
+}
