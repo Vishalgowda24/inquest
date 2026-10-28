@@ -23,8 +23,10 @@ DEFAULT_SCENARIOS = ("clean_bad_deploy", "coincident_restart", "red_herring_depl
 def test_default_scenario_registry_excludes_reserved_holdout() -> None:
     from simulator.cli import SCENARIOS as registered
 
-    assert tuple(registered) == DEFAULT_SCENARIOS
-    assert "holdout" not in registered
+    names = tuple(registered)
+    assert names[:len(DEFAULT_SCENARIOS)] == DEFAULT_SCENARIOS
+    assert {"concurrent_causes", "noisy_alerts", "partial_graph", "red_herring_hard"} <= set(names)
+    assert "holdout" not in names
 
 
 def _metric(dataset, service: str, metric: str, step: int) -> float:
