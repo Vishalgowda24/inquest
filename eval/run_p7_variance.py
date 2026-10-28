@@ -160,6 +160,46 @@ def paired_bootstrap(a: list[int], b: list[int]) -> tuple[float, float, float]:
     return float(delta.mean()), float(low), float(high)
 
 
+def p6_diagnosis() -> list[str]:
+    p6_path = ROOT / "eval" / "p6_holdout_cases.json"
+    p5_path = ROOT / "eval" / "p5_archive" / "p5_before_results.json"
+    p6_cases = json.loads(p6_path.read_text(encoding="utf-8"))
+    p5_cases = json.loads(p5_path.read_text(encoding="utf-8"))
+    def old_truth(case):
+        raw = case["truth"]
+        values = raw if isinstance(raw, list) else [raw]
+        return [str(item["service"]) for item in values]
+    def old_hit(case, method, k):
+        return any(target in case["methods"].get(method, [])[:k] for target in old_truth(case))
+    out = ["## P6 batch reconciliation", "",
+           "Both P6 batches ran with evaluator/code commit `2e094d8c8d29a695564065cd84a13361fe37b7f7` and config SHA-256 `269dbb3f9de3d45edb777fa5bf70c289feb1ec56f40f722a5607fc253b7c90d7`. The first batch began at 02:40:32 and the continuation at 02:41:16 on 2026-10-29 +05:30; both fall after the evaluator commit at 02:40:13 and before the next commit at 02:44:21. No commit occurred between batches.", "",
+           "## P6 holdout diagnosis", "",
+           "Per-family P6 counts use seeds 7–9. The comparator is the equal-weight P5 baseline on seeds 4–6, not the weighted post-change output.", "",
+           "| Family | P5 equal ensemble top-1 | P6 ensemble top-1 | Change | P6 alert_order top-1 | P6 change_based | P6 graph_rwr | P6 trace_ochiai | P6 temporal_lag |", "|---|---:|---:|---:|---:|---:|---:|---:|"]
+    p6_families = list(dict.fromkeys(case["scenario"] for case in p6_cases))
+    for scenario in p6_families:
+        old = [case for case in p5_cases if case["scenario"] == scenario]
+        new = [case for case in p6_cases if case["scenario"] == scenario]
+        old_hits = sum(old_hit(case, "ensemble", 1) for case in old)
+        new_hits = sum(hit(case["rankings"]["ensemble"], case["truth"], 1) for case in new)
+        count = lambda method: sum(hit(case["rankings"][method], case["truth"], 1) for case in new)
+        out.append(f"| {scenario} | {old_hits}/3 | {new_hits}/3 | {new_hits-old_hits:+d} | {count('alert_order')}/3 | {count('change_based')}/3 | {count('graph_rwr')}/3 | {count('trace_ochiai')}/3 | {count('temporal_lag')}/3 |")
+    out += ["", "### P6 ensemble top-1 misses", "", "| Family | Seed | True cause | Ensemble rank |", "|---|---:|---|---:|"]
+    misses = [case for case in p6_cases if not hit(case["rankings"]["ensemble"], case["truth"], 1)]
+    for case in misses:
+        for target in case["truth"]:
+            if target not in case["rankings"]["ensemble"][:1]:
+                out.append(f"| {case['scenario']} | {case['seed']} | {target} | {rank(case['rankings']['ensemble'], target) or '—'} |")
+    candidate_counts = []
+    for case in p6_cases:
+        artifact = ROOT / "runs" / "p6_holdout_equal_rrf" / case["run_id"] / "03_s03_candidates" / "output.json"
+        candidate_counts.append(len(json.loads(artifact.read_text(encoding="utf-8"))["output"]["analysis"]["candidates"]))
+    top3_hits = sum(hit(case["rankings"]["ensemble"], case["truth"], 3) for case in p6_cases)
+    out += ["", f"P6 candidate count: mean {np.mean(candidate_counts):.2f}, maximum {max(candidate_counts)} per case. P6 ensemble top-3 found a true cause in {top3_hits}/36 cases (including both truths in all three concurrent cases). Top-3 was highly saturated and did not distinguish the P6 cases; it remained useful for surfacing lower-ranked causes such as silent_cause.", "",
+            "The eight-case decrease from 32/36 (seeds 4–6) to 24/36 (P6 seeds 7–9) is accounted for by these per-family changes: red_herring_deploy −1, shared_dependency −1, late_alerting_cause −1, noisy_alerts −2, partial_graph −2, and red_herring_hard −1. All other families were unchanged. This is descriptive attribution across different three-seed blocks, not a causal explanation.", ""]
+    return out
+
+
 def rates(cases: list[dict], method: str) -> tuple[int, int]:
     return (sum(hit(c["rankings"][method], c["truth"], 1) for c in cases),
             sum(hit(c["rankings"][method], c["truth"], 3) for c in cases))
@@ -177,6 +217,14 @@ def render(cases: list[dict], commit: str) -> str:
         e1, e3 = rates(family, "ensemble"); a1, a3 = rates(family, "alert_order")
         lines.append(f"| {scenario} | {len(family)} | {e1}/{len(family)} | {e3}/{len(family)} | {a1}/{len(family)} | {a3}/{len(family)} | {e1-a1:+d} |")
 
+    family_diffs = {}
+    for scenario in SCENARIO_GENERATORS:
+        family = [case for case in cases if case["scenario"] == scenario]
+        family_diffs[scenario] = sum(hit(c["rankings"]["ensemble"], c["truth"], 1) for c in family) - sum(hit(c["rankings"]["alert_order"], c["truth"], 1) for c in family)
+    wins = [s for s,d in family_diffs.items() if d > 0]
+    ties = [s for s,d in family_diffs.items() if d == 0]
+    losses = [s for s,d in family_diffs.items() if d < 0]
+
     lines += ["", "## Overall rates with 95% Wilson intervals", "", "| Method | Top-1 cases / 240 | Top-1 rate (95% CI) | Top-3 cases / 240 | Top-3 rate (95% CI) |", "|---|---:|---:|---:|---:|"]
     for method in ("ensemble", "latest_change_before_alert", "alert_order"):
         h1, h3 = rates(cases, method); lo1, hi1 = wilson(h1, len(cases)); lo3, hi3 = wilson(h3, len(cases))
@@ -184,7 +232,9 @@ def render(cases: list[dict], commit: str) -> str:
     ens = [int(hit(c["rankings"]["ensemble"], c["truth"], 1)) for c in cases]
     alert = [int(hit(c["rankings"]["alert_order"], c["truth"], 1)) for c in cases]
     mean, low, high = paired_bootstrap(ens, alert)
-    lines += ["", f"Paired top-1 difference (ensemble − alert_order): {mean:+.3f}, paired bootstrap 95% CI [{low:+.3f}, {high:+.3f}] over cases; resampling seed 7029, 20,000 replicates.", "",
+    ci_excludes_zero = low > 0 or high < 0
+    lines += ["", f"Paired top-1 difference (ensemble − alert_order): {mean:+.3f}, paired bootstrap 95% CI [{low:+.3f}, {high:+.3f}] over cases; resampling seed 7029, 20,000 replicates.",
+              f"Plain result: ensemble {'beats' if mean > 0 else 'ties' if mean == 0 else 'loses to'} alert_order at top-1 overall; the paired interval {'excludes' if ci_excludes_zero else 'includes'} zero. It wins by family in {', '.join(wins) or 'none'}, ties in {', '.join(ties) or 'none'}, and loses in {', '.join(losses) or 'none'}.", "",
               "## Per-seed top-1 spread", "", "| Seed | Cases in this seed slice | Ensemble top-1 | alert_order top-1 |", "|---:|---:|---:|---:|"]
     for seed in sorted({case["seed"] for case in cases}):
         group = [case for case in cases if case["seed"] == seed]
@@ -199,6 +249,19 @@ def render(cases: list[dict], commit: str) -> str:
         verified = sum(case["statuses"].get(target) == "verified" for case in family for target in case["truth"])
         wrong = sum(status == "verified" and target not in case["truth"] for case in family for target, status in case["statuses"].items())
         lines.append(f"| {scenario} | {total} | {verified} | {verified}/{total} ({verified/total:.3f}) | {wrong} |")
+
+    true_total = sum(len(case["truth"]) for case in cases)
+    true_verified = sum(case["statuses"].get(target) == "verified" for case in cases for target in case["truth"])
+    wrong_verified = sum(status == "verified" and target not in case["truth"] for case in cases for target,status in case["statuses"].items())
+    lines += ["", f"Overall S04 `verified`: {true_verified}/{true_total} true-cause labels ({true_verified/true_total:.3f} recall); {wrong_verified} wrong-candidate verifications.", "",
+              "## P7 interpretation and P8 proposals (proposal only)", "",
+              f"Across the 20-seed block, ensemble top-1 is {rates(cases, 'ensemble')[0]}/240 and alert_order is {rates(cases, 'alert_order')[0]}/240; the paired interval above {'supports' if ci_excludes_zero and mean > 0 else 'does not establish'} an overall ensemble top-1 advantage. Three-seed blocks were not adequate to support stable family-level claims: the prior noisy_alerts and partial_graph blocks ranged from 1/3 to 3/3 ensemble top-1, while P7 measured {sum(hit(c['rankings']['ensemble'], c['truth'], 1) for c in cases if c['scenario']=='noisy_alerts')}/20 and {sum(hit(c['rankings']['ensemble'], c['truth'], 1) for c in cases if c['scenario']=='partial_graph')}/20, respectively.", "",
+              "Ranked P8 options:",
+              "1. Investigate silent_cause's metric-only evidence and rank-fusion miss first: it is 0/20 ensemble top-1 and 18/20 top-3. Any change needs fresh silent_cause seeds 32+; validate that it does not add false positives to clean and shared-dependency cases.",
+              "2. Evaluate a cautious alert_order feature or fallback for families where alert_order ties or wins, especially clean_bad_deploy, shared_dependency, missing_telemetry, and partial_graph. P7 shows the overall baseline advantage is not uniform; validate any family-specific logic on seeds 32+ for the affected families.",
+              "3. Add a genuinely new scenario holdout or obtain consented real-incident cases before production claims. Keep the current synthetic holdout sealed; evaluate any new family-specific changes on seeds 32+ and do not tune on P7's 240 cases.", ""]
+
+    lines += p6_diagnosis()
 
     lines += ["", "## Per-case results", "", "A cause rank is its one-based rank in that method; `—` means absent. Multi-cause case hits count if any truth is in top-k; all truth ranks are listed.", "",
               "| Scenario | Seed | Opaque ID | Truth | change_based top1/rank | graph_rwr top1/rank | trace_ochiai top1/rank | temporal_lag top1/rank | Ensemble top1/rank | Latest-change top1/rank | alert_order top1/rank | S04 truth statuses | Wrong verified candidates | Candidates | Run ID |", "|---|---:|---|---|---|---|---|---|---|---|---|---|---|---:|---|"]
