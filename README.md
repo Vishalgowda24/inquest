@@ -1,6 +1,22 @@
 # Inquest
 
-Inquest is an evidence-driven incident investigation pipeline with an isolated synthetic telemetry simulator. P0 established the simulator and failure-resilient stage runner. P1 adds S00 ingestion, S01 append-only evidence vault, and S02 robust signal onset analysis. P2 adds scenario variants and S03 candidate methods with an ensemble.
+Inquest is an evidence-driven incident investigation pipeline with an isolated synthetic telemetry simulator. P0 established the simulator and failure-resilient stage runner. P1 adds S00 ingestion, S01 append-only evidence vault, and S02 robust signal onset analysis. P2 adds scenario variants and S03 candidate methods with an ensemble. The frozen default fusion is P9 V3, per-case score-margin weighted reciprocal-rank fusion; select `v0`–`v4` in `config.yaml` to reproduce the registered comparisons.
+
+## Quickstart
+
+On Windows, set up the pinned environment and verify the install:
+
+```powershell
+.\setup.ps1
+.\.venv\Scripts\python.exe -m inquest.cli doctor
+```
+
+Validate or ingest a canonical export:
+
+```powershell
+.\.venv\Scripts\python.exe -m inquest.cli validate simulator\exports\<scn_id>\seed_1\export
+.\.venv\Scripts\python.exe -m inquest.cli ingest simulator\exports\<scn_id>\seed_1\export
+```
 
 ## Environment
 
@@ -32,6 +48,14 @@ python -m pytest --basetemp work/pytest-run-temp
 - `inquest/stages/s00_ingest/`, `s01_vault/`, `s02_signals/`, and `s03_candidates/` implement adapter ingestion, evidence persistence, onset analysis, and independent change/graph/trace/temporal methods plus reciprocal-rank fusion. Stages use shared contracts and core services; candidate methods do not import each other.
 - Reports always carry `ScenarioManifest.source` (`synthetic`, `otel`, or `real`). Stage exceptions become `FAILED` results while a validated final report is still written.
 
-The default evaluator runs three seeds for every non-holdout scenario. Reserved scenarios under `simulator/scenarios/holdout/` are not registered or evaluated. See `eval/p2_results.md` for the per-scenario table and individual predictions.
+P9's full per-family comparison is in `eval/p9_development_results.md`; its single confirmation table for seeds 52–71 is in `eval/p9_confirmation_results.md`. The final summary compares all-development, P4–P7 fresh, holdout 7–9, and confirmation blocks in `eval/p9_final_summary.md`. Each fusion configuration has isolated artifacts under its own `runs/p9_development_<variant>_<config-hash>/` or `runs/p9_confirmation_<variant>_<config-hash>/` directory, with commit and config hashes recorded.
+
+Rebuild all P9 result tables in one command from the committed per-case outputs (this renders tables only and does not rerun stages or confirmation seeds):
+
+```powershell
+.\.venv\Scripts\python.exe eval\reproduce_p9_tables.py
+```
+
+Historical P0–P8 tables remain under `eval/`; the P9 command does not rerun those phases. Reserved scenarios under `simulator/scenarios/holdout/` are not registered or evaluated.
 
 See `SIM_SCHEMA.md`, `DATA_NOTES.md`, `DECISIONS.md`, `RUNBOOK.md`, and `P0_SIMULATION_SUMMARY.md` for details and verified observations.

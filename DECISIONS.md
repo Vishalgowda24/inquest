@@ -244,3 +244,13 @@ Development scope is all already generated seeds 1–51 with saved usable inputs
 - Evaluated the 388 saved cases (all existing generated truth/input pairs across 14 families; no S03 rerun was needed). The frozen rule selects **V3**: family-equal top-1 0.9384 vs V0 0.8744 (+0.0640); top-3 is 388/388 vs V0 386/388; it has 20/20 top-1 on both red_herring_deploy and shared_dependency in seeds 10–29. Thus it clears all frozen conditions. This selection is final; confirmation cannot trigger reselection.
 - The P6/P7 noisy-alert onset analysis found the cause alert before fault onset in 3/3 P6 holdout seeds (V0 top-1 conditional 1/3) and 12/20 P7 seeds (V0 top-1 conditional 12/12). This is reported descriptively and did not alter the selection.
 - The full per-family table, V0 misses with graph first, and per-case raw rankings are committed in `eval/p9_development_results.md` and `eval/p9_development_cases.json`. No confirmation seeds have been generated or evaluated at this point.
+
+### P9 post-confirmation report renderer bug log
+
+- **2026-10-29:** the first invocation of `eval/reproduce_p9_tables.py` wrote the final summary, then stopped when run as a file because Python had the `eval/` directory but not the repository root on `sys.path`; its imports of the saved-data renderers failed. The renderer now explicitly adds the repository root before importing. This affects report regeneration only; no stage, confirmation case, method, config, or score was rerun or changed.
+
+### P9 confirmation and final freeze (2026-10-29)
+
+- The single committed-input confirmation run completed on all 280 cases under V0 and V3. V3 top-1 was 251/280 vs V0 229/280; the paired V3−V0 difference was +0.079, crossed family×seed cluster-bootstrap 95% interval [+0.004,+0.175]. V3 vs alert_order was +0.250, interval [+0.050,+0.471]. Per-family counts are in `eval/p9_confirmation_results.md` and the full case records are in `eval/p9_confirmation_cases.json`. There was no re-selection or stage rerun.
+- As explicitly required in Part D, `config.yaml` now defaults to the already-selected V3. This is the only post-confirmation pipeline configuration change; no fusion formula, method, weight, threshold, or status rule changed. V0 and V3 confirmation configs remain separately recorded by their config SHA-256 values and run directories.
+- The final family-by-seed-block tables are in `eval/p9_final_summary.md`. `eval/reproduce_p9_tables.py` regenerates the P9 development, confirmation, and final summary tables from retained per-case records and writes a table into each P9 config output directory; it does not rerun stages.

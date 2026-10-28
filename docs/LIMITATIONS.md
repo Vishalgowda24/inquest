@@ -36,3 +36,13 @@ There is not currently a single end-to-end command that regenerates every histor
 1. **Synthetic-to-real shift.** The simulator's service topology, fault mechanics, telemetry quality, and alert behavior may not match an organization's systems.
 2. **Incomplete or misleading evidence.** Missing traces, metric gaps, clock skew, and shared dependencies can suppress a true cause or make decoys look causal; S04's low verified coverage shows this directly.
 3. **Ranking and alert-process bias.** The ensemble misses silent causes at top-1, and the synthetic alert-order baseline is strong. Real alert routing, suppression, and collection delays could change both rankings and apparent baseline performance.
+
+## P9 frozen fusion results
+
+The entire evidence base is synthetic. P9's 388-case development set covers all currently generated scenarios for seeds 1–51 across 14 families; family sample sizes vary (20 or 29 cases), and P4–P7 fresh and P6 holdout blocks are nested within that development set. P9 added one balanced 20-seed confirmation block (280 cases). These results do not establish real-incident performance.
+
+The advantage of rank fusion depends on scenario mix. In P7, equal-weight RRF's overall +0.133 paired top-1 difference over `alert_order` came from a +0.600 difference on late-alerting, noisy-alert, and long-seasonal families combined with −0.022 on the other nine. Under the preregistered P9 family-equal development rule, V3 was selected (0.9384 vs V0 0.8744). In the one confirmation block, V3 exceeded V0 by 0.079 top-1/case (two-way family×seed cluster-bootstrap 95% interval [+0.004, +0.175]) and exceeded `alert_order` by 0.250 (interval [+0.050, +0.471]). This is one synthetic confirmation block, not independent real-world validation.
+
+`silent_cause` remains a weakness: V3 found the cause top-1 in 11/29 development cases and 6/20 confirmation cases, so it still missed most confirmation cases. V0 found it top-1 in 1/20 confirmation cases. The P7 S04 true-cause `verified` count was only 40/260; treat `verified` as a low-recall annotation, not as a reliable positive confirmation.
+
+The simulator's alert process favors early cause alerts in several families. In P6 noisy-alert seeds the true-cause alert preceded fault onset in 3/3 cases; in P7 it did so in 12/20. `alert_order` is consequently a strong baseline in many families, while it fails by design on silent and late causes. These timing assumptions are simulator properties and may not reflect operational alert routing or delivery.
