@@ -201,3 +201,8 @@ This section is committed before generating or evaluating any P5 fresh-seed data
 
 - The user selected seeds **7, 8, and 9** from the existing 12 registered scenario families for this one-time holdout. This creates 36 cases; concurrent_causes contributes two truths per case, so the set has 38 cause labels. These scenario families are known from development/validation; only the seeds are held out. This is a seed holdout, not a novel-scenario holdout.
 - The holdout generator writes only deterministic simulator exports and truth files, refuses overwrites, and runs no Inquest methods. The evaluator is frozen and committed before the one holdout invocation. Output root: `runs/p6_holdout_equal_rrf/`; report path: `eval/p6_holdout_results.md`. No other config or method variant will be run on these seeds.
+
+### P6 post-run documentation correction (2026-10-29)
+
+- No method, weight, threshold, or status rule changed after the P6 freeze. The holdout report and `docs/LIMITATIONS.md` correct the cause-label arithmetic above: 36 cases with three two-cause concurrent cases yield **39 cause labels** (36 + 3), not 38 (36 + 2). The same arithmetic correction applies to the P5 fresh block. Historical `2/38` verified recall should be read as 2/39; the verified numerator is unchanged. This is a documentation/counting correction, not a pipeline fix or tuning.
+- The first holdout process reached the shell's 30-second limit after 18 completed cases. Those cases were reconstructed from their saved stage artifacts, and only the 18 not-yet-run cases were processed; no case was run twice. The final report has all 36 cases. This operational continuation did not alter the frozen evaluator or configuration.

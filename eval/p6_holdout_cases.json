@@ -1,0 +1,2241 @@
+[
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "change_based": [
+        "database",
+        "inventory"
+      ],
+      "ensemble": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [
+        "database"
+      ],
+      "s04_annotation": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "database",
+        "payments"
+      ],
+      "trace_ochiai": [
+        "inventory",
+        "database",
+        "checkout"
+      ]
+    },
+    "run_id": "p6_a3a70c6cf2609903",
+    "scenario": "clean_bad_deploy",
+    "scenario_id": "scn_0f4d4e90db53",
+    "seed": 7,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "unsupported",
+      "database": "contested",
+      "inventory": "contested",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "change_based": [
+        "database",
+        "inventory"
+      ],
+      "ensemble": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [
+        "database"
+      ],
+      "s04_annotation": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "payments",
+        "database",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "database",
+        "inventory",
+        "checkout"
+      ]
+    },
+    "run_id": "p6_c0942fd1db37b7f1",
+    "scenario": "clean_bad_deploy",
+    "scenario_id": "scn_532045d2fdce",
+    "seed": 8,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "contested",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "change_based": [
+        "database",
+        "inventory"
+      ],
+      "ensemble": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [
+        "database"
+      ],
+      "s04_annotation": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "database",
+        "payments"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "inventory",
+        "database",
+        "payments"
+      ]
+    },
+    "run_id": "p6_878ffa1793b46d4e",
+    "scenario": "clean_bad_deploy",
+    "scenario_id": "scn_773ba9eefec3",
+    "seed": 9,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "verified",
+      "inventory": "insufficient_evidence",
+      "payments": "unsupported"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "change_based": [
+        "database"
+      ],
+      "ensemble": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [
+        "database"
+      ],
+      "s04_annotation": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "database",
+        "inventory",
+        "payments"
+      ],
+      "trace_ochiai": [
+        "inventory",
+        "database",
+        "checkout"
+      ]
+    },
+    "run_id": "p6_427743fad11ebe03",
+    "scenario": "coincident_restart",
+    "scenario_id": "scn_bc39d193f5c7",
+    "seed": 7,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "unsupported",
+      "database": "verified",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "change_based": [
+        "database"
+      ],
+      "ensemble": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [
+        "database"
+      ],
+      "s04_annotation": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "database",
+        "payments",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "database",
+        "inventory",
+        "checkout"
+      ]
+    },
+    "run_id": "p6_c1582efdb954d0c3",
+    "scenario": "coincident_restart",
+    "scenario_id": "scn_03a1b679aad6",
+    "seed": 8,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "unsupported",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "change_based": [
+        "database"
+      ],
+      "ensemble": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [
+        "database"
+      ],
+      "s04_annotation": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "database",
+        "payments"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "database",
+        "inventory",
+        "payments"
+      ]
+    },
+    "run_id": "p6_073efaedb7d45bfc",
+    "scenario": "coincident_restart",
+    "scenario_id": "scn_33c1d8757d6f",
+    "seed": 9,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "contested",
+      "inventory": "insufficient_evidence",
+      "payments": "unsupported"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "checkout",
+        "database"
+      ],
+      "change_based": [
+        "payments",
+        "inventory"
+      ],
+      "ensemble": [
+        "payments",
+        "inventory",
+        "database",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [
+        "inventory"
+      ],
+      "s04_annotation": [
+        "payments",
+        "inventory",
+        "database",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "payments",
+        "database",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "payments",
+        "checkout",
+        "database",
+        "inventory"
+      ]
+    },
+    "run_id": "p6_a80329d27a8aa797",
+    "scenario": "red_herring_deploy",
+    "scenario_id": "scn_fc6611a55477",
+    "seed": 7,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "unsupported",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "payments"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "checkout",
+        "database",
+        "inventory"
+      ],
+      "change_based": [
+        "payments",
+        "inventory"
+      ],
+      "ensemble": [
+        "inventory",
+        "payments",
+        "database",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [
+        "inventory"
+      ],
+      "s04_annotation": [
+        "inventory",
+        "payments",
+        "database",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "payments",
+        "database",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "database",
+        "inventory"
+      ]
+    },
+    "run_id": "p6_01dedeea30186d2a",
+    "scenario": "red_herring_deploy",
+    "scenario_id": "scn_7c79cc97a6b1",
+    "seed": 8,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "contested",
+      "inventory": "contested",
+      "payments": "contested"
+    },
+    "truth": [
+      "payments"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "checkout",
+        "database"
+      ],
+      "change_based": [
+        "payments",
+        "inventory"
+      ],
+      "ensemble": [
+        "payments",
+        "inventory",
+        "checkout",
+        "database"
+      ],
+      "graph_rwr": [
+        "payments",
+        "database",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [
+        "inventory"
+      ],
+      "s04_annotation": [
+        "payments",
+        "inventory",
+        "checkout",
+        "database"
+      ],
+      "temporal_lag": [
+        "payments",
+        "database",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "payments"
+      ]
+    },
+    "run_id": "p6_4fdc53268ea85346",
+    "scenario": "red_herring_deploy",
+    "scenario_id": "scn_99d5b4ea27dc",
+    "seed": 9,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "unsupported",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "payments"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "database",
+        "payments"
+      ],
+      "trace_ochiai": [
+        "inventory",
+        "database",
+        "checkout"
+      ]
+    },
+    "run_id": "p6_9113af91cac6ef4c",
+    "scenario": "shared_dependency",
+    "scenario_id": "scn_95a0c05e690b",
+    "seed": 7,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "unsupported",
+      "database": "insufficient_evidence",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "payments",
+        "database",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "database",
+        "inventory"
+      ]
+    },
+    "run_id": "p6_2866f72544f22941",
+    "scenario": "shared_dependency",
+    "scenario_id": "scn_b6923a2a4d34",
+    "seed": 8,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "unsupported",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "database",
+        "payments"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "database",
+        "inventory",
+        "payments"
+      ]
+    },
+    "run_id": "p6_8cb2c10c16dbbdee",
+    "scenario": "shared_dependency",
+    "scenario_id": "scn_22d7175037eb",
+    "seed": 9,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "insufficient_evidence",
+      "payments": "unsupported"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "change_based": [
+        "database"
+      ],
+      "ensemble": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [
+        "database"
+      ],
+      "s04_annotation": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "temporal_lag": [
+        "database",
+        "payments",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "database",
+        "payments"
+      ]
+    },
+    "run_id": "p6_f7ddf1cd73bc7fc9",
+    "scenario": "missing_telemetry",
+    "scenario_id": "scn_121bc40d1764",
+    "seed": 7,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "verified",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "change_based": [
+        "database"
+      ],
+      "ensemble": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "latest_change_before_alert": [
+        "database"
+      ],
+      "s04_annotation": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "temporal_lag": [
+        "database",
+        "payments",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "checkout"
+      ]
+    },
+    "run_id": "p6_6dbe82ca3474b6ae",
+    "scenario": "missing_telemetry",
+    "scenario_id": "scn_d5ecf45b0cc0",
+    "seed": 8,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "change_based": [
+        "database"
+      ],
+      "ensemble": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [
+        "database"
+      ],
+      "s04_annotation": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "database",
+        "inventory",
+        "payments"
+      ],
+      "trace_ochiai": [
+        "database",
+        "checkout",
+        "payments"
+      ]
+    },
+    "run_id": "p6_1f92f99906c1a755",
+    "scenario": "missing_telemetry",
+    "scenario_id": "scn_54d0e71557f4",
+    "seed": 9,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "verified",
+      "inventory": "insufficient_evidence",
+      "payments": "unsupported"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "database",
+        "payments",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "database",
+        "payments",
+        "inventory"
+      ]
+    },
+    "run_id": "p6_9faf516af52f5cb4",
+    "scenario": "long_seasonal",
+    "scenario_id": "scn_dc8206c59054",
+    "seed": 7,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "database",
+        "payments",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "database",
+        "checkout",
+        "inventory",
+        "payments"
+      ]
+    },
+    "run_id": "p6_08fce0b3fa3a0dba",
+    "scenario": "long_seasonal",
+    "scenario_id": "scn_592dfb6e94dc",
+    "seed": 8,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "checkout",
+        "database",
+        "payments",
+        "inventory"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "checkout",
+        "database",
+        "payments",
+        "inventory"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "database",
+        "payments"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "database",
+        "payments",
+        "inventory"
+      ]
+    },
+    "run_id": "p6_6455f7d356a4475c",
+    "scenario": "long_seasonal",
+    "scenario_id": "scn_32ffaf5f5647",
+    "seed": 9,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "inventory",
+        "checkout",
+        "database"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "payments",
+        "database"
+      ],
+      "trace_ochiai": [
+        "inventory",
+        "database",
+        "checkout"
+      ]
+    },
+    "run_id": "p6_d9756ccc5916afa6",
+    "scenario": "late_alerting_cause",
+    "scenario_id": "scn_9fd75b1f75a5",
+    "seed": 7,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "unsupported",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "checkout",
+        "database",
+        "inventory"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "payments",
+        "inventory",
+        "database"
+      ],
+      "trace_ochiai": [
+        "database",
+        "inventory",
+        "checkout"
+      ]
+    },
+    "run_id": "p6_3dd3493e0dc600c2",
+    "scenario": "late_alerting_cause",
+    "scenario_id": "scn_6e955589b782",
+    "seed": 8,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "unsupported",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "inventory",
+        "payments",
+        "checkout",
+        "database"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "payments",
+        "database"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "inventory",
+        "database",
+        "payments"
+      ]
+    },
+    "run_id": "p6_8330f6c5d9f3c434",
+    "scenario": "late_alerting_cause",
+    "scenario_id": "scn_f6f69882f5ba",
+    "seed": 9,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "unsupported",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "payments"
+      ],
+      "trace_ochiai": [
+        "inventory",
+        "database",
+        "checkout"
+      ]
+    },
+    "run_id": "p6_3225b4e8a17694e3",
+    "scenario": "silent_cause",
+    "scenario_id": "scn_34177bfa2809",
+    "seed": 7,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "payments",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "database",
+        "inventory",
+        "checkout"
+      ]
+    },
+    "run_id": "p6_08cffbb46cd4f85c",
+    "scenario": "silent_cause",
+    "scenario_id": "scn_bba5b40c73e9",
+    "seed": 8,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "unsupported",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "inventory",
+        "payments",
+        "database",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "inventory",
+        "payments",
+        "database",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "payments"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "inventory",
+        "database",
+        "payments"
+      ]
+    },
+    "run_id": "p6_52434988519b0738",
+    "scenario": "silent_cause",
+    "scenario_id": "scn_4b80e283fcbe",
+    "seed": 9,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "checkout",
+        "database"
+      ],
+      "change_based": [
+        "payments"
+      ],
+      "ensemble": [
+        "payments",
+        "database",
+        "inventory",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "payments",
+        "database",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [
+        "payments"
+      ],
+      "s04_annotation": [
+        "payments",
+        "database",
+        "inventory",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "payments",
+        "inventory",
+        "database"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "payments",
+        "database",
+        "inventory"
+      ]
+    },
+    "run_id": "p6_135f3c43217da749",
+    "scenario": "concurrent_causes",
+    "scenario_id": "scn_685317ef1844",
+    "seed": 7,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "unsupported",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "payments",
+      "inventory"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "checkout",
+        "database",
+        "inventory"
+      ],
+      "change_based": [
+        "payments",
+        "inventory"
+      ],
+      "ensemble": [
+        "inventory",
+        "payments",
+        "database",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [
+        "inventory"
+      ],
+      "s04_annotation": [
+        "inventory",
+        "payments",
+        "database",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "payments",
+        "inventory",
+        "database"
+      ],
+      "trace_ochiai": [
+        "database",
+        "inventory"
+      ]
+    },
+    "run_id": "p6_e39ee278ca84ef92",
+    "scenario": "concurrent_causes",
+    "scenario_id": "scn_77e0a06b9021",
+    "seed": 8,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "contested",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "payments",
+      "inventory"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "checkout",
+        "database"
+      ],
+      "change_based": [
+        "payments",
+        "inventory"
+      ],
+      "ensemble": [
+        "payments",
+        "inventory",
+        "checkout",
+        "database"
+      ],
+      "graph_rwr": [
+        "payments",
+        "database",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [
+        "inventory"
+      ],
+      "s04_annotation": [
+        "payments",
+        "inventory",
+        "checkout",
+        "database"
+      ],
+      "temporal_lag": [
+        "payments",
+        "inventory",
+        "database"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "payments"
+      ]
+    },
+    "run_id": "p6_dbe5067ed5f77e6d",
+    "scenario": "concurrent_causes",
+    "scenario_id": "scn_a892622063fb",
+    "seed": 9,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "unsupported",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "payments",
+      "inventory"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "checkout",
+        "inventory",
+        "payments"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "database",
+        "payments"
+      ],
+      "trace_ochiai": [
+        "inventory",
+        "database",
+        "checkout"
+      ]
+    },
+    "run_id": "p6_5196e2fc75743b7a",
+    "scenario": "noisy_alerts",
+    "scenario_id": "scn_7fef645b444c",
+    "seed": 7,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "unsupported",
+      "database": "insufficient_evidence",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "inventory",
+        "database",
+        "checkout"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "payments",
+        "database",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "database",
+        "inventory"
+      ]
+    },
+    "run_id": "p6_6758d86d45f07cf0",
+    "scenario": "noisy_alerts",
+    "scenario_id": "scn_646a010a856b",
+    "seed": 8,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "unsupported",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "inventory",
+        "database",
+        "checkout"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "database",
+        "payments"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "inventory",
+        "database",
+        "payments"
+      ]
+    },
+    "run_id": "p6_8526866c99e4aa66",
+    "scenario": "noisy_alerts",
+    "scenario_id": "scn_75fbcf9816ff",
+    "seed": 9,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "insufficient_evidence",
+      "payments": "unsupported"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "payments",
+        "inventory",
+        "checkout"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "payments",
+        "database"
+      ],
+      "trace_ochiai": [
+        "inventory",
+        "database",
+        "checkout"
+      ]
+    },
+    "run_id": "p6_9de77a3e9420fce2",
+    "scenario": "partial_graph",
+    "scenario_id": "scn_9e3d5b0f5ad5",
+    "seed": 7,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "payments",
+        "database",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "database",
+        "inventory"
+      ]
+    },
+    "run_id": "p6_f9582bc9db4ba9bc",
+    "scenario": "partial_graph",
+    "scenario_id": "scn_70e79484c6af",
+    "seed": 8,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "change_based": [],
+      "ensemble": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "inventory",
+        "payments",
+        "checkout"
+      ],
+      "latest_change_before_alert": [],
+      "s04_annotation": [
+        "inventory",
+        "database",
+        "payments",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "inventory",
+        "payments",
+        "database"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "inventory",
+        "database",
+        "payments"
+      ]
+    },
+    "run_id": "p6_df9ed91bc80c212b",
+    "scenario": "partial_graph",
+    "scenario_id": "scn_69b62891adcc",
+    "seed": 9,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "DEGRADED",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "insufficient_evidence",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "database"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "checkout",
+        "database"
+      ],
+      "change_based": [
+        "payments",
+        "inventory"
+      ],
+      "ensemble": [
+        "payments",
+        "inventory",
+        "database",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [
+        "payments"
+      ],
+      "s04_annotation": [
+        "payments",
+        "inventory",
+        "database",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "payments",
+        "database",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "payments",
+        "checkout",
+        "database",
+        "inventory"
+      ]
+    },
+    "run_id": "p6_5fd654f3272b29ba",
+    "scenario": "red_herring_hard",
+    "scenario_id": "scn_b8eb5ec0936d",
+    "seed": 7,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "unsupported",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "payments"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "checkout",
+        "database",
+        "inventory"
+      ],
+      "change_based": [
+        "payments",
+        "inventory"
+      ],
+      "ensemble": [
+        "inventory",
+        "payments",
+        "database",
+        "checkout"
+      ],
+      "graph_rwr": [
+        "database",
+        "payments",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [
+        "payments"
+      ],
+      "s04_annotation": [
+        "inventory",
+        "payments",
+        "database",
+        "checkout"
+      ],
+      "temporal_lag": [
+        "payments",
+        "database",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "database",
+        "inventory"
+      ]
+    },
+    "run_id": "p6_fc11732a1d685903",
+    "scenario": "red_herring_hard",
+    "scenario_id": "scn_717325a13182",
+    "seed": 8,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "contested",
+      "inventory": "contested",
+      "payments": "contested"
+    },
+    "truth": [
+      "payments"
+    ]
+  },
+  {
+    "rankings": {
+      "alert_order": [
+        "payments",
+        "checkout",
+        "database"
+      ],
+      "change_based": [
+        "payments",
+        "inventory"
+      ],
+      "ensemble": [
+        "payments",
+        "inventory",
+        "checkout",
+        "database"
+      ],
+      "graph_rwr": [
+        "payments",
+        "database",
+        "checkout",
+        "inventory"
+      ],
+      "latest_change_before_alert": [
+        "payments"
+      ],
+      "s04_annotation": [
+        "payments",
+        "inventory",
+        "checkout",
+        "database"
+      ],
+      "temporal_lag": [
+        "payments",
+        "database",
+        "inventory"
+      ],
+      "trace_ochiai": [
+        "checkout",
+        "payments"
+      ]
+    },
+    "run_id": "p6_7fa8f66dd98a1162",
+    "scenario": "red_herring_hard",
+    "scenario_id": "scn_f6105c36cf89",
+    "seed": 9,
+    "stages": {
+      "s00_ingest": "DEGRADED",
+      "s01_vault": "OK",
+      "s02_signals": "DEGRADED",
+      "s03_candidates": "OK",
+      "s04_verify": "OK"
+    },
+    "statuses": {
+      "checkout": "insufficient_evidence",
+      "database": "unsupported",
+      "inventory": "insufficient_evidence",
+      "payments": "insufficient_evidence"
+    },
+    "truth": [
+      "payments"
+    ]
+  }
+]
