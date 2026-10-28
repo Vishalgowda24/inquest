@@ -38,7 +38,14 @@ class VerifyStage:
         for rank,candidate in enumerate(candidates.candidates,start=1):
             votes=[m[candidate.id] for m in maps.values() if candidate.id in m]
             causal_votes=[m[candidate.id] for method,m in maps.items() if method!="vault_evidence" and candidate.id in m]
-            supports=sum(x.verdict=="supports" for x in causal_votes)
+            support_families=set()
+            for method in maps:
+                if method=="vault_evidence": continue
+                finding=maps[method].get(candidate.id)
+                if finding is None or finding.verdict!="supports": continue
+                family="graph" if method in {"dependency_path","alternative_check"} else method
+                support_families.add(family)
+            supports=len(support_families)
             contradicts=sum(x.verdict=="contradicts" for x in causal_votes)
             inconclusive=sum(x.verdict=="inconclusive" for x in causal_votes)
             missing=set(candidate.evidence_ids)-vault.keys()
@@ -46,9 +53,10 @@ class VerifyStage:
             if missing or (contradicts>0 and supports==0): status="unsupported"
             elif contradicts>0 or equal_competitor: status="contested"
             elif supports>=2 and contradicts==0: status="verified"
-            elif not votes or inconclusive>len(votes)/2: status="insufficient_evidence"
+            elif not causal_votes or inconclusive>len(causal_votes)/2: status="insufficient_evidence"
             else: status="insufficient_evidence"
-            confidence=(supports/max(1,len(causal_votes)))
+            enabled_families={"graph" if item.method in {"dependency_path","alternative_check"} else item.method for item in results if item.method!="vault_evidence" and item.status!="DISABLED"}
+            confidence=(supports/max(1,len(enabled_families)))
             evidence=sorted({eid for finding in votes for eid in finding.evidence_ids})
             if missing: reason=f"Vault integrity failed for {len(missing)} candidate citation(s)."
             elif equal_competitor: reason="An equally scored competing candidate exists."

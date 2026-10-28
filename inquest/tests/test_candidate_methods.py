@@ -4,6 +4,8 @@ from datetime import datetime, timedelta, timezone
 
 from inquest.contracts import CanonicalBundle, DependencyEdge, LogEvent, MetricPoint, ScenarioManifest, SignalAnalysis, Span
 from inquest.stages.s03_candidates.methods.trace_ochiai import TraceOchiaiMethod
+from inquest.stages.s03_candidates.ensemble import rank_aggregate
+from inquest.contracts import Candidate, CandidateMethodResult
 
 
 def test_trace_ochiai_ranks_known_root_from_minimal_failing_trace_set() -> None:
@@ -38,3 +40,22 @@ def test_trace_ochiai_ranks_known_root_from_minimal_failing_trace_set() -> None:
     assert result.candidates[0].target == "database"
     assert result.candidates[0].score > result.candidates[1].score
     assert all(set(item.evidence_ids) <= vault_ids for item in result.candidates)
+
+
+def test_fusion_abstains_without_candidate_evidence_and_records_reason():
+    useful = Candidate(id="c:a", target="database", target_type="service", service="database", method="m1", score=0.9, rationale="known", evidence_ids=["e1"])
+    unsupported = useful.model_copy(update={"id": "c:b", "target": "payments", "service": "payments", "method": "m2", "score": 0.8, "evidence_ids": []})
+    results = [CandidateMethodResult(method="m1", status="OK", candidates=[useful]), CandidateMethodResult(method="m2", status="OK", candidates=[unsupported])]
+    fused, disagreement, abstentions = rank_aggregate(results)
+    assert [item.target for item in fused] == ["database"]
+    assert abstentions["payments"]["m2"] == "no_evidence"
+    assert "m1" in abstentions["payments"]
+    assert disagreement == 0.0
+
+
+def test_fusion_ablation_without_abstention_preserves_legacy_ranks():
+    candidate = Candidate(id="c:a", target="payments", target_type="service", service="payments", method="m", score=1, rationale="no evidence", evidence_ids=[])
+    results = [CandidateMethodResult(method="m", status="OK", candidates=[candidate])]
+    fused, _, abstentions = rank_aggregate(results, abstain_without_evidence=False)
+    assert [item.target for item in fused] == ["payments"]
+    assert abstentions == {}

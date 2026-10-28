@@ -59,6 +59,16 @@ def test_reversed_dependency_direction_and_negative_case():
     assert reverse_negative.verdict=="contradicts"
 
 
+def test_shared_ancestry_path_is_not_sufficient_support_and_partial_graph_is_inconclusive():
+    database=_candidate("database",0.9,[]); payments=_candidate("payments",0.8,[])
+    vault={"e1":{"payload":{"caller":"payments","callee":"database"}},"e2":{"payload":{"caller":"inventory","callee":"database"}}}
+    context={"onsets":[{"service":"payments"}],"dependency_graph_complete":True}
+    findings=DependencyPathMethod().run([database,payments],context,vault)
+    assert findings[0].verdict=="inconclusive"
+    partial=DependencyPathMethod().run([database,payments],{**context,"dependency_graph_complete":False},vault)
+    assert all(item.verdict=="inconclusive" for item in partial)
+
+
 def test_absent_service_windows_are_inconclusive_for_signal_checks():
     candidate=_candidate("inventory",0.5,[])
     context={"onsets":[{"service":"payments","onset_time":"2025-01-01T00:00:00+00:00"}],"coverage_gaps":[{"service":"inventory"}]}

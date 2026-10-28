@@ -42,7 +42,7 @@ class CandidateStage:
                 results.append(method_result)
             except Exception as exc:
                 results.append(CandidateMethodResult(method=name, status="DEGRADED", note=f"{type(exc).__name__}: {exc}"))
-        ensemble, disagreement = rank_aggregate(results)
+        ensemble, disagreement, abstentions = rank_aggregate(results, abstain_without_evidence=ctx.config.fusion_abstention)
         telemetry_gaps = {gap.service for gap in signals.coverage_gaps}
         traced_services = {span.service for span in bundle.spans}
         telemetry_gaps.update(set(bundle.manifest.services) - traced_services)
@@ -51,12 +51,13 @@ class CandidateStage:
             candidates=ensemble, per_method=per_method, method_results=results,
             disabled_methods=[item.method for item in results if item.status == "DISABLED"],
             disagreement=disagreement,
+            abstentions=abstentions,
         )
         failed_methods = [item for item in results if item.status == "DEGRADED"]
         status = StageStatus.DEGRADED if failed_methods or not ensemble else StageStatus.OK
         evidence_ids = sorted({identifier for candidate in ensemble for identifier in candidate.evidence_ids})
         return StageResult(
             stage=self.name, status=status,
-            output={"analysis": analysis.model_dump(mode="json"), "source": bundle.manifest.source, "synthetic": bundle.manifest.synthetic, "vault_evidence_count": len(vault_ids), "verification_context": {"dependencies": [edge.model_dump(mode="json") for edge in bundle.dependencies], "onsets": [onset.model_dump(mode="json") for onset in signals.onsets], "coverage_gaps": [gap.model_dump(mode="json") for gap in signals.coverage_gaps], "telemetry_gaps": sorted(telemetry_gaps), "changes": [event.model_dump(mode="json") for event in bundle.changes], "metrics": [point.model_dump(mode="json") for point in bundle.metrics]}},
+            output={"analysis": analysis.model_dump(mode="json"), "source": bundle.manifest.source, "synthetic": bundle.manifest.synthetic, "vault_evidence_count": len(vault_ids), "verification_context": {"dependencies": [edge.model_dump(mode="json") for edge in bundle.dependencies], "dependency_graph_complete": bundle.manifest.dependency_graph_complete, "onsets": [onset.model_dump(mode="json") for onset in signals.onsets], "coverage_gaps": [gap.model_dump(mode="json") for gap in signals.coverage_gaps], "telemetry_gaps": sorted(telemetry_gaps), "changes": [event.model_dump(mode="json") for event in bundle.changes], "metrics": [point.model_dump(mode="json") for point in bundle.metrics]}},
             evidence_ids=evidence_ids, elapsed_ms=0,
         )

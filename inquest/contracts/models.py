@@ -106,6 +106,7 @@ class ScenarioManifest(ContractModel):
     services: list[str]
     record_counts: dict[str, int]
     files: list[str]
+    dependency_graph_complete: bool = True
     source_metadata: dict[str, object] = Field(default_factory=dict)
 
 
@@ -148,6 +149,7 @@ class CandidateAnalysis(BaseModel):
     method_results: list[CandidateMethodResult] = Field(default_factory=list)
     disabled_methods: list[str] = Field(default_factory=list)
     disagreement: float = Field(ge=0, le=1)
+    abstentions: dict[str, dict[str, str]] = Field(default_factory=dict)
 
 
 class VerificationFinding(BaseModel):

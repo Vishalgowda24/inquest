@@ -7,16 +7,29 @@ from collections import Counter, defaultdict
 from inquest.contracts import Candidate, CandidateMethodResult
 
 
-def rank_aggregate(results: list[CandidateMethodResult], *, rank_constant: int = 60) -> tuple[list[Candidate], float]:
-    active = [item for item in results if item.status != "DISABLED" and item.candidates]
+def rank_aggregate(results: list[CandidateMethodResult], *, rank_constant: int = 60, abstain_without_evidence: bool = True) -> tuple[list[Candidate], float, dict[str, dict[str, str]]]:
+    universe = {((item.service or item.target) if item.target_type == "change" else item.target) for result in results for item in result.candidates}
+    abstentions: dict[str, dict[str, str]] = {target: {} for target in sorted(universe)}
+    active = [item for item in results if item.status != "DISABLED"]
     if not active:
-        return [], 0.0
+        return [], 0.0, abstentions
     fused: dict[str, dict[str, object]] = {}
     top_targets: list[str] = []
     for method_result in active:
-        ranked = sorted(method_result.candidates, key=lambda item: (-item.score, item.target_type, item.target))
+        candidates = method_result.candidates
+        if abstain_without_evidence:
+            candidates = [item for item in candidates if item.evidence_ids]
+        ranked = sorted(candidates, key=lambda item: (-item.score, item.target_type, item.target))
+        if not ranked:
+            for target in universe:
+                abstentions.setdefault(target, {})[method_result.method] = "no_evidence" if any((item.service or item.target if item.target_type == "change" else item.target) == target for item in method_result.candidates) else "no_candidate"
+            continue
         canonical = lambda item: item.service or item.target if item.target_type == "change" else item.target
         top_targets.append(canonical(ranked[0]))
+        present = {canonical(item) for item in ranked}
+        for target in universe - present:
+            candidate_exists = any((item.service or item.target if item.target_type == "change" else item.target) == target for item in method_result.candidates)
+            abstentions.setdefault(target, {})[method_result.method] = "no_evidence" if candidate_exists else "no_candidate"
         for rank, item in enumerate(ranked, start=1):
             target = canonical(item)
             entry = fused.setdefault(target, {"rrf": 0.0, "scores": {}, "evidence": set(), "methods": set()})
@@ -37,5 +50,7 @@ def rank_aggregate(results: list[CandidateMethodResult], *, rank_constant: int =
             rationale=f"Reciprocal-rank fusion; ranked by {', '.join(methods)}",
             evidence_ids=sorted(entry["evidence"]), method_scores=entry["scores"],
         ))
+    if not abstain_without_evidence:
+        abstentions = {}
     output.sort(key=lambda item: (-item.score, item.target))
-    return output, disagreement
+    return output, disagreement, abstentions
