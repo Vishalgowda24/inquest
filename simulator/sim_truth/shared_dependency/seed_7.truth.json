@@ -1,0 +1,24 @@
+{
+  "changes": [],
+  "description": "A shared database dependency saturates without a deployment or configuration event.",
+  "injected_fault": {
+    "end_step": null,
+    "intensity": 1.5,
+    "service": "database",
+    "start_step": 10,
+    "threshold": 42
+  },
+  "observability": {
+    "fault_metric_visibility_delay_steps": 0,
+    "fault_metrics_suppressed_after_start": false
+  },
+  "omitted_dependency_edges": [],
+  "scenario_id": "scn_95a0c05e690b",
+  "scenario_name": "shared_dependency",
+  "seed": 7,
+  "telemetry_omissions": {
+    "metric_services_absent": [],
+    "metric_windows": {},
+    "traces_missing_for": []
+  }
+}
