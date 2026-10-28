@@ -1,0 +1,176 @@
+{
+  "coverage_gaps": [
+    {
+      "after": "2025-01-15T21:00:00.800000Z",
+      "before": "2025-01-15T18:00:00.800000Z",
+      "metric": "cpu_percent",
+      "missing_windows": 2,
+      "service": "checkout"
+    },
+    {
+      "after": "2025-01-15T21:00:00.800000Z",
+      "before": "2025-01-15T18:00:00.800000Z",
+      "metric": "error_rate",
+      "missing_windows": 2,
+      "service": "checkout"
+    },
+    {
+      "after": "2025-01-15T21:00:00.800000Z",
+      "before": "2025-01-15T18:00:00.800000Z",
+      "metric": "latency_ms",
+      "missing_windows": 2,
+      "service": "checkout"
+    },
+    {
+      "after": "2025-01-15T21:00:00.800000Z",
+      "before": "2025-01-15T18:00:00.800000Z",
+      "metric": "memory_mb",
+      "missing_windows": 2,
+      "service": "checkout"
+    },
+    {
+      "after": "2025-01-15T21:00:00.800000Z",
+      "before": "2025-01-15T18:00:00.800000Z",
+      "metric": "request_rate",
+      "missing_windows": 2,
+      "service": "checkout"
+    },
+    {
+      "after": "2025-01-15T19:59:59.550000Z",
+      "before": "2025-01-15T17:59:59.550000Z",
+      "metric": "cpu_percent",
+      "missing_windows": 1,
+      "service": "payments"
+    },
+    {
+      "after": "2025-01-15T19:59:59.550000Z",
+      "before": "2025-01-15T17:59:59.550000Z",
+      "metric": "error_rate",
+      "missing_windows": 1,
+      "service": "payments"
+    },
+    {
+      "after": "2025-01-15T19:59:59.550000Z",
+      "before": "2025-01-15T17:59:59.550000Z",
+      "metric": "latency_ms",
+      "missing_windows": 1,
+      "service": "payments"
+    },
+    {
+      "after": "2025-01-15T19:59:59.550000Z",
+      "before": "2025-01-15T17:59:59.550000Z",
+      "metric": "memory_mb",
+      "missing_windows": 1,
+      "service": "payments"
+    },
+    {
+      "after": "2025-01-15T19:59:59.550000Z",
+      "before": "2025-01-15T17:59:59.550000Z",
+      "metric": "request_rate",
+      "missing_windows": 1,
+      "service": "payments"
+    }
+  ],
+  "detector": "cusum",
+  "onsets": [
+    {
+      "baseline_mad": 0.35025000000000617,
+      "baseline_median": 47.3017,
+      "confidence": 0.8302309421995981,
+      "detector": "cusum",
+      "metric": "cpu_percent",
+      "onset_time": "2025-01-15T21:59:58.500000Z",
+      "service": "database",
+      "timestamp_uncertainty_ms": 1500
+    },
+    {
+      "baseline_mad": 0.8393499999999996,
+      "baseline_median": 25.54985,
+      "confidence": 0.9027624718128778,
+      "detector": "cusum",
+      "metric": "latency_ms",
+      "onset_time": "2025-01-15T21:59:58.500000Z",
+      "service": "database",
+      "timestamp_uncertainty_ms": 1500
+    },
+    {
+      "baseline_mad": 0.45090000000000074,
+      "baseline_median": 34.88815,
+      "confidence": 0.8970124976389413,
+      "detector": "cusum",
+      "metric": "latency_ms",
+      "onset_time": "2025-01-15T22:59:59.550000Z",
+      "service": "payments",
+      "timestamp_uncertainty_ms": 450
+    },
+    {
+      "baseline_mad": 1.067650000000004,
+      "baseline_median": 32.1418,
+      "confidence": 0.8002038508265572,
+      "detector": "cusum",
+      "metric": "latency_ms",
+      "onset_time": "2025-01-15T23:00:01.200000Z",
+      "service": "inventory",
+      "timestamp_uncertainty_ms": 1200
+    },
+    {
+      "baseline_mad": 1.3356499999999976,
+      "baseline_median": 57.22245,
+      "confidence": 0.7859896286070698,
+      "detector": "cusum",
+      "metric": "latency_ms",
+      "onset_time": "2025-01-16T00:00:00.800000Z",
+      "service": "checkout",
+      "timestamp_uncertainty_ms": 800
+    },
+    {
+      "baseline_mad": 0.5479500000000019,
+      "baseline_median": 30.4045,
+      "confidence": 0.5956023480361915,
+      "detector": "cusum",
+      "metric": "request_rate",
+      "onset_time": "2025-01-16T00:59:59.550000Z",
+      "service": "payments",
+      "timestamp_uncertainty_ms": 450
+    },
+    {
+      "baseline_mad": 1.455849999999998,
+      "baseline_median": 51.37895,
+      "confidence": 0.5211362427653041,
+      "detector": "cusum",
+      "metric": "request_rate",
+      "onset_time": "2025-01-16T02:59:58.500000Z",
+      "service": "database",
+      "timestamp_uncertainty_ms": 1500
+    },
+    {
+      "baseline_mad": 0.49185000000000123,
+      "baseline_median": 17.357750000000003,
+      "confidence": 0.5211342649313249,
+      "detector": "cusum",
+      "metric": "request_rate",
+      "onset_time": "2025-01-16T03:00:01.200000Z",
+      "service": "inventory",
+      "timestamp_uncertainty_ms": 1200
+    },
+    {
+      "baseline_mad": 1.0382999999999996,
+      "baseline_median": 36.644149999999996,
+      "confidence": 0.53752825033839,
+      "detector": "cusum",
+      "metric": "request_rate",
+      "onset_time": "2025-01-16T05:00:00.800000Z",
+      "service": "checkout",
+      "timestamp_uncertainty_ms": 800
+    }
+  ],
+  "service_order": [
+    "database",
+    "payments",
+    "inventory",
+    "checkout"
+  ],
+  "warnings": [
+    "Seasonal normalization not applied: fewer than two complete daily cycles"
+  ]
+}

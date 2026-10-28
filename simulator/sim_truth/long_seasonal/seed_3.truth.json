@@ -1,0 +1,30 @@
+{
+  "changes": [
+    {
+      "change_id": "db-release-11",
+      "kind": "deployment",
+      "service": "database",
+      "step": 52
+    }
+  ],
+  "description": "A 72-hour seasonal observation includes two complete diurnal cycles before a database degradation.",
+  "injected_fault": {
+    "end_step": null,
+    "intensity": 1.35,
+    "service": "database",
+    "start_step": 52,
+    "threshold": 42.0
+  },
+  "observability": {
+    "fault_metric_visibility_delay_steps": 0,
+    "fault_metrics_suppressed_after_start": false
+  },
+  "scenario_id": "scn_909db39bcc36",
+  "scenario_name": "long_seasonal",
+  "seed": 3,
+  "telemetry_omissions": {
+    "metric_services_absent": [],
+    "metric_windows": {},
+    "traces_missing_for": []
+  }
+}

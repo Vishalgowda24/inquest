@@ -1,0 +1,32 @@
+global_seed: 1
+log_level: INFO
+data_inbox: data/inbox
+runs_dir: runs
+csv_mapping_path: config/csv_mapping.yaml
+simulation_clock: "2025-01-15T12:00:00Z"
+stages:
+  smoke: true
+  s00_ingest: true
+  s01_vault: true
+  s02_signals: true
+  s03_candidates: true
+  s04_verify: true
+  candidates: false
+  reasoning: false
+  next_test: false
+  verify: false
+  narrate: false
+  memory: false
+candidate_methods:
+  change_based: true
+  graph_rwr: true
+  trace_ochiai: true
+  temporal_lag: true
+
+verification_methods:
+  vault_evidence: true
+  dependency_path: true
+  temporal_consistency: true
+  recovery_check: true
+  alternative_check: true
+verification_rerank: false
