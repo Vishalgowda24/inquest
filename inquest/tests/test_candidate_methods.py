@@ -73,3 +73,40 @@ def test_fusion_applies_frozen_graph_rwr_weight_without_changing_raw_scores():
     assert [item.target for item in fused][:2]==["database","inventory"]
     db=next(item for item in fused if item.target=="database")
     assert db.method_scores=={"graph_rwr":0.9,"trace_ochiai":0.8}
+
+
+def test_fusion_variants_use_the_preregistered_formulas():
+    def c(target, method, score):
+        return Candidate(id=f"{method}:{target}", target=target, target_type="service", service=target,
+                         method=method, score=score, rationale="test", evidence_ids=[f"ev-{method}-{target}"])
+    results = [
+        CandidateMethodResult(method="graph_rwr", status="OK", candidates=[c("db", "graph_rwr", .9), c("api", "graph_rwr", .1)]),
+        CandidateMethodResult(method="trace_ochiai", status="OK", candidates=[c("db", "trace_ochiai", .8), c("api", "trace_ochiai", .7)]),
+    ]
+    borda, _, _ = rank_aggregate(results, variant="v1")
+    assert [item.target for item in borda] == ["db", "api"]
+    assert [item.score for item in borda] == [2.0, 0.0]
+
+    normalized, _, _ = rank_aggregate(results, variant="v2")
+    assert [item.target for item in normalized] == ["db", "api"]
+    assert [item.score for item in normalized] == [2.0, 0.0]
+
+    margin_rrf, _, _ = rank_aggregate(results, variant="v3")
+    assert [item.target for item in margin_rrf] == ["db", "api"]
+    assert all(item.method == "fusion_v3" for item in margin_rrf)
+
+    graph, _, _ = rank_aggregate(results, variant="v4")
+    assert [item.target for item in graph] == ["db", "api"]
+    assert all(item.method == "fusion_v4" for item in graph)
+
+
+def test_v3_equal_weights_when_all_method_margins_are_zero():
+    def c(target, method, score):
+        return Candidate(id=f"{method}:{target}", target=target, target_type="service", service=target,
+                         method=method, score=score, rationale="test", evidence_ids=[f"ev-{method}-{target}"])
+    results = [
+        CandidateMethodResult(method="m1", status="OK", candidates=[c("a", "m1", 1), c("b", "m1", 1)]),
+        CandidateMethodResult(method="m2", status="OK", candidates=[c("b", "m2", 1), c("a", "m2", 1)]),
+    ]
+    fused, _, _ = rank_aggregate(results, variant="v3")
+    assert [item.target for item in fused] == ["a", "b"]

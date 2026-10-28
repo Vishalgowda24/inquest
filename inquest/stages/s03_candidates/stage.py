@@ -45,6 +45,7 @@ class CandidateStage:
         ensemble, disagreement, abstentions = rank_aggregate(
             results,
             abstain_without_evidence=ctx.config.fusion_abstention,
+            variant=ctx.config.fusion_variant,
         )
         telemetry_gaps = {gap.service for gap in signals.coverage_gaps}
         traced_services = {span.service for span in bundle.spans}

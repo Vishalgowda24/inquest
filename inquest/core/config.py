@@ -25,6 +25,7 @@ class InquestConfig(BaseModel):
     verification_methods: dict[str, bool] = Field(default_factory=lambda: {"vault_evidence": True, "dependency_path": True, "temporal_consistency": True, "recovery_check": True, "alternative_check": True})
     verification_rerank: bool = False
     fusion_abstention: bool = True
+    fusion_variant: Literal["v0", "v1", "v2", "v3", "v4"] = "v0"
 
     @field_validator("simulation_clock")
     @classmethod
