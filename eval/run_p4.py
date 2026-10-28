@@ -134,6 +134,7 @@ def run_case(scenario, seed, truth_root, runs_root, base_config):
         "status_counts": Counter(item["status"] for item in a4["decisions"]),
         "stage_status": {item.stage: item.status.value for item in report_on.stages},
         "coverage_gaps": sorted({gap.service for gap in SignalAnalysis.model_validate(s02["analysis"]).coverage_gaps}),
+        "expected_missing_services": sorted(set(truth.get("telemetry_omissions", {}).get("metric_services_absent", [])) | set(truth.get("telemetry_omissions", {}).get("metric_windows", {}).keys()) | set(truth.get("telemetry_omissions", {}).get("traces_missing_for", []))),
         "truth_description": truth.get("description", ""),
     }
 
@@ -161,7 +162,7 @@ def render(dataset_name, cases, scenarios):
         decoys = ", ".join(f"{target}:{decision['status']}" for target, decision in case["decisions"].items() if target not in targets) or "none"
         checks = []
         for target in targets:
-            findings = [f"{name}={item.get(target,{}).get('verdict','no finding')}({item.get(target,{}).get('effect_size','—')}; ids={','.join(item.get(target,{}).get('evidence_ids',[]))})" for name,item in case["checks"].items()]
+            findings = [f"{name}={item.get(target,{}).get('verdict','no finding')}({item.get(target,{}).get('effect_size','—')})" for name,item in case["checks"].items() if name!="vault_evidence"]
             checks.append(target + ": " + "; ".join(findings))
         movement = ", ".join(f"{target}:{rank_for(case['ranked']['ensemble_before'], targets)[target] or '—'}→{rank_for(case['ranked']['s04_annotation'], targets)[target] or '—'}" for target in targets)
         row = [case["scenario"],str(case["seed"]),", ".join(targets),ranks("change_based"),ranks("graph_rwr"),ranks("trace_ochiai"),ranks("temporal_lag"),ranks("ensemble_before"),ranks("ensemble_after"),ranks("s04_annotation"),ranks("latest_change_before_alert"),ranks("alert_order"),true_status,decoys,"<br>".join(checks),movement]
@@ -194,9 +195,12 @@ def render(dataset_name, cases, scenarios):
         for case in sc:
             distribution.update(case["status_counts"])
             true_rows.append(f"{case['seed']}:" + ",".join(f"{target}={case['decisions'].get(target,{}).get('status','not_candidate')}" for target in case["truth"]))
-            for svc in case["coverage_gaps"]:
+            for svc in case["expected_missing_services"]:
                 if svc in case["decisions"]:
-                    affected.append(f"seed {case['seed']} {svc}={case['decisions'][svc]['status']}")
+                    contradicted=any(findings.get(svc,{}).get("verdict")=="contradicts" for findings in case["checks"].values())
+                    affected.append(f"seed {case['seed']} {svc}={case['decisions'][svc]['status']}, contradicts={contradicted}")
+                else:
+                    affected.append(f"seed {case['seed']} {svc}=not_candidate")
         all_counts="/".join(str(distribution[s]) for s in ("verified","contested","insufficient_evidence","unsupported"))
         lines.append(f"| {scenario} | {all_counts} | {'; '.join(true_rows)} | {'; '.join(affected) or 'none recorded'} |")
 
@@ -224,7 +228,21 @@ def render(dataset_name, cases, scenarios):
             order_top3=sum(hit(case["ablations"][check]["order"],case["truth"],3) for case in sc)
             true_verified=sum(case["ablations"][check]["decisions"].get(target,{}).get("status")=="verified" for case in sc for target in case["truth"])
             wrong_verified=sum(dec["status"]=="verified" for case in sc for target,dec in case["ablations"][check]["decisions"].items() if target not in case["truth"])
-            lines.append(f"| {scenario} | {off[0]}/3; {off[1]}/3 | {on[0]}/3; {on[1]}/3 | {effect} | {check} | {order_hits}/3; {order_top3}/3 | {true_verified} | {wrong_verified} | S04 annotation order unchanged by policy; status counts recomputed (see counts above). |")
+            all_distribution=Counter(d["status"] for case in sc for d in case["ablations"][check]["decisions"].values())
+            true_distribution=Counter(case["ablations"][check]["decisions"].get(target,{}).get("status","not_candidate") for case in sc for target in case["truth"])
+            fmt=lambda counts: "/".join(str(counts[x]) for x in ("verified","contested","insufficient_evidence","unsupported"))
+            lines.append(f"| {scenario} | {off[0]}/3; {off[1]}/3 | {on[0]}/3; {on[1]}/3 | {effect} | {check} | {order_hits}/3; {order_top3}/3 | {true_verified} | {wrong_verified} | all V/C/I/U={fmt(all_distribution)}; true V/C/I/U={fmt(true_distribution)}; annotation order unchanged. |")
+
+    if "concurrent_causes" in scenarios:
+        lines += ["", "### Concurrent causes: per-case found-both / found-one / found-none among top 3", "", "| Seed | Method | Found state | Cause ranks |", "|---:|---|---|---|"]
+        concurrent=[case for case in cases if case["scenario"]=="concurrent_causes"]
+        for case in concurrent:
+            for method in ("ensemble_before","ensemble_after","s04_annotation","latest_change_before_alert","alert_order"):
+                ranking=case["ranked"][method][:3]
+                found=sum(target in ranking for target in case["truth"])
+                state="found-both" if found==2 else "found-one" if found==1 else "found-none"
+                ranks=", ".join(f"{target}:{rank_for(case['ranked'][method],case['truth'])[target] or '—'}" for target in case["truth"])
+                lines.append(f"| {case['seed']} | {method} | {state} | {ranks} |")
 
     # Explicitly flag all one-case differences in per-scenario top-k hit counts.
     lines += ["", "### One-case comparison flags", "", "Every pair of ranking methods whose per-scenario top-1 or top-3 hit count differs by exactly one case is listed.", "", "| Scenario | Metric | Method A | Hits A | Method B | Hits B |", "|---|---|---|---:|---|---:|"]
@@ -260,16 +278,24 @@ def main():
     silent_on=sum(hit(c["ranked"]["ensemble_after"],c["truth"],1) for c in dev_silent)
     harmed=[scenario for scenario in DEV+VALIDATION if per_scenario(development+validation,scenario,"ensemble_after")[0] < per_scenario(development+validation,scenario,"ensemble_before")[0] or per_scenario(development+validation,scenario,"ensemble_after")[1] < per_scenario(development+validation,scenario,"ensemble_before")[1]]
     lines.append(f"- Fusion abstention and silent_cause: top-1 changed {silent_off}/3 → {silent_on}/3 in development. Scenarios with a top-k regression under abstention: {', '.join(harmed) or 'none'}.")
+    silent_abstentions=sum(len(case["abstentions"].get("database",{})) for case in dev_silent)
+    lines.append(f"- Silent-cause explanation: the database candidate had {silent_abstentions} method/candidate abstentions across the three seeds, but fusion top-k did not change. Legacy RRF already added ranks only for candidates a method emitted, so absent candidates already contributed no worst-rank penalty; this P4 abstention bookkeeping makes that explicit but does not alter this miss.")
     noisy=[c for c in validation if c["scenario"]=="noisy_alerts"]
     for scenario,cases in (("noisy_alerts",noisy),("late_alerting_cause",[c for c in development if c["scenario"]=="late_alerting_cause"]),("silent_cause",dev_silent)):
         ens=per_scenario(development+validation,scenario,"ensemble_after"); s04=per_scenario(development+validation,scenario,"s04_annotation"); alert=per_scenario(development+validation,scenario,"alert_order")
         lines.append(f"- {scenario}: abstention ensemble top-1/top-3={ens[0]}/3,{ens[1]}/3; S04 annotation={s04[0]}/3,{s04[1]}/3; alert_order={alert[0]}/3,{alert[1]}/3.")
     false_before=5
     false_after=sum(dec["status"]=="verified" for case in development+validation for target,dec in case["decisions"].items() if target not in case["truth"])
-    lines.append(f"- `verified`: prior P3b report recorded {false_before} false confirmations; P4 emits {false_after} wrong-candidate verified decisions across dev+validation. This includes fresh validation and is not a tuned result.")
+    true_verified=sum(case["decisions"].get(target,{}).get("status")=="verified" for case in development+validation for target in case["truth"])
+    lines.append(f"- `verified`: prior P3b report recorded {false_before} false confirmations. P4 emits {false_after} wrong-candidate verified decisions and {true_verified} true-cause verified decisions across dev+validation. Zero false confirmations comes with zero true confirmations, so this status is conservative but not yet demonstrated as a useful discriminator.")
     dev_top=totals(development,"ensemble_after"); val_top=totals(validation,"ensemble_after")
     lines.append(f"- Development vs validation ensemble-after-abstention: top-1/top-3 {dev_top[0]}/{len(development)},{dev_top[1]}/{len(development)} vs {val_top[0]}/{len(validation)},{val_top[1]}/{len(validation)}. The per-scenario tables above show where the generalization difference comes from.")
     lines.append("- No tuning or holdout execution occurred. The only post-freeze change before evaluation was the unit-test-discovered integrity-family accounting correction logged in DECISIONS.md.")
+    old_report=(ROOT/"eval"/"p3b_results.md").read_text(encoding="utf-8").splitlines()
+    c7_start=next(i for i,line in enumerate(old_report) if line.startswith("## C7. Ablation:"))
+    c7_end=next(i for i,line in enumerate(old_report[c7_start+1:],start=c7_start+1) if line.startswith("## D. Required plain statements"))
+    lines += ["", "## Part A appendix: full P3b check counts and check ablations", "", "| Check | True cause S/C/I | Decoys S/C/I |", "|---|---:|---:|", "| vault_evidence | 24/0/0 | 72/0/0 |", "| dependency_path | 19/0/5 | 23/0/49 |", "| temporal_consistency | 9/1/14 | 4/0/68 |", "| recovery_check | 3/0/21 | 0/0/72 |", "| alternative_check | 19/0/5 | 5/18/49 |", "", "All five P3b per-scenario check-ablation tables from the final P3b evaluation follow. The P3b artifact mismatch described in DECISIONS.md applies to their raw-output provenance.", ""]
+    lines.extend(old_report[c7_start:c7_end])
     OUT=ROOT/"eval"/"p4_results.md"
     OUT.write_text("\n".join(lines)+"\n",encoding="utf-8")
     print(f"Wrote {OUT} with {len(development)} development and {len(validation)} fresh validation cases")
