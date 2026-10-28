@@ -1,72 +1,140 @@
-# Inquest
+# Inquest (v1.0-prototype)
 
-Inquest is an evidence-driven incident investigation pipeline with an isolated synthetic telemetry simulator. P0 established the simulator and failure-resilient stage runner. P1 adds S00 ingestion, S01 append-only evidence vault, and S02 robust signal onset analysis. P2 adds scenario variants and S03 candidate methods with an ensemble. The frozen default fusion is P9 V3, per-case score-margin weighted reciprocal-rank fusion; select `v0`–`v4` in `config.yaml` to reproduce the registered comparisons.
+Inquest is an evidence-driven, causal incident investigation system for distributed microservices. It ingests multi-modal observability telemetry (metrics, operational changes, alert logs, dependency graphs, and optional traces), cryptographically binds them into an append-only evidence vault, computes signal onsets, ranks candidate root causes via multi-method fusion, performs heuristic verification, and renders deterministic incident reports citing tamper-evident evidence IDs.
 
-## Quickstart
+---
 
-On Windows, set up the pinned environment and verify the install:
+## 1. Installation
+
+### Prerequisites
+- Python 3.11 or 3.12 (Python 3.12.14 recommended).
+- Pinned dependencies are listed in `requirements.txt`.
+
+### Setup
+On Windows, execute the automated bootstrap script to initialize `.venv` and populate pinned dependencies:
 
 ```powershell
 .\setup.ps1
+```
+
+Verify your installation and environment health using `inquest doctor`:
+
+```powershell
 .\.venv\Scripts\python.exe -m inquest.cli doctor
 ```
 
-Validate or ingest a canonical export:
+`doctor` validates configuration integrity, filesystem paths, plugin registry, candidate and verification method registries, and vault chain integrity.
 
+---
+
+## 2. Quickstart
+
+### 2.1 Ingest a Synthetic Scenario Export
 ```powershell
-.\.venv\Scripts\python.exe -m inquest.cli validate simulator\exports\<scn_id>\seed_1\export
-.\.venv\Scripts\python.exe -m inquest.cli ingest simulator\exports\<scn_id>\seed_1\export
+# 1. Generate a scenario export (e.g. clean_bad_deploy seed 1)
+.\.venv\Scripts\python.exe -m simulator.cli run --scenario clean_bad_deploy --seed 1
+
+# 2. Ingest and run S00–S05 pipeline
+.\.venv\Scripts\python.exe -m inquest.cli ingest simulator/exports/scn_373516584288/seed_1/export
+
+# 3. View the rendered markdown report
+.\.venv\Scripts\python.exe -m inquest.cli report <run_id>
 ```
 
-## Environment
-
-Python 3.11 or 3.12 is supported. Exact dependency versions are pinned in `requirements.txt`. On Windows, run `./setup.ps1` to check dependencies, run pytest, and run `inquest doctor`. The setup uses the workspace package cache when its exact pinned versions are present; otherwise it installs pinned requirements into that cache. In the supplied environment Python 3.11 is absent, Python 3.12.14 is used, and network access is unavailable, so setup reuses the packages already provisioned in `work/python-packages`.
-
-## Commands
-
+### 2.2 Ingest a Real-World Incident
 ```powershell
-./setup.ps1
-python -m simulator.cli list
-python -m simulator.cli run --scenario clean_bad_deploy --seed 1
-python -m simulator.cli run --scenario red_herring_deploy --seed 1
-python -m inquest.cli doctor
-python -m inquest.cli validate simulator/exports/<scn_id>/seed_1/export
-python -m inquest.cli ingest simulator/exports/<scn_id>/seed_1/export
-python -m inquest.cli explain --run <run_id>
-python -m inquest.cli report <run_id>
-python -m inquest.cli rerun --run <run_id> --stage s03_candidates
-python eval/run_p2.py
-python -m pytest --basetemp work/pytest-run-temp
+# Ingest an external incident directory formatted per docs/REAL_DATA.md
+.\.venv\Scripts\python.exe -m inquest.cli ingest-real path/to/incident_dir/
 ```
 
-`validate` is a dry run and writes no run or vault files. `ingest` accepts a simulator canonical JSON export or a mapped CSV file/folder and runs S00–S03. CSV column names are declared in `config/csv_mapping.yaml`. Per-stage artifacts and the final report are saved under `runs/<run_id>/`; malformed rows are saved in `quarantine/rejected.jsonl` with file and record indexes. Candidate methods are independently toggleable in `config.yaml` under `candidate_methods`.
+---
 
-S05's deterministic report is enabled by default and consumes only saved S00–S04 artifacts. After a pipeline run, print the Markdown report with `python -m inquest.cli report <run_id>`; `report.json` and `report.md` are also saved under that run's `05_s05_report/` directory. The confidence model is pinned by SHA-256 in `config.yaml`; changing or corrupting the file fails loudly. The model is fitted on synthetic development cases, so its probabilities are not calibrated for operational incidents.
+## 3. How to Generate Scenarios
 
-## Architecture and data boundary
-
-- `simulator/` generates deterministic telemetry for `clean_bad_deploy`, `coincident_restart`, `red_herring_deploy`, `shared_dependency`, `missing_telemetry`, `long_seasonal`, `late_alerting_cause`, and `silent_cause`. `simulator/sim_truth/` stores scenario names, fault descriptions, and the random scenario-ID salt.
-- Telemetry exports expose only salted opaque `scn_<12 hex>` identifiers. An export contains no scenario name or fault type.
-- `inquest/contracts/` contains strict Pydantic v2 models. `inquest/core/` provides the stage interface and registry, isolated runner, atomic artifacts, structured logs, config, vault, and signal logic.
-- `inquest/stages/s00_ingest/`, `s01_vault/`, `s02_signals/`, and `s03_candidates/` implement adapter ingestion, evidence persistence, onset analysis, and independent change/graph/trace/temporal methods plus reciprocal-rank fusion. Stages use shared contracts and core services; candidate methods do not import each other.
-- Reports always carry `ScenarioManifest.source` (`synthetic`, `otel`, or `real`). Stage exceptions become `FAILED` results while a validated final report is still written.
-
-P9's full per-family comparison is in `eval/p9_development_results.md`; its single confirmation table for seeds 52–71 is in `eval/p9_confirmation_results.md`. The final summary compares all-development, P4–P7 fresh, holdout 7–9, and confirmation blocks in `eval/p9_final_summary.md`. Each fusion configuration has isolated artifacts under its own `runs/p9_development_<variant>_<config-hash>/` or `runs/p9_confirmation_<variant>_<config-hash>/` directory, with commit and config hashes recorded.
-
-Rebuild all P9 result tables in one command from the committed per-case outputs (this renders tables only and does not rerun stages or confirmation seeds):
+The included synthetic simulator generates multi-modal telemetry across 14 failure scenario families:
 
 ```powershell
-.\.venv\Scripts\python.exe eval\reproduce_p9_tables.py
+# List available scenario families
+.\.venv\Scripts\python.exe -m simulator.cli list
+
+# Generate a specific scenario with a chosen seed
+.\.venv\Scripts\python.exe -m simulator.cli run --scenario clean_bad_deploy --seed 1
+.\.venv\Scripts\python.exe -m simulator.cli run --scenario red_herring_deploy --seed 42
+.\.venv\Scripts\python.exe -m simulator.cli run --scenario silent_cause --seed 72
 ```
 
-P10's saved confidence evaluation is rendered without rerunning stages by:
+Telemetry is exported to `simulator/exports/<scenario_id>/seed_<seed>/export/`. Exports contain only anonymized, salted identifiers (`scn_<12 hex>`) and raw telemetry without leaking scenario labels or ground truth.
+
+---
+
+## 4. Running the Investigation Pipeline
+
+The pipeline comprises six sequential stages:
+- **S00 Ingest (`s00_ingest`):** Normalizes canonical JSON or real incident folders into typed schemas.
+- **S01 Vault (`s01_vault`):** Cryptographically seals raw evidence records into a SHA-256 hash-chained ledger (`vault/chain.jsonl`).
+- **S02 Signals (`s02_signals`):** Computes metric onset times, service ordering, and coverage gaps using robust biweight/MAD statistics and seasonal decomposition.
+- **S03 Candidates (`s03_candidates`):** Evaluates independent root cause localization methods (`change_based`, `graph_rwr`, `trace_ochiai`, `temporal_lag`) and fuses them via V3 score-margin weighted reciprocal-rank fusion.
+- **S04 Verification (`s04_verify`):** Enforces vault evidence validity, performs contradiction checks (`dependency_path`, `temporal_consistency`, `recovery_check`, `alternative_check`), and annotates candidates.
+- **S05 Report (`s05_report`):** Generates structured JSON (`report.json`) and formatted Markdown (`report.md`) citing verified evidence IDs.
+
+### Pipeline CLI Commands
+```powershell
+# Validate input without writing run or vault artifacts
+.\.venv\Scripts\python.exe -m inquest.cli validate <folder>
+
+# Run pipeline on synthetic/canonical export
+.\.venv\Scripts\python.exe -m inquest.cli ingest <export_folder>
+
+# Run pipeline on real incident directory
+.\.venv\Scripts\python.exe -m inquest.cli ingest-real <incident_dir>
+
+# Explain stage statuses, timings, and errors
+.\.venv\Scripts\python.exe -m inquest.cli explain --run <run_id>
+
+# Rerun a specific stage from saved artifacts
+.\.venv\Scripts\python.exe -m inquest.cli rerun --run <run_id> --stage s03_candidates
+```
+
+---
+
+## 5. Reading an Incident Report
+
+Incident reports are deterministic and saved under `runs/<run_id>/05_s05_report/`.
+
+Print the report directly to the terminal:
+```powershell
+.\.venv\Scripts\python.exe -m inquest.cli report <run_id>
+```
+
+### Report Sections
+1. **Headline:** Identifies the top candidate, assessment confidence flag, and primary rationale.
+   - Wording is strictly observational ("Most likely consistent with...").
+   - **Rule-Based Assessment Flags:**
+     - `standard`: High agreement across methods, complete telemetry, no S04 contradictions (100.0% top-1 accuracy on benchmark evaluation).
+     - `review_recommended`: Method disagreement or S04 contradiction flagged (`contested`/`unsupported`). Catches 100% of non-telemetry wrong answers.
+     - `insufficient_evidence`: Emitting service has metric coverage gaps or fewer than two methods produced candidates.
+2. **Ranked Candidates:** Top 3 candidates with ensemble score, per-method scores, method disagreement, and experimental S04 check status.
+3. **Evidence Timeline:** Chronological timeline of metric onsets, deployments, restarts, and alert firings.
+4. **Why Not the Runner-Up:** Detailed findings from S04 contradiction checks for the runner-up candidate.
+5. **Unknowns & Next Checks:** Disclosed telemetry gaps, degraded methods, or disabled checks, paired with targeted verification steps.
+6. **Evidence Citations:** Every assertion carries brackets with exact vault evidence IDs (e.g., `[evidence_ids: metric-db-0, change-dep-1]`).
+
+---
+
+## 6. Reproducing All Results Tables with One Command
+
+Reproduce every benchmark result across all 948 cases (seeds 1–91) and all seed blocks in a single command:
 
 ```powershell
-.\.venv\Scripts\python.exe eval\render_p10_saved_results.py
+.\.venv\Scripts\python.exe eval\reproduce_all_results.py
 ```
 
-The command creates a new timestamped output under `eval/rendered_p10/` without overwriting prior renderings. The committed full report is `eval/p10_evaluation_results_final.md`; each S05 run directory records its code commit and config hash. Example reports are under `docs/examples/`.
+This command renders:
+1. Overall 14-family performance table across all 948 cases under the V3 default pipeline.
+2. Breakdown by seed block:
+   - Development block (seeds 1–51, n=388)
+   - Confirmation block (seeds 52–71, n=280)
+   - Calibration block (seeds 72–91, n=280)
+3. Rule-based flag accuracy and coverage evaluation on seeds 72–91.
 
-Historical P0–P8 tables remain under `eval/`; the P9 command does not rerun those phases. Reserved scenarios under `simulator/scenarios/holdout/` are not registered or evaluated.
-
-See `SIM_SCHEMA.md`, `DATA_NOTES.md`, `DECISIONS.md`, `RUNBOOK.md`, and `P0_SIMULATION_SUMMARY.md` for details and verified observations.
+Full tabular data and analysis are maintained in `docs/RESULTS.md`. Known limitations and failure modes are documented in `docs/LIMITATIONS.md`.
