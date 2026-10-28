@@ -1,0 +1,26 @@
+{
+  "changes": [],
+  "description": "The true graph propagates a database fault, but one declared edge is missing.",
+  "injected_fault": {
+    "end_step": null,
+    "intensity": 1.4,
+    "service": "database",
+    "start_step": 10,
+    "threshold": 42
+  },
+  "observability": {
+    "fault_metric_visibility_delay_steps": 0,
+    "fault_metrics_suppressed_after_start": false
+  },
+  "omitted_dependency_edges": [
+    "payments->database"
+  ],
+  "scenario_id": "scn_ae609b988666",
+  "scenario_name": "partial_graph",
+  "seed": 80,
+  "telemetry_omissions": {
+    "metric_services_absent": [],
+    "metric_windows": {},
+    "traces_missing_for": []
+  }
+}

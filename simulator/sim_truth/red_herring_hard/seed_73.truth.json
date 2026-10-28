@@ -1,0 +1,37 @@
+{
+  "changes": [
+    {
+      "change_id": "payments-timeout-hard",
+      "kind": "configuration_change",
+      "service": "payments",
+      "step": 8
+    },
+    {
+      "change_id": "inventory-release-decoy",
+      "kind": "deployment",
+      "service": "inventory",
+      "step": 7
+    }
+  ],
+  "description": "A payments configuration fault overlaps an unrelated inventory deploy; database is a shared-ancestry graph decoy.",
+  "injected_fault": {
+    "end_step": null,
+    "intensity": 1.45,
+    "service": "payments",
+    "start_step": 9,
+    "threshold": 22
+  },
+  "observability": {
+    "fault_metric_visibility_delay_steps": 0,
+    "fault_metrics_suppressed_after_start": false
+  },
+  "omitted_dependency_edges": [],
+  "scenario_id": "scn_c46c1fb44761",
+  "scenario_name": "red_herring_hard",
+  "seed": 73,
+  "telemetry_omissions": {
+    "metric_services_absent": [],
+    "metric_windows": {},
+    "traces_missing_for": []
+  }
+}

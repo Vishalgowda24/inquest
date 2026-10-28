@@ -1,0 +1,43 @@
+{
+  "changes": [
+    {
+      "change_id": "db-pool-limit-2",
+      "kind": "configuration_change",
+      "service": "database",
+      "step": 10
+    }
+  ],
+  "description": "Database saturation propagates while inventory traces and a long checkout metric interval are absent.",
+  "injected_fault": {
+    "end_step": null,
+    "intensity": 1.35,
+    "service": "database",
+    "start_step": 10,
+    "threshold": 42.0
+  },
+  "observability": {
+    "fault_metric_visibility_delay_steps": 0,
+    "fault_metrics_suppressed_after_start": false
+  },
+  "omitted_dependency_edges": [],
+  "scenario_id": "scn_e27f73e6ed72",
+  "scenario_name": "missing_telemetry",
+  "seed": 84,
+  "telemetry_omissions": {
+    "metric_services_absent": [],
+    "metric_windows": {
+      "checkout": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "traces_missing_for": [
+      "inventory"
+    ]
+  }
+}

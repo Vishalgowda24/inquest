@@ -1,0 +1,5532 @@
+[
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T12:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 34.58
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T12:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 58.9402
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T12:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.01
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T12:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 37.0089
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T12:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 304.4062
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T11:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 28.21
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T11:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 34.7266
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T11:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T11:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 36.0672
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T11:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 296.423
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T12:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 16.38
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T12:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 33.2334
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T12:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T12:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 27.9105
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T12:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 276.2134
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T11:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 48.4848
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T11:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 26.8071
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T11:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.002
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T11:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 43.3968
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-0-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T11:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 320.8837
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T13:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 35.4652
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T13:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 57.787
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T13:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.01
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T13:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 40.7974
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T13:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 302.5113
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T12:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 28.9321
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T12:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 33.2725
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T12:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T12:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 35.4652
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T12:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 293.0699
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T13:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 16.7993
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T13:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 35.3065
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T13:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T13:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 28.7529
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T13:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 278.4382
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T12:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 49.7259
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T12:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 26.8903
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T12:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.002
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T12:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 44.7022
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-1-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T12:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 316.1687
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T14:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 36.29
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T14:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 59.2576
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T14:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.01
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T14:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 38.078
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T14:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 305.1804
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T13:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 29.605
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T13:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 35.4932
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T13:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T13:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 36.6631
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T13:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 295.0084
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T14:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 17.19
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T14:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 34.078
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T14:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T14:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 30.8444
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T14:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 279.5563
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T13:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 50.8824
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T13:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 27.3805
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T13:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.002
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T13:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 47.5961
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-2-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T13:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 319.1165
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T15:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 36.9983
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T15:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 58.9928
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T15:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.01
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T15:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 41.0226
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T15:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 305.5731
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T14:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 30.1828
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T14:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 36.6697
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T14:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T14:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 37.7773
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T14:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 299.5269
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T15:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 17.5255
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T15:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 32.5367
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T15:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T15:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 29.1305
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T15:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 283.2881
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T14:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 51.8755
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T14:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 26.1255
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T14:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.002
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T14:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 45.1213
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-3-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T14:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 319.0648
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T16:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 37.5418
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T16:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 58.8025
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T16:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.01
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T16:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 40.9086
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T16:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 306.7678
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T15:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 30.6262
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T15:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 35.3002
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T15:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T15:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 37.3933
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T15:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 296.925
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T16:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 17.783
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T16:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 34.5929
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T16:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T16:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 29.8528
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T16:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 280.368
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T15:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 52.6376
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T15:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 25.4871
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T15:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.002
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T15:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 48.4886
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-4-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T15:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 323.2706
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T17:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 37.8835
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T17:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 58.8574
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T17:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.01
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T17:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 39.5257
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T17:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 304.8701
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T16:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 30.9049
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T16:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 33.1762
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T16:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T16:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 35.9937
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T16:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 295.5449
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T17:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 17.9448
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T17:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 34.2375
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T17:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T17:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 29.6352
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T17:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 280.4456
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T16:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 53.1166
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T16:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 25.7835
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T16:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.002
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T16:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 48.8176
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-5-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T16:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 322.3283
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T18:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 38.0
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T18:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 58.0684
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T18:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.01
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T18:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 40.9762
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T18:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 302.6703
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T17:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 31.0
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T17:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 33.4565
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T17:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T17:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 37.1756
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T17:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 294.9846
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T18:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 18.0
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T18:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 34.4244
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T18:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T18:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 30.2985
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T18:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 285.425
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T17:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 53.28
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T17:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 24.8289
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T17:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.002
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T17:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 46.6862
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-6-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T17:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 320.3581
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T19:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 37.8835
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T19:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 59.7819
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T19:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.01
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T19:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 41.1573
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T19:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 305.6423
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T18:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 30.9049
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T18:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 32.1751
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T18:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T18:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 35.2462
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T18:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 296.5991
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T19:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 17.9448
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T19:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 32.4265
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T19:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T19:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 30.1916
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T19:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 284.9234
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T18:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 53.1166
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T18:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 26.7713
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T18:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.002
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T18:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 48.5388
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-7-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T18:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 325.7498
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T20:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 37.5418
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T20:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 56.3423
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T20:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.01
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T20:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 38.5318
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T20:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 303.0534
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T19:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 30.6262
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T19:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 33.5994
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T19:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T19:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 35.8492
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T19:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 297.509
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T20:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 17.783
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T20:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 33.1625
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T20:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T20:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 32.2221
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T20:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 283.9825
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T19:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 52.6376
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T19:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 27.535
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T19:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.002
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T19:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 48.0008
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-8-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T19:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 319.7885
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T21:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 36.9983
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T21:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 56.7452
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T21:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.01
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T21:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 40.7294
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T21:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 308.0808
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T20:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 30.1828
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T20:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 33.992
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T20:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T20:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 36.4556
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T20:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 295.5626
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T21:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 17.5255
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T21:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 35.1056
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T21:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T21:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 29.998
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T21:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 281.8491
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T20:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 51.8755
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T20:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 28.0984
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T20:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.002
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T20:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 45.8828
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-9-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T20:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 322.4359
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T22:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 36.29
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T22:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 57.5448
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T22:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.01
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T22:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 39.495
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T22:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 306.5033
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T21:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 29.605
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T21:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 36.7528
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T21:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T21:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 35.2651
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T21:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 293.4573
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T22:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 17.19
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T22:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 34.6359
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T22:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.004
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T22:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 29.7152
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T22:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 279.8394
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T21:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 50.8824
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T21:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 66.684
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T21:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.1512
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T21:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 59.1229
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-10-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T21:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 337.5581
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T23:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 35.4652
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T23:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 60.2348
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T23:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.01
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T23:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 38.3814
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-15T23:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 305.6067
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T22:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 28.9321
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T22:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 57.5872
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T22:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.1529
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T22:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 34.4981
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T22:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 294.3346
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T23:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 16.7993
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T23:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 55.0654
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T23:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.1529
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T23:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 31.5503
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-15T23:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 277.2884
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T22:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 49.7259
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T22:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 62.2842
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T22:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.1318
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T22:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 55.894
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-11-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T22:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 335.9935
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T00:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 34.58
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T00:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 83.3828
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T00:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.2839
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T00:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 40.0939
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T00:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 305.1869
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T23:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 28.21
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T23:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 55.3312
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T23:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.1335
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T23:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 35.174
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-15T23:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 295.2344
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T00:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 16.38
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T00:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 53.0051
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T00:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.1335
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T00:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 31.1331
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T00:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 282.495
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T23:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 48.4848
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T23:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 56.2733
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T23:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.1109
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T23:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 51.9467
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-12-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-15T23:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 328.9519
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T01:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 33.6948
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T01:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 80.9138
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T01:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.2507
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T01:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 36.4165
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T01:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 297.2993
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T00:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 27.4879
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T00:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 49.6227
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T00:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.1127
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T00:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 36.843
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T00:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 296.4713
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T01:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 15.9607
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T01:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 48.3218
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T01:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.1127
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T01:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 29.5596
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T01:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 278.8936
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T00:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 47.2437
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T00:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 50.3121
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T00:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.0901
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T00:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 50.5149
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-13-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T00:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 328.1165
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T02:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 32.87
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T02:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 72.6328
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T02:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.2143
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T02:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 39.1756
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T02:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 299.2417
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T01:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 26.815
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T01:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 48.1689
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T01:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.0919
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T01:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 34.3283
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T01:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 295.518
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T02:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 15.57
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T02:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 46.2073
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T02:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.0919
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T02:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 29.7379
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T02:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 276.6296
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T01:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 46.0872
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T01:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 42.1588
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T01:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.0707
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T01:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 49.6602
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-14-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T01:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 326.1156
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T03:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 32.1617
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T03:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 71.5449
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T03:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.177
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T03:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 38.8462
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T03:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 294.8845
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T02:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 26.2372
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T02:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 44.2623
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T02:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.0725
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T02:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 34.1731
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T02:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 290.4929
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T03:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 15.2345
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T03:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 41.5801
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T03:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.0725
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T03:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 28.9378
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T03:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 279.6337
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T02:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 45.0941
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T02:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 39.003
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T02:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.054
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T02:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 49.3389
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-15-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T02:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 321.0162
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T04:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 31.6182
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T04:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 68.1013
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T04:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.1415
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T04:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 39.1607
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T04:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 294.3335
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T03:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 25.7938
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T03:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 40.4727
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T03:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.0559
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T03:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 35.7632
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T03:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 292.1079
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T03:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 44.332
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T03:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 36.4377
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T03:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.0412
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T03:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 46.0985
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-16-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T03:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 318.4124
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T05:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 31.2765
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T05:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 66.0768
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T05:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.1104
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T05:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 35.054
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T05:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 298.3452
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T04:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 25.5151
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T04:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 38.8986
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T04:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.0431
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T04:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 35.608
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T04:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 290.478
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T05:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 14.8152
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T05:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 37.333
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T05:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.0431
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T05:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 30.5726
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T05:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 277.5218
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T04:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 43.853
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T04:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 33.6431
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T04:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.0331
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T04:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 43.9196
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-17-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T04:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 315.6377
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T06:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 31.16
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T06:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 61.0196
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T06:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.0862
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T06:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 37.412
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T06:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 294.8537
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T05:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 25.42
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T05:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 38.9606
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T05:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.0351
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T05:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 33.7508
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T05:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 293.8772
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T06:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 14.76
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T06:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 38.8467
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T06:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.0351
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T06:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 28.6165
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T06:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 280.9996
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T05:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 43.6896
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T05:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 33.2836
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T05:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.0304
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T05:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 44.2788
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-18-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T05:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 318.4014
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-checkout-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T07:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "requests/second",
+    "value": 31.2765
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-checkout-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T07:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ms",
+    "value": 63.9429
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-checkout-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T07:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "ratio",
+    "value": 0.0708
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-checkout-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T07:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "percent",
+    "value": 35.7018
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-checkout-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "checkout",
+    "timestamp": "2025-01-16T07:00:00.800000Z",
+    "timestamp_uncertainty_ms": 800,
+    "unit": "MB",
+    "value": 300.749
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-payments-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T06:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "requests/second",
+    "value": 25.5151
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-payments-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T06:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ms",
+    "value": 36.9268
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-payments-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T06:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "ratio",
+    "value": 0.0323
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-payments-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T06:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "percent",
+    "value": 34.5827
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-payments-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "payments",
+    "timestamp": "2025-01-16T06:59:59.550000Z",
+    "timestamp_uncertainty_ms": 450,
+    "unit": "MB",
+    "value": 286.7529
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-inventory-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T07:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "requests/second",
+    "value": 14.8152
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-inventory-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T07:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ms",
+    "value": 38.1858
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-inventory-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T07:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "ratio",
+    "value": 0.0323
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-inventory-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T07:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "percent",
+    "value": 28.7138
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-inventory-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "inventory",
+    "timestamp": "2025-01-16T07:00:01.200000Z",
+    "timestamp_uncertainty_ms": 1200,
+    "unit": "MB",
+    "value": 281.6414
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-database-request_rate",
+    "metric": "request_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T06:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "requests/second",
+    "value": 43.853
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-database-latency_ms",
+    "metric": "latency_ms",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T06:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ms",
+    "value": 31.531
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-database-error_rate",
+    "metric": "error_rate",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T06:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "ratio",
+    "value": 0.0331
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-database-cpu_percent",
+    "metric": "cpu_percent",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T06:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "percent",
+    "value": 44.9779
+  },
+  {
+    "dimensions": {
+      "scenario_id": "scn_c50e1b7876f0",
+      "window_minutes": "60"
+    },
+    "id": "metric-86-19-database-memory_mb",
+    "metric": "memory_mb",
+    "schema_version": "1.0",
+    "service": "database",
+    "timestamp": "2025-01-16T06:59:58.500000Z",
+    "timestamp_uncertainty_ms": 1500,
+    "unit": "MB",
+    "value": 315.8425
+  }
+]
