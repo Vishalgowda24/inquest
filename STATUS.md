@@ -8,7 +8,7 @@
 | Part 2 | Frontend (Hero with --u scaling, brand copy, /demo, /results, /limitations) | done | `19701c6` |
 | Part 3 | Tests (API tests, security, Playwright E2E, smoke & load test) | done | `9884394` |
 | Part 4 | Docker & Deploy (multi-stage Dockerfile, docker-compose, CI, deploy configs) | done | `26319cc` |
-| Part 5 | Final Documentation, Verification & Tag (v1.1-demo) | done | [pending] |
+| Part 5 | Final Documentation, Verification & Tag (v1.1-demo) | done | `ae5aa69` |
 
 ---
 
