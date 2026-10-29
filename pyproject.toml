@@ -20,5 +20,5 @@ inquest = "inquest.cli:main"
 include = ["simulator*", "inquest*"]
 
 [tool.pytest.ini_options]
-testpaths = ["simulator/tests", "inquest/tests"]
+testpaths = ["simulator/tests", "inquest/tests", "tests_api"]
 python_files = ["test_*.py"]
