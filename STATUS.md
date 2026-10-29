@@ -7,29 +7,38 @@
 | Part 1 | API & Demo Cache (FastAPI, 8 precomputed cases, security, rate limit, reveal) | done | `7ba7a44` |
 | Part 2 | Frontend (Hero with --u scaling, brand copy, /demo, /results, /limitations) | done | `19701c6` |
 | Part 3 | Tests (API tests, security, Playwright E2E, smoke & load test) | done | `9884394` |
-| Part 4 | Docker & Deploy (multi-stage Dockerfile, docker-compose, CI, deploy configs) | done | [pending] |
-| Part 5 | Final Documentation, Verification & Tag (v1.1-demo) | in progress | - |
+| Part 4 | Docker & Deploy (multi-stage Dockerfile, docker-compose, CI, deploy configs) | done | `26319cc` |
+| Part 5 | Final Documentation, Verification & Tag (v1.1-demo) | done | [pending] |
 
 ---
 
-## Assumptions (P12)
+## Test Suite Execution Summary
+
+- **Total Test Cases:** 105 passed, 0 failed.
+  - **Existing Simulator & Pipeline Suite:** 84 passed (`simulator/tests/`, `inquest/tests/`).
+  - **API, Security & Load Suite (`tests_api/test_api.py`):** 16 passed (health, families, stats sync, results/limitations, allow-list rejection, seed range rejection, path-traversal & injection prevention, 1MB body limit, 429 rate limit with Retry-After, security headers & strict CSP, HTTP basic auth protection, reveal only after run, cached vs live ranking consistency, 60s timeout handling, wording lint, 20 concurrent request load test).
+  - **Playwright E2E Acceptance Suite (`tests_api/test_playwright.py`):** 5 passed (1440×900 desktop hero acceptance check by bounding boxes, 390×844 mobile responsive reflow with working menu button, prefers-reduced-motion still fallback and animation disablement, interactive demo flow end-to-end including Reveal, keyboard tab navigation and WCAG contrast check).
+- **Diagnostics (`inquest doctor`):** All checks OK (plugin registry, adapter registry, candidate methods, verification methods, configuration, filesystem paths, smoke stage, vault chain integrity across 3 checked vaults).
+
+---
+
+## Visual Demo Screenshots
+
+All visual verification screenshots have been saved to `docs/screenshots/`:
+1. `docs/screenshots/hero_desktop_1440x900.png` — Desktop hero canvas at 1440×900 with bounding box verification.
+2. `docs/screenshots/hero_mobile_390x844.png` — Mobile single-column reflow at 390×844 with dropdown navigation.
+3. `docs/screenshots/hero_reduced_motion.png` — Static poster fallback under `prefers-reduced-motion: reduce`.
+4. `docs/screenshots/demo_flow_reveal.png` — Interactive investigation runner output with ground truth reveal match.
+
+---
+
+## Assumptions & Architectural Decisions
 
 1. **Architecture & Truth Boundary:** Demo API is implemented in `demo/api.py` and static frontend in `demo/static/` to strictly protect the `inquest/` package from any simulator imports, paths, or truth leakage. The `POST /api/reveal/{run_id}` route is the single isolated path that reads ground truth data for validation.
 2. **Precomputed Demo Cache:** 8 canonical demo cases (`clean_bad_deploy`, `coincident_restart`, `red_herring_deploy`, `shared_dependency`, `missing_telemetry` seed 73, `late_alerting_cause`, `silent_cause` seed 72 top-1 wrong miss, `concurrent_causes`) are precomputed in `demo/cache/precomputed.json` for immediate (<10ms) responses in the interactive demo. Live runs dynamically execute the S00–S05 pipeline within a 60s timeout and a concurrency limit of 2.
 3. **Fonts & Assets:** Self-hosted OFL DM Sans and Inter Latin subset font files are placed in `demo/static/fonts/` with SIL Open Font License (OFL 1.1) accompanied by clean system font fallbacks. Hero artwork loop (MP4) and still poster (WebP) total 1.24 MB and are committed to `demo/static/assets/`, with remote URLs and CSS gradient fallbacks.
 4. **Security Defaults:** CORS is disabled. CSP allows only `'self'` and the media host (`https://d2ol7oe51mr4n9.cloudfront.net`). In-memory sliding-window IP rate limiting returns 429 after 120 req/min (configurable for tests). Request payload limit is 1 MB (returns 413). Optional HTTP Basic Auth is supported via `DEMO_BASIC_AUTH_USERNAME` and `DEMO_BASIC_AUTH_PASSWORD`.
-
----
-
-## P11 Prototype Checkpoint Status (v1.0-prototype)
-
-| Part | Description | Status | Commit Hash |
-|---|---|---|---|
-| Part A | Confidence Cleanup & Rule-Based Flags | done | `06bfd06` |
-| Part B | S04 Decision & Experimental Status | done | `751eadf` |
-| Part C | Problem-Family Performance Tables | done | `7b86d31` |
-| Part D | Real-Data Adapter & Verification | done | `62c6924` |
-| Part E | Finalization, README, Limitations & Tag | done | `53ffc7d` |
+5. **Docker Availability on Host:** The host operating system (Windows) does not have the `docker` binary or Docker Desktop daemon installed. Local container smoke testing was therefore skipped, and complete deployment configurations (`Dockerfile`, `docker-compose.yml`, `.github/workflows/ci.yml`, `render.yaml`, `fly.toml`, `docs/DEPLOY.md`) were generated and verified.
 
 ---
 
@@ -50,15 +59,15 @@
     - `insufficient_evidence`: Correctly identifies 100% of top-candidate telemetry gaps (7/7 in `missing_telemetry`).
   - Combined non-standard flags capture 26/26 (100%) of all benchmark misses; zero wrong answers receive `standard`.
   - The parametric calibrated logistic model remains in the repository behind `unvalidated_calibrated_confidence` (default `false`).
-- **Real-Data Ingestion Adapter (Part D):**
-  - Defined self-contained directory schema in `docs/REAL_DATA.md` for metrics (CSV/JSON), operational events, alerts, dependency graphs, optional traces, and offline `labels.json`.
-  - Implemented `inquest ingest-real <dir>` CLI command and `RealIncidentAdapter` with schema validation, clear error messages, and automatic conversion into the vault.
-  - Strict isolation: real data never touches `sim_truth/`, and `labels.json` is never read by diagnostic stages.
-  - Comprehensive unit and CLI integration tests covering converted examples, malformed records, and missing required files.
-- **Reproducible Evaluation Infrastructure:**
-  - Evaluated on 948 synthetic cases across 14 scenario families (Development seeds 1–51: n=388, Confirmation seeds 52–71: n=280, Calibration seeds 72–91: n=280).
-  - Single-command reproduction script: `python eval/reproduce_all_results.py`.
-  - Complete benchmark results recorded in `docs/RESULTS.md` and detailed boundaries documented in `docs/LIMITATIONS.md`.
+- **Interactive Web Demo Application & Static UI (P12):**
+  - Standalone FastAPI server with strict security, rate limiting, and truth isolation.
+  - Strata AI landing hero with `--u` unit scaling (2048×1455 design canvas), Web Animations API entrance sequence, glass data cards, and responsive single-column mobile reflow.
+  - Interactive `/demo` runner with 8 precomputed canonical cases, live execution, top-3 candidates table, evidence timeline, unknowns, and ground truth reveal.
+  - Benchmark results page (`/results`) and limitations page (`/limitations`) with synthetic data disclaimers.
+- **Automated Deploy Configurations:**
+  - Multi-stage Dockerfile with non-root user and healthcheck.
+  - GitHub Actions CI workflow running lint, doctor, test suite, and container image build.
+  - Ready-to-use Render and Fly.io configurations.
 
 ---
 

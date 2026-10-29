@@ -78,3 +78,8 @@ Across all 948 benchmark evaluations (seeds 1–91) under the default V3 pipelin
 
 6. **Real-world data status:**
    Not evaluated on real incident data (`data/real/` is absent). All reported metrics, baselines, and findings derive exclusively from synthetic microservice simulation.
+
+7. **Interactive Demo operational boundaries (P12):**
+   - The interactive web demo (`/demo`) enforces a strict concurrency throttle (maximum 2 simultaneous live pipeline runs) and a 60-second execution timeout per investigation.
+   - 8 canonical demonstration cases are cached for immediate response (<10ms latency); live runs dynamically execute S00–S05 in temporary isolated directories that are purged upon completion.
+   - Truth isolation is strictly maintained: `/api/reveal/{run_id}` is the single route with access to ground truth metadata, and only responds after an investigation run has completed.

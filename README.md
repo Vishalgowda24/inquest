@@ -1,6 +1,36 @@
-# Inquest (v1.0-prototype)
+# Inquest (v1.1-demo)
 
 Inquest is an evidence-driven, causal incident investigation system for distributed microservices. It ingests multi-modal observability telemetry (metrics, operational changes, alert logs, dependency graphs, and optional traces), cryptographically binds them into an append-only evidence vault, computes signal onsets, ranks candidate root causes via multi-method fusion, performs heuristic verification, and renders deterministic incident reports citing tamper-evident evidence IDs.
+
+---
+
+## 0. Interactive Web Demo (Local Run in 3 Commands)
+
+Run the full interactive web demo locally:
+
+```bash
+# 1. Install editable package and dependencies
+pip install -e . && pip install fastapi uvicorn httpx playwright
+
+# 2. Run the interactive web server on port 8000
+uvicorn demo.api:app --host 0.0.0.0 --port 8000
+
+# 3. Run the full verification suite (pytest + Playwright E2E)
+pytest
+```
+
+### Served Web Application Pages
+
+- **`/` — Landing Hero:** Pixel-accurate implementation of the Strata AI design spec (`docs/design/hero_spec.md`) featuring `--u` responsive canvas scaling (2048×1455), self-hosted OFL fonts (DM Sans and Inter), masked artwork video loop, glass cards, and Web Animations timeline. Brand customizable via `?brand=strata`.
+- **`/demo` — Interactive Investigation Runner:** Choose scenario family and seed, execute cached (<10ms) or live runs, inspect top 3 candidates with per-method breakdown, rule-based review flags, evidence timelines, unknowns, and click **Reveal Truth** to compare top-1 against simulator ground truth.
+- **`/results` — Benchmark Results:** Comprehensive tables across all 948 cases and all 3 seed blocks, highlighting family performance, regressions, and the family-mix baseline caveat.
+- **`/limitations` — Operational Boundaries:** Rendered limitations including silent cause failure modes, S04 verification recall, unvalidated confidence models, and real-data status.
+
+### Visual Demo Screenshots
+
+| Desktop Hero (1440×900) | Interactive Demo & Reveal | Mobile Reflow (390×844) |
+|:---:|:---:|:---:|
+| ![Hero Desktop](docs/screenshots/hero_desktop_1440x900.png) | ![Demo Flow](docs/screenshots/demo_flow_reveal.png) | ![Hero Mobile](docs/screenshots/hero_mobile_390x844.png) |
 
 ---
 
