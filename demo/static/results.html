@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inquest | Benchmark Results</title>
+  <style>
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('/static/fonts/DMSans-normal-latin.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('/static/fonts/Inter-normal-latin.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #0d0c11;
+      --card-bg: #14131b;
+      --card-border: rgba(255, 255, 255, 0.12);
+      --ink: #ffffff;
+      --muted: #a3a2a8;
+      --violet: #6f5adc;
+      --primary-violet: linear-gradient(135deg, #4d19b1, #6f5adc);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    header {
+      height: 72px;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--card-border);
+      background: rgba(13, 12, 17, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-tile {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--primary-violet);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .wordmark {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #bdbdc1;
+    }
+
+    nav a {
+      color: #b9b8bb;
+      text-decoration: none;
+      font-size: 15px;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active {
+      color: #fff;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .page-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    .page-desc {
+      color: var(--muted);
+      font-size: 16px;
+      margin-top: 8px;
+      max-width: 900px;
+    }
+
+    .callout {
+      background: rgba(111, 90, 220, 0.08);
+      border: 1px solid rgba(111, 90, 220, 0.25);
+      border-radius: 12px;
+      padding: 18px 24px;
+      font-size: 14px;
+      color: #d1d0d6;
+    }
+
+    .callout strong {
+      color: #fff;
+    }
+
+    .table-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      overflow-x: auto;
+    }
+
+    .table-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th {
+      text-align: left;
+      padding: 12px 14px;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-weight: 500;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: #e2e1e7;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .highlight-failure td {
+      background: rgba(244, 63, 94, 0.08);
+    }
+
+    .highlight-regression td {
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    .highlight-success td {
+      background: rgba(16, 185, 129, 0.06);
+    }
+
+    .caveat-box {
+      background: rgba(245, 158, 11, 0.06);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      font-size: 14px;
+      color: #fbbf24;
+    }
+
+    .caveat-box h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #fef3c7;
+    }
+
+    .caveat-box p {
+      color: #fde68a;
+      line-height: 1.5;
+    }
+
+    footer.disclaimer-footer {
+      text-align: center;
+      padding: 20px;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="brand-link">
+      <div class="brand-tile">I</div>
+      <div class="wordmark">Inquest</div>
+    </a>
+    <nav>
+      <a href="/demo">Demo</a>
+      <a href="/results" class="active">Results</a>
+      <a href="/limitations">Limitations</a>
+    </nav>
+  </header>
+
+  <main>
+    <div>
+      <h1 class="page-title">Benchmark Results</h1>
+      <p class="page-desc">Comprehensive evaluation of Inquest V3 score-margin weighted RRF fusion across all 948 synthetic scenario cases spanning seeds 1 through 91.</p>
+    </div>
+
+    <div class="callout">
+      <strong>Zero Parameter Retuning:</strong> No weights, fusion formulas, thresholds, or S04 rules were changed or tuned after seeing confirmation seeds 52–71 or calibration seeds 72–91. All evaluations read from immutable, committed artifacts.
+    </div>
+
+    <!-- Overall Problem Family Table -->
+    <div class="table-card">
+      <h2 class="table-title">1. Aggregate Performance Across All Seed Blocks (n=948)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Family</th>
+            <th style="text-align: right;">n</th>
+            <th>Ensemble (V3) Top-1 (Top-3)</th>
+            <th>V0 Top-1 (Top-3)</th>
+            <th>graph_rwr Top-1 (Top-3)</th>
+            <th>alert_order Top-1 (Top-3)</th>
+            <th>V3 vs V0 Top-1</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>cause_alerts_2_4</td>
+            <td style="text-align: right;">60</td>
+            <td>57/60 (58/60)</td>
+            <td>55/60 (60/60)</td>
+            <td>60/60 (60/60)</td>
+            <td>0/60 (40/60)</td>
+            <td style="color: #34d399;">+2</td>
+          </tr>
+          <tr>
+            <td>clean_bad_deploy</td>
+            <td style="text-align: right;">69</td>
+            <td>68/69 (68/69)</td>
+            <td>62/69 (69/69)</td>
+            <td>69/69 (69/69)</td>
+            <td>68/69 (69/69)</td>
+            <td style="color: #34d399;">+6</td>
+          </tr>
+          <tr class="highlight-regression">
+            <td><strong>coincident_restart</strong></td>
+            <td style="text-align: right;">69</td>
+            <td>65/69 (66/69)</td>
+            <td>67/69 (69/69)</td>
+            <td>69/69 (69/69)</td>
+            <td>68/69 (69/69)</td>
+            <td style="color: #fbbf24; font-weight: bold;">-2 (worse)</td>
+          </tr>
+          <tr>
+            <td>concurrent_causes</td>
+            <td style="text-align: right;">69</td>
+            <td>69/69 (69/69)</td>
+            <td>69/69 (69/69)</td>
+            <td>16/69 (69/69)</td>
+            <td>69/69 (69/69)</td>
+            <td>=</td>
+          </tr>
+          <tr class="highlight-success">
+            <td><strong>late_alerting_cause</strong></td>
+            <td style="text-align: right;">69</td>
+            <td>65/69 (68/69)</td>
+            <td>45/69 (68/69)</td>
+            <td>69/69 (69/69)</td>
+            <td>3/69 (13/69)</td>
+            <td style="color: #34d399; font-weight: bold;">+20</td>
+          </tr>
+          <tr class="highlight-regression">
+            <td><strong>long_seasonal</strong></td>
+            <td style="text-align: right;">69</td>
+            <td>57/69 (69/69)</td>
+            <td>69/69 (69/69)</td>
+            <td>43/69 (69/69)</td>
+            <td>40/69 (69/69)</td>
+            <td style="color: #fbbf24; font-weight: bold;">-12 (worse)</td>
+          </tr>
+          <tr>
+            <td>missing_telemetry</td>
+            <td style="text-align: right;">69</td>
+            <td>69/69 (69/69)</td>
+            <td>68/69 (69/69)</td>
+            <td>69/69 (69/69)</td>
+            <td>68/69 (69/69)</td>
+            <td style="color: #34d399;">+1</td>
+          </tr>
+          <tr>
+            <td>noisy_alerts</td>
+            <td style="text-align: right;">69</td>
+            <td>66/69 (67/69)</td>
+            <td>61/69 (69/69)</td>
+            <td>69/69 (69/69)</td>
+            <td>15/69 (57/69)</td>
+            <td style="color: #34d399;">+5</td>
+          </tr>
+          <tr>
+            <td>partial_graph</td>
+            <td style="text-align: right;">69</td>
+            <td>66/69 (67/69)</td>
+            <td>60/69 (69/69)</td>
+            <td>69/69 (69/69)</td>
+            <td>68/69 (69/69)</td>
+            <td style="color: #34d399;">+6</td>
+          </tr>
+          <tr class="highlight-success">
+            <td><strong>red_herring_deploy</strong></td>
+            <td style="text-align: right;">69</td>
+            <td>69/69 (69/69)</td>
+            <td>68/69 (69/69)</td>
+            <td>14/69 (69/69)</td>
+            <td>68/69 (69/69)</td>
+            <td style="color: #34d399; font-weight: bold;">+1</td>
+          </tr>
+          <tr>
+            <td>red_herring_hard</td>
+            <td style="text-align: right;">69</td>
+            <td>69/69 (69/69)</td>
+            <td>68/69 (69/69)</td>
+            <td>14/69 (69/69)</td>
+            <td>68/69 (69/69)</td>
+            <td style="color: #34d399;">+1</td>
+          </tr>
+          <tr>
+            <td>shared_dependency</td>
+            <td style="text-align: right;">69</td>
+            <td>67/69 (68/69)</td>
+            <td>63/69 (69/69)</td>
+            <td>69/69 (69/69)</td>
+            <td>68/69 (69/69)</td>
+            <td style="color: #34d399;">+4</td>
+          </tr>
+          <tr class="highlight-failure">
+            <td><strong>silent_cause</strong></td>
+            <td style="text-align: right;">69</td>
+            <td>24/69 (65/69)</td>
+            <td>1/69 (59/69)</td>
+            <td>66/69 (69/69)</td>
+            <td>0/69 (0/69)</td>
+            <td style="color: #fb7185; font-weight: bold;">+23 (65% miss)</td>
+          </tr>
+          <tr>
+            <td>unordered_plausible_alerts</td>
+            <td style="text-align: right;">60</td>
+            <td>57/60 (58/60)</td>
+            <td>55/60 (60/60)</td>
+            <td>60/60 (60/60)</td>
+            <td>15/60 (45/60)</td>
+            <td style="color: #34d399;">+2</td>
+          </tr>
+          <tr style="font-weight: bold; border-top: 2px solid rgba(255,255,255,0.2);">
+            <td>Total</td>
+            <td style="text-align: right;">948</td>
+            <td>868/948 (930/948)</td>
+            <td>811/948 (937/948)</td>
+            <td>756/948 (948/948)</td>
+            <td>618/948 (776/948)</td>
+            <td style="color: #34d399;">+57</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Family-Mix Caveat -->
+    <div class="caveat-box">
+      <h3>Family-Mix Caveat: Ensemble vs Alert-Order Baseline</h3>
+      <p>
+        Across all 948 cases, the ensemble achieves 868 top-1 hits (91.6%) versus <code>alert_order</code>'s 618 (65.2%), an aggregate difference of +250 cases (+26.4 percentage points).
+      </p>
+      <p style="margin-top: 8px;">
+        <strong>However, this aggregate advantage is entirely dependent on scenario family mix:</strong><br>
+        On the 7 families where alerts fire predictably without corruption or delay (<code>clean_bad_deploy</code>, <code>coincident_restart</code>, <code>missing_telemetry</code>, <code>partial_graph</code>, <code>red_herring_deploy</code>, <code>red_herring_hard</code>, <code>shared_dependency</code>), <code>alert_order</code> achieves <strong>476/483 top-1 hits (98.6%)</strong>, essentially matching the ensemble's <strong>477/483 (98.8%)</strong>.
+      </p>
+      <p style="margin-top: 8px;">
+        The ensemble's entire net lead arises from families with designed alert failure modes (e.g. <code>late_alerting_cause</code> +62, <code>cause_alerts_2_4</code> +57, <code>noisy_alerts</code> +51, <code>unordered_plausible_alerts</code> +42, <code>silent_cause</code> +24). Inquest's value is in resilience when alert timing is deceptive or delayed.
+      </p>
+    </div>
+  </main>
+
+  <footer class="disclaimer-footer">
+    Synthetic demo: evidence is from simulated incidents only.
+  </footer>
+</body>
+</html>

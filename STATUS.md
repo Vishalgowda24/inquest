@@ -4,9 +4,9 @@
 
 | Part | Description | Status | Commit Hash |
 |---|---|---|---|
-| Part 1 | API & Demo Cache (FastAPI, 8 precomputed cases, security, rate limit, reveal) | done | [pending] |
-| Part 2 | Frontend (Hero with --u scaling, brand copy, /demo, /results, /limitations) | in progress | - |
-| Part 3 | Tests (API tests, security, Playwright E2E, smoke & load test) | not started | - |
+| Part 1 | API & Demo Cache (FastAPI, 8 precomputed cases, security, rate limit, reveal) | done | `7ba7a44` |
+| Part 2 | Frontend (Hero with --u scaling, brand copy, /demo, /results, /limitations) | done | [pending] |
+| Part 3 | Tests (API tests, security, Playwright E2E, smoke & load test) | in progress | - |
 | Part 4 | Docker & Deploy (multi-stage Dockerfile, docker-compose, CI, deploy configs) | not started | - |
 | Part 5 | Final Documentation, Verification & Tag (v1.1-demo) | not started | - |
 

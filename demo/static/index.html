@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inquest | Evidence-Driven Incident Investigation</title>
+  <style>
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('/static/fonts/DMSans-normal-latin.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: italic;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('/static/fonts/DMSans-italic-latin.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('/static/fonts/Inter-normal-latin.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #0d0c11;
+      --ink: #ffffff;
+      --nav-grey: #b9b8bb;
+      --muted: #d3d3d7;
+      --wordmark-grey: #bdbdc1;
+      --teal-accent: #9ff0ec;
+      --kicker-teal: #bdf7ee;
+      --logo-grey: #bcbcbf;
+      --primary-violet: linear-gradient(135deg, #4d19b1, #6f5adc);
+      --glass-fill: rgba(255, 255, 255, 0.02);
+      --glass-border: rgba(255, 255, 255, 0.16);
+      --glass-blur: blur(8px) brightness(1.15) saturate(0.8);
+      --glass-glow: inset 0 0 16px rgba(255, 255, 255, 0.04);
+      --u: max(0.468px, calc(100vh / 1455));
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: calc(64 * var(--u)) calc(64 * var(--u));
+    }
+
+    /* 2048 x 1455 Canvas */
+    .hero-canvas {
+      position: relative;
+      width: calc(2048 * var(--u));
+      height: calc(1455 * var(--u));
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    /* Header */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: calc(148 * var(--u));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 calc(150 * var(--u));
+      z-index: 50;
+    }
+
+    .brand-tile-wrap {
+      display: flex;
+      align-items: center;
+      gap: calc(20 * var(--u));
+      text-decoration: none;
+    }
+
+    .brand-tile {
+      width: calc(70 * var(--u));
+      height: calc(69 * var(--u));
+      background: var(--primary-violet);
+      border-radius: calc(16 * var(--u));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 calc(30 * var(--u)) rgba(111, 90, 220, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .brand-letter {
+      font-family: 'DM Sans', sans-serif;
+      font-size: calc(38 * var(--u));
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .wordmark-wrap {
+      position: relative;
+      display: flex;
+      align-items: baseline;
+    }
+
+    .wordmark {
+      font-family: 'DM Sans', sans-serif;
+      font-size: calc(34 * var(--u));
+      font-weight: 500;
+      color: var(--wordmark-grey);
+      letter-spacing: -0.02em;
+    }
+
+    .wordmark-sup {
+      font-size: calc(14 * var(--u));
+      font-weight: 600;
+      color: var(--teal-accent);
+      margin-left: calc(6 * var(--u));
+      position: relative;
+      top: calc(-12 * var(--u));
+      text-transform: lowercase;
+    }
+
+    nav.desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: calc(48 * var(--u));
+    }
+
+    nav.desktop-nav a {
+      color: var(--nav-grey);
+      text-decoration: none;
+      font-size: calc(20 * var(--u));
+      font-weight: 400;
+      transition: color 0.2s ease;
+    }
+
+    nav.desktop-nav a:hover {
+      color: #fff;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: calc(32 * var(--u));
+    }
+
+    .header-action-text {
+      color: var(--nav-grey);
+      text-decoration: none;
+      font-size: calc(20 * var(--u));
+      font-weight: 400;
+    }
+
+    .header-action-text:hover {
+      color: #fff;
+    }
+
+    .header-pill {
+      width: calc(202 * var(--u));
+      height: calc(63 * var(--u));
+      border-radius: calc(32 * var(--u));
+      background: var(--glass-fill);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: var(--glass-blur);
+      box-shadow: var(--glass-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: calc(19 * var(--u));
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .header-pill:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    /* Left Column */
+    .hero-left {
+      position: absolute;
+      top: calc(290 * var(--u));
+      left: calc(150 * var(--u));
+      width: calc(960 * var(--u));
+      z-index: 20;
+    }
+
+    .headline-line-wrap {
+      overflow: hidden;
+      height: calc(122 * var(--u));
+      display: block;
+    }
+
+    .headline-line {
+      font-family: 'DM Sans', sans-serif;
+      font-size: calc(104 * var(--u));
+      line-height: calc(122 * var(--u));
+      font-weight: 380;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+      background: linear-gradient(90deg, #ffffff 62%, #a3a3a9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transform: translateY(0);
+    }
+
+    .subline {
+      margin-top: calc(42 * var(--u));
+      font-size: calc(29.5 * var(--u));
+      line-height: 1.45;
+      color: var(--muted);
+      max-width: calc(840 * var(--u));
+      font-weight: 350;
+    }
+
+    .btn-row {
+      margin-top: calc(52 * var(--u));
+      display: flex;
+      align-items: center;
+      gap: calc(24 * var(--u));
+    }
+
+    .btn-primary {
+      height: calc(85 * var(--u));
+      padding: 0 calc(52 * var(--u));
+      border-radius: calc(43 * var(--u));
+      background: var(--primary-violet);
+      color: #fff;
+      font-size: calc(23 * var(--u));
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 calc(10 * var(--u)) calc(35 * var(--u)) rgba(111, 90, 220, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(calc(-2 * var(--u)));
+      box-shadow: 0 calc(14 * var(--u)) calc(45 * var(--u)) rgba(111, 90, 220, 0.65);
+    }
+
+    .btn-secondary {
+      height: calc(85 * var(--u));
+      padding: 0 calc(48 * var(--u));
+      border-radius: calc(43 * var(--u));
+      background: var(--glass-fill);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: var(--glass-blur);
+      box-shadow: var(--glass-glow);
+      color: #fff;
+      font-size: calc(23 * var(--u));
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .stats-row {
+      margin-top: calc(64 * var(--u));
+      display: flex;
+      align-items: center;
+      gap: calc(44 * var(--u));
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: baseline;
+      gap: calc(14 * var(--u));
+    }
+
+    .stat-number {
+      font-family: 'DM Sans', sans-serif;
+      font-size: calc(50 * var(--u));
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-size: calc(23 * var(--u));
+      color: var(--nav-grey);
+      font-weight: 350;
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: calc(42 * var(--u));
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Right Artwork & Slabs */
+    .artwork-container {
+      position: absolute;
+      width: calc(1120 * var(--u));
+      height: calc(1120 * var(--u));
+      left: calc(960 * var(--u));
+      top: calc(160 * var(--u));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .artwork-mask {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      mask-image: radial-gradient(circle at center, black 46%, transparent 72%);
+      -webkit-mask-image: radial-gradient(circle at center, black 46%, transparent 72%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: radial-gradient(circle at center, rgba(111, 90, 220, 0.18) 0%, rgba(159, 240, 236, 0.08) 40%, transparent 70%);
+    }
+
+    .artwork-video, .artwork-poster {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .artwork-poster {
+      display: none;
+    }
+
+    /* Two Glass Cards */
+    .glass-card {
+      position: absolute;
+      width: calc(451 * var(--u));
+      height: calc(201 * var(--u));
+      border-radius: calc(18 * var(--u));
+      background: var(--glass-fill);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: var(--glass-blur);
+      box-shadow: var(--glass-glow), 0 calc(20 * var(--u)) calc(40 * var(--u)) rgba(0, 0, 0, 0.4);
+      padding: calc(28 * var(--u));
+      display: flex;
+      align-items: center;
+      gap: calc(24 * var(--u));
+      z-index: 25;
+      pointer-events: auto;
+      text-decoration: none;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(calc(-4 * var(--u)));
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .card-top {
+      top: calc(320 * var(--u));
+      left: calc(1030 * var(--u));
+    }
+
+    .card-bottom {
+      top: calc(850 * var(--u));
+      left: calc(1480 * var(--u));
+    }
+
+    .card-icon-tile {
+      width: calc(63 * var(--u));
+      height: calc(63 * var(--u));
+      border-radius: calc(14 * var(--u));
+      background: rgba(189, 247, 238, 0.08);
+      border: 1px solid rgba(189, 247, 238, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--kicker-teal);
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      gap: calc(8 * var(--u));
+    }
+
+    .card-kicker {
+      font-size: calc(17 * var(--u));
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--kicker-teal);
+    }
+
+    .card-title {
+      font-size: calc(21 * var(--u));
+      line-height: 1.35;
+      font-weight: 450;
+      color: #ffffff;
+      white-space: pre-line;
+    }
+
+    /* Logo Row */
+    .logo-row {
+      position: absolute;
+      bottom: calc(48 * var(--u));
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: calc(80 * var(--u));
+      z-index: 30;
+      color: var(--logo-grey);
+    }
+
+    .logo-item {
+      font-family: 'DM Sans', sans-serif;
+      font-size: calc(26 * var(--u));
+      opacity: 0.85;
+      user-select: none;
+    }
+
+    .logo-item.bold-italic {
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    .logo-item.regular-wide {
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: lowercase;
+    }
+
+    .logo-item.bold-italic-caps {
+      font-weight: 800;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Footer Disclaimer Banner */
+    .disclaimer-banner {
+      width: 100%;
+      text-align: center;
+      padding: calc(14 * var(--u)) 0;
+      font-size: calc(15 * var(--u));
+      color: rgba(255, 255, 255, 0.45);
+      background: rgba(0, 0, 0, 0.4);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      z-index: 60;
+    }
+
+    /* Mobile Navigation & Responsive Reflow */
+    .mobile-menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--glass-fill);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: var(--glass-blur);
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-dropdown {
+      display: none;
+      position: fixed;
+      top: 70px;
+      right: 16px;
+      left: 16px;
+      background: #14131a;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(16px);
+      border-radius: 16px;
+      padding: 20px;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 100;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .mobile-dropdown a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 400;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --f: clamp(0.55px, calc(0.449px + 0.0284vw), 0.76px);
+      }
+      body {
+        overflow-x: hidden;
+        padding-bottom: 40px;
+      }
+      .hero-canvas {
+        width: 100vw;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+      }
+      header {
+        position: relative;
+        height: 70px;
+        padding: 0;
+        width: 100%;
+      }
+      nav.desktop-nav, .header-actions {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .hero-left {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin-top: 30px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .headline-line-wrap {
+        height: auto;
+        white-space: normal;
+      }
+      .headline-line {
+        font-size: 38px;
+        line-height: 1.2;
+        white-space: normal;
+      }
+      .subline {
+        font-size: 16px;
+        margin-top: 20px;
+        max-width: 100%;
+      }
+      .btn-row {
+        margin-top: 28px;
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+      }
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        height: 54px;
+        font-size: 17px;
+      }
+      .stats-row {
+        margin-top: 36px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+      .stat-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+      .stat-number {
+        font-size: 28px;
+      }
+      .stat-label {
+        font-size: 13px;
+      }
+      .stat-divider {
+        display: none;
+      }
+      .artwork-container {
+        position: relative;
+        width: 340px;
+        height: 340px;
+        left: 0;
+        top: 0;
+        margin-top: 40px;
+      }
+      .glass-card {
+        position: relative;
+        width: 100%;
+        height: auto;
+        top: 0 !important;
+        left: 0 !important;
+        margin-top: 14px;
+        padding: 16px;
+      }
+      .card-title {
+        font-size: 15px;
+      }
+      .logo-row {
+        position: relative;
+        bottom: 0;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+      .logo-item {
+        font-size: 16px;
+      }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      .artwork-video {
+        display: none;
+      }
+      .artwork-poster {
+        display: block;
+      }
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-canvas" id="canvas">
+    <!-- Header -->
+    <header id="header">
+      <a href="/" class="brand-tile-wrap" id="brandWrap">
+        <div class="brand-tile">
+          <span class="brand-letter" id="tileLetter">I</span>
+        </div>
+        <div class="wordmark-wrap">
+          <span class="wordmark" id="wordmark">Inquest</span>
+          <span class="wordmark-sup" id="wordmarkSup">demo</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" id="desktopNav">
+        <!-- Rendered by JS from brand JSON -->
+      </nav>
+
+      <div class="header-actions" id="headerActions">
+        <a href="/results" class="header-action-text" id="actionText">Method</a>
+        <a href="/demo" class="header-pill" id="actionPill">Run demo</a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">â˜°</button>
+      <div class="mobile-dropdown" id="mobileDropdown">
+        <a href="/demo">Demo</a>
+        <a href="/results">Results</a>
+        <a href="/limitations">Limitations</a>
+        <a href="/results#method">Method</a>
+        <a href="/results#changelog">Changelog</a>
+      </div>
+    </header>
+
+    <!-- Left Column Content -->
+    <div class="hero-left" id="heroLeft">
+      <div class="headline-container" id="headlineContainer">
+        <!-- Lines rendered by JS -->
+      </div>
+      <p class="subline" id="sublineText"></p>
+      
+      <div class="btn-row" id="btnRow">
+        <a href="/demo" class="btn-primary" id="primaryBtn">Run a demo</a>
+        <a href="/results" class="btn-secondary" id="secondaryBtn">See results</a>
+      </div>
+
+      <div class="stats-row" id="statsRow">
+        <div class="stat-item">
+          <span class="stat-number" id="statVal0">14</span>
+          <span class="stat-label" id="statLbl0">scenario families</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" id="statVal1">280</span>
+          <span class="stat-label" id="statLbl1">confirmation cases</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" id="statVal2">84+</span>
+          <span class="stat-label" id="statLbl2">passing tests</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Artwork Box -->
+    <div class="artwork-container" id="artworkContainer">
+      <div class="artwork-mask" id="artworkMask">
+        <video 
+          class="artwork-video" 
+          id="artworkVideo" 
+          autoplay 
+          muted 
+          loop 
+          playsinline 
+          poster="/static/assets/hero_poster.webp"
+        >
+          <source src="/static/assets/hero_loop.mp4" type="video/mp4">
+          <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/435a4fe7-e43b-4e7c-af78-0be083e73569.mp4" type="video/mp4">
+        </video>
+        <img 
+          class="artwork-poster" 
+          id="artworkStill" 
+          src="/static/assets/hero_poster.webp" 
+          alt="Translucent glass data slabs"
+        >
+      </div>
+    </div>
+
+    <!-- Overlapping Glass Cards -->
+    <a href="/results" class="glass-card card-top" id="cardTop">
+      <div class="card-icon-tile">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+      </div>
+      <div class="card-content">
+        <span class="card-kicker" id="cardTopKicker">Evaluation</span>
+        <span class="card-title" id="cardTopTitle">Per-scenario tables,&#10;baselines included.</span>
+      </div>
+    </a>
+
+    <a href="/demo" class="glass-card card-bottom" id="cardBottom">
+      <div class="card-icon-tile">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+        </svg>
+      </div>
+      <div class="card-content">
+        <span class="card-kicker" id="cardBottomKicker">Reports</span>
+        <span class="card-title" id="cardBottomTitle">Evidence-cited incident&#10;reports, not guesses.</span>
+      </div>
+    </a>
+
+    <!-- Bottom Logo / Scenario Row -->
+    <div class="logo-row" id="logoRow">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+
+  <div class="disclaimer-banner">
+    Synthetic demo: evidence is from simulated incidents only.
+  </div>
+
+  <script>
+    (async function initHero() {
+      // 1. Detect Brand: default inquest, optional ?brand=strata
+      const urlParams = new URLSearchParams(window.location.search);
+      const brandKey = urlParams.get('brand') === 'strata' ? 'strata' : 'inquest';
+      const brandFile = brandKey === 'strata' ? '/static/brand.strata.json' : '/static/brand.json';
+
+      let brandData = null;
+      try {
+        const resp = await fetch(brandFile);
+        brandData = await resp.json();
+      } catch (err) {
+        console.warn('Brand JSON load fallback', err);
+      }
+
+      // 2. Populate brand copy
+      if (brandData) {
+        document.getElementById('tileLetter').textContent = brandData.tile_letter || 'I';
+        document.getElementById('wordmark').textContent = brandData.wordmark || 'Inquest';
+        document.getElementById('wordmarkSup').textContent = brandData.superscript || 'demo';
+
+        // Nav
+        const navEl = document.getElementById('desktopNav');
+        navEl.innerHTML = '';
+        (brandData.nav || []).forEach(item => {
+          const a = document.createElement('a');
+          a.textContent = item.label;
+          a.href = item.href;
+          navEl.appendChild(a);
+        });
+
+        // Headline
+        const headWrap = document.getElementById('headlineContainer');
+        headWrap.innerHTML = '';
+        (brandData.headline || []).forEach(line => {
+          const w = document.createElement('div');
+          w.className = 'headline-line-wrap';
+          const h = document.createElement('h1');
+          h.className = 'headline-line';
+          h.textContent = line;
+          w.appendChild(h);
+          headWrap.appendChild(w);
+        });
+
+        // Subline & buttons
+        document.getElementById('sublineText').textContent = brandData.subline || '';
+        if (brandData.buttons) {
+          const p = document.getElementById('primaryBtn');
+          p.textContent = brandData.buttons.primary.label;
+          p.href = brandData.buttons.primary.href;
+          const s = document.getElementById('secondaryBtn');
+          s.textContent = brandData.buttons.secondary.label;
+          s.href = brandData.buttons.secondary.href;
+          document.getElementById('actionPill').textContent = brandData.buttons.primary.label;
+          document.getElementById('actionPill').href = brandData.buttons.primary.href;
+        }
+
+        // Cards
+        if (brandData.cards && brandData.cards.length >= 2) {
+          document.getElementById('cardTopKicker').textContent = brandData.cards[0].kicker;
+          document.getElementById('cardTopTitle').textContent = brandData.cards[0].title;
+          document.getElementById('cardBottomKicker').textContent = brandData.cards[1].kicker;
+          document.getElementById('cardBottomTitle').textContent = brandData.cards[1].title;
+        }
+
+        // Logo row
+        const logoRowEl = document.getElementById('logoRow');
+        logoRowEl.innerHTML = '';
+        (brandData.logo_row || []).forEach(item => {
+          const div = document.createElement('div');
+          div.className = `logo-item ${item.style}`;
+          div.textContent = item.name;
+          logoRowEl.appendChild(div);
+        });
+      }
+
+      // 3. Populate live stats from /api/stats if inquest brand
+      if (brandKey === 'inquest') {
+        try {
+          const sResp = await fetch('/api/stats');
+          if (sResp.ok) {
+            const stats = await sResp.json();
+            if (stats.families) document.getElementById('statVal0').textContent = stats.families;
+            if (stats.confirmation_cases) document.getElementById('statVal1').textContent = stats.confirmation_cases;
+            if (stats.passing_tests) document.getElementById('statVal2').textContent = stats.passing_tests;
+          }
+        } catch (e) {
+          console.warn('Stats fetch fallback', e);
+        }
+      }
+
+      // 4. Mobile menu toggle
+      const mBtn = document.getElementById('mobileMenuBtn');
+      const mDrop = document.getElementById('mobileDropdown');
+      mBtn.addEventListener('click', () => {
+        mDrop.style.display = mDrop.style.display === 'flex' ? 'none' : 'flex';
+      });
+
+      // 5. Entrance Timeline (Web Animations API) unless prefers-reduced-motion
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReduced && document.timeline) {
+        // Entrance animations
+        const header = document.getElementById('header');
+        header.animate([
+          { opacity: 0, transform: 'translateY(-20px)' },
+          { opacity: 1, transform: 'translateY(0)' }
+        ], { duration: 600, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+
+        // Headline lines sequential rise
+        const lines = document.querySelectorAll('.headline-line');
+        lines.forEach((line, idx) => {
+          line.animate([
+            { transform: 'translateY(100%)', opacity: 0 },
+            { transform: 'translateY(0)', opacity: 1 }
+          ], {
+            duration: 800,
+            delay: 150 + idx * 120,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            fill: 'forwards'
+          });
+        });
+
+        // Subline and buttons settle
+        const subline = document.getElementById('sublineText');
+        subline.animate([
+          { opacity: 0, transform: 'translateY(16px)' },
+          { opacity: 1, transform: 'translateY(0)' }
+        ], { duration: 700, delay: 550, easing: 'ease-out', fill: 'forwards' });
+
+        const btnPrimary = document.getElementById('primaryBtn');
+        btnPrimary.animate([
+          { opacity: 0, transform: 'scale(0.96)' },
+          { opacity: 1, transform: 'scale(1.015)' },
+          { transform: 'scale(1.0)' }
+        ], { duration: 650, delay: 650, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+
+        // Glass cards lift in
+        document.getElementById('cardTop').animate([
+          { opacity: 0, transform: 'translateY(30px) scale(0.95)' },
+          { opacity: 1, transform: 'translateY(0) scale(1)' }
+        ], { duration: 800, delay: 750, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+
+        document.getElementById('cardBottom').animate([
+          { opacity: 0, transform: 'translateY(30px) scale(0.95)' },
+          { opacity: 1, transform: 'translateY(0) scale(1)' }
+        ], { duration: 800, delay: 850, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+
+        // Logo row fades in
+        document.getElementById('logoRow').animate([
+          { opacity: 0, transform: 'translateY(10px)' },
+          { opacity: 1, transform: 'translateY(0)' }
+        ], { duration: 700, delay: 950, easing: 'ease-out', fill: 'forwards' });
+      }
+    })();
+  </script>
+</body>
+</html>

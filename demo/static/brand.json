@@ -1,0 +1,47 @@
+{
+  "brand_id": "inquest",
+  "wordmark": "Inquest",
+  "superscript": "demo",
+  "tile_letter": "I",
+  "nav": [
+    {"label": "Demo", "href": "/demo"},
+    {"label": "Results", "href": "/results"},
+    {"label": "Limitations", "href": "/limitations"},
+    {"label": "Method", "href": "/results#method"},
+    {"label": "Changelog", "href": "/results#changelog"}
+  ],
+  "headline": [
+    "Find the likely cause.",
+    "Show the evidence.",
+    "Say what's unknown."
+  ],
+  "subline": "Inquest ranks likely causes of service incidents from metrics, changes and traces, and says what it is unsure of.",
+  "buttons": {
+    "primary": {"label": "Run a demo", "href": "/demo"},
+    "secondary": {"label": "See results", "href": "/results"}
+  },
+  "stats": [
+    {"key": "families", "default": "14", "label": "scenario families"},
+    {"key": "confirmation_cases", "default": "280", "label": "confirmation cases"},
+    {"key": "passing_tests", "default": "84+", "label": "passing tests"}
+  ],
+  "cards": [
+    {
+      "kicker": "Evaluation",
+      "title": "Per-scenario tables, \nbaselines included.",
+      "icon": "graph"
+    },
+    {
+      "kicker": "Reports",
+      "title": "Evidence-cited incident \nreports, not guesses.",
+      "icon": "report"
+    }
+  ],
+  "logo_row": [
+    {"name": "silent cause", "style": "bold-italic"},
+    {"name": "late alert", "style": "bold-italic"},
+    {"name": "red herring", "style": "regular-wide"},
+    {"name": "shared dependency", "style": "bold-italic-caps"}
+  ],
+  "disclaimer": "Synthetic demo: evidence is from simulated incidents only."
+}

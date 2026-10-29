@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inquest | System Limitations & Boundaries</title>
+  <style>
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('/static/fonts/DMSans-normal-latin.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('/static/fonts/Inter-normal-latin.woff2') format('woff2');
+    }
+
+    :root {
+      --bg: #0d0c11;
+      --card-bg: #14131b;
+      --card-border: rgba(255, 255, 255, 0.12);
+      --ink: #ffffff;
+      --muted: #a3a2a8;
+      --violet: #6f5adc;
+      --primary-violet: linear-gradient(135deg, #4d19b1, #6f5adc);
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    header {
+      height: 72px;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--card-border);
+      background: rgba(13, 12, 17, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-tile {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--primary-violet);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .wordmark {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #bdbdc1;
+    }
+
+    nav a {
+      color: #b9b8bb;
+      text-decoration: none;
+      font-size: 15px;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active {
+      color: #fff;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .page-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    .page-desc {
+      color: var(--muted);
+      font-size: 16px;
+      margin-top: 8px;
+    }
+
+    .limitations-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .limitation-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card-badge {
+      display: inline-flex;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: fit-content;
+    }
+
+    .badge-rose {
+      background: rgba(244, 63, 94, 0.15);
+      color: #fb7185;
+      border: 1px solid rgba(244, 63, 94, 0.35);
+    }
+
+    .badge-amber {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
+    .badge-blue {
+      background: rgba(59, 130, 246, 0.15);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.35);
+    }
+
+    .limitation-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .limitation-text {
+      color: #d1d0d6;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    footer.disclaimer-footer {
+      text-align: center;
+      padding: 20px;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="brand-link">
+      <div class="brand-tile">I</div>
+      <div class="wordmark">Inquest</div>
+    </a>
+    <nav>
+      <a href="/demo">Demo</a>
+      <a href="/results">Results</a>
+      <a href="/limitations" class="active">Limitations</a>
+    </nav>
+  </header>
+
+  <main>
+    <div>
+      <h1 class="page-title">Known Limitations & Boundaries</h1>
+      <p class="page-desc">Explicit boundaries, verified failure modes, and operational risks before real incident deployment.</p>
+    </div>
+
+    <div class="limitations-grid">
+      <!-- 1 -->
+      <div class="limitation-card">
+        <span class="card-badge badge-rose">Known Failure</span>
+        <h2 class="limitation-title">1. Silent Causes (Top-1 Miss Rate: 65.2%)</h2>
+        <p class="limitation-text">
+          Across all 69 evaluated <code>silent_cause</code> cases, V3 top-1 accuracy is only <strong>24/69 (34.8%)</strong>, representing a <strong>65.2% miss rate</strong>. When an incident occurs without emitting change events, deployment metadata, or direct alerting signals, score-margin fusion dilutes topological propagation signals. While top-3 recall reaches 94.2% (65/69), top-1 ranking cannot be trusted for unalerted, silent failures.
+        </p>
+      </div>
+
+      <!-- 2 -->
+      <div class="limitation-card">
+        <span class="card-badge badge-amber">Algorithmic Regressions</span>
+        <h2 class="limitation-title">2. Regressions on Seasonality & Coincident Events</h2>
+        <p class="limitation-text">
+          Under score-margin fusion (V3), two scenario families suffered regressions relative to unweighted reciprocal rank fusion (V0):<br>
+          - <code>long_seasonal</code>: Regressed from 69/69 (100%) to 57/69 (82.6%) top-1 hits (-12 cases). Diurnal variations create spurious score margins amplified by V3.<br>
+          - <code>coincident_restart</code>: Regressed from 67/69 to 65/69 top-1 hits (-2 cases) due to non-causal restarts occasionally commanding high change scores.
+        </p>
+      </div>
+
+      <!-- 3 -->
+      <div class="limitation-card">
+        <span class="card-badge badge-amber">Verification Caveat</span>
+        <h2 class="limitation-title">3. S04 Verification Recall (15.4%) & Decoy Vulnerability</h2>
+        <p class="limitation-text">
+          S04 verified only 40 out of 260 true causes during P7 evaluation (15.38% recall), and was repeatedly deceived by shared-ancestry decoys in <code>shared_dependency</code> and <code>coincident_restart</code> topologies. Consequently, automated S04 candidate re-ranking is disabled (<code>verification_rerank: false</code>), and verification check statuses are explicitly designated as <strong>experimental</strong>.
+        </p>
+      </div>
+
+      <!-- 4 -->
+      <div class="limitation-card">
+        <span class="card-badge badge-blue">Evaluation Boundary</span>
+        <h2 class="limitation-title">4. Numeric Probability Model Unvalidated</h2>
+        <p class="limitation-text">
+          P10 evaluation revealed that parametric logistic regression clustered all 280 test probabilities into the <code>[0.9, 1.0]</code> bucket with no resolution on medium or low confidence events, yielding Brier and ECE scores no better than naive baselines. Numeric probabilities have been excised from default incident reports, replaced with rule-based assessment flags (<code>standard</code>, <code>review_recommended</code>, <code>insufficient_evidence</code>).
+        </p>
+      </div>
+
+      <!-- 5 -->
+      <div class="limitation-card">
+        <span class="card-badge badge-amber">Baseline Nuance</span>
+        <h2 class="limitation-title">5. Simulator First-Alert Timing Bias</h2>
+        <p class="limitation-text">
+          In simulator scenarios without engineered alert delays or noise, the simulator triggers the causal alert first in <strong>98.6% of cases (476/483)</strong>. In clean environments, the naive <code>alert_order</code> baseline matches the ensemble's accuracy (98.6% vs 98.8%). Inquest's aggregate advantage is derived entirely from cases featuring delayed alerts, alert noise, or silent causes.
+        </p>
+      </div>
+
+      <!-- 6 -->
+      <div class="limitation-card">
+        <span class="card-badge badge-blue">Data Boundary</span>
+        <h2 class="limitation-title">6. Real Incident Data Status: Not Evaluated</h2>
+        <p class="limitation-text">
+          <strong>Not evaluated on real data.</strong> The <code>data/real/</code> directory is absent. All evidence, benchmarks, evaluations, and accuracy numbers originate strictly from deterministic synthetic microservice simulations. Real-world incident evaluation requires offline data adapters defined in <code>docs/REAL_DATA.md</code>.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="disclaimer-footer">
+    Synthetic demo: evidence is from simulated incidents only.
+  </footer>
+</body>
+</html>
