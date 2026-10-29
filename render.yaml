@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: inquest-demo
+    env: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    healthCheckPath: /health
+    autoDeploy: false
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: DEMO_BASIC_AUTH_USERNAME
+        sync: false
+      - key: DEMO_BASIC_AUTH_PASSWORD
+        sync: false

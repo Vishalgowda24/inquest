@@ -6,9 +6,9 @@
 |---|---|---|---|
 | Part 1 | API & Demo Cache (FastAPI, 8 precomputed cases, security, rate limit, reveal) | done | `7ba7a44` |
 | Part 2 | Frontend (Hero with --u scaling, brand copy, /demo, /results, /limitations) | done | `19701c6` |
-| Part 3 | Tests (API tests, security, Playwright E2E, smoke & load test) | done | [pending] |
-| Part 4 | Docker & Deploy (multi-stage Dockerfile, docker-compose, CI, deploy configs) | in progress | - |
-| Part 5 | Final Documentation, Verification & Tag (v1.1-demo) | not started | - |
+| Part 3 | Tests (API tests, security, Playwright E2E, smoke & load test) | done | `9884394` |
+| Part 4 | Docker & Deploy (multi-stage Dockerfile, docker-compose, CI, deploy configs) | done | [pending] |
+| Part 5 | Final Documentation, Verification & Tag (v1.1-demo) | in progress | - |
 
 ---
 
