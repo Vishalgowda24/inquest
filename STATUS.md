@@ -1,6 +1,27 @@
-# Project Status: Inquest Prototype (v1.0-prototype)
+# Project Status: Inquest Prototype & Interactive Demo (P12)
 
-## Final Checkpoint Status
+## P12: Demo Build Status
+
+| Part | Description | Status | Commit Hash |
+|---|---|---|---|
+| Part 1 | API & Demo Cache (FastAPI, 8 precomputed cases, security, rate limit, reveal) | done | [pending] |
+| Part 2 | Frontend (Hero with --u scaling, brand copy, /demo, /results, /limitations) | in progress | - |
+| Part 3 | Tests (API tests, security, Playwright E2E, smoke & load test) | not started | - |
+| Part 4 | Docker & Deploy (multi-stage Dockerfile, docker-compose, CI, deploy configs) | not started | - |
+| Part 5 | Final Documentation, Verification & Tag (v1.1-demo) | not started | - |
+
+---
+
+## Assumptions (P12)
+
+1. **Architecture & Truth Boundary:** Demo API is implemented in `demo/api.py` and static frontend in `demo/static/` to strictly protect the `inquest/` package from any simulator imports, paths, or truth leakage. The `POST /api/reveal/{run_id}` route is the single isolated path that reads ground truth data for validation.
+2. **Precomputed Demo Cache:** 8 canonical demo cases (`clean_bad_deploy`, `coincident_restart`, `red_herring_deploy`, `shared_dependency`, `missing_telemetry` seed 73, `late_alerting_cause`, `silent_cause` seed 72 top-1 wrong miss, `concurrent_causes`) are precomputed in `demo/cache/precomputed.json` for immediate (<10ms) responses in the interactive demo. Live runs dynamically execute the S00–S05 pipeline within a 60s timeout and a concurrency limit of 2.
+3. **Fonts & Assets:** Self-hosted OFL DM Sans and Inter Latin subset font files are placed in `demo/static/fonts/` with SIL Open Font License (OFL 1.1) accompanied by clean system font fallbacks. Hero artwork loop (MP4) and still poster (WebP) total 1.24 MB and are committed to `demo/static/assets/`, with remote URLs and CSS gradient fallbacks.
+4. **Security Defaults:** CORS is disabled. CSP allows only `'self'` and the media host (`https://d2ol7oe51mr4n9.cloudfront.net`). In-memory sliding-window IP rate limiting returns 429 after 120 req/min (configurable for tests). Request payload limit is 1 MB (returns 413). Optional HTTP Basic Auth is supported via `DEMO_BASIC_AUTH_USERNAME` and `DEMO_BASIC_AUTH_PASSWORD`.
+
+---
+
+## P11 Prototype Checkpoint Status (v1.0-prototype)
 
 | Part | Description | Status | Commit Hash |
 |---|---|---|---|
@@ -48,16 +69,3 @@
 - **Automated Graph Topology Recovery:** The pipeline expects a declared or inferred dependency graph; dynamic topology discovery from uninstrumented network traffic is not implemented.
 - **S04 Re-Ranking:** S04 verification heuristics are annotation-only due to low recall (15.4% in P7) and vulnerability to shared-ancestry decoys; automated candidate re-ranking by verification checks is not enabled.
 - **Operationally Calibrated Probabilities:** Parametric logistic regression clustered all probabilities in `[0.9, 1.0]`, failing to provide reliable uncertainty estimates.
-
----
-
-## 3. Ranked Next Steps
-
-1. **Ingest and Benchmark on Genuine Production Incidents:**
-   Gather real post-mortem incident bundles formatted per `docs/REAL_DATA.md` into `data/real/` and benchmark the V3 ensemble against production baseline heuristics.
-2. **Resolve the `silent_cause` Bottleneck:**
-   `silent_cause` remains the primary top-1 failure mode (only 34.8% top-1 accuracy across 948 cases). Develop specialized silent-failure signals—such as downstream client traffic divergence, missing heartbeat tracking, and synthetic canary probes—to break reliance on alert/change signals.
-3. **Refine Seasonal Detrending for Sparse Series:**
-   Fix the V3 margin regression on `long_seasonal` (-12 cases vs V0) by improving diurnal baseline estimation when fewer than two complete 24-hour cycles exist.
-4. **Develop High-Recall Causal Verification Checks:**
-   Re-engineer S04 checks to handle shared-ancestry topologies and increase verified recall beyond 15.4% before considering automated candidate re-ranking.
